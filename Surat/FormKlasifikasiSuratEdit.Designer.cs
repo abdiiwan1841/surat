@@ -28,24 +28,24 @@ namespace Surat
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.textBoxEditJenisSurat = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.buttonEditJenisSurat = new DevComponents.DotNetBar.ButtonX();
             this.buttonEditJenisSuratKembali = new DevComponents.DotNetBar.ButtonX();
             this.SuspendLayout();
             // 
-            // textBoxX1
+            // textBoxEditJenisSurat
             // 
             // 
             // 
             // 
-            this.textBoxX1.Border.Class = "TextBoxBorder";
-            this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxX1.Location = new System.Drawing.Point(12, 41);
-            this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(337, 26);
-            this.textBoxX1.TabIndex = 0;
+            this.textBoxEditJenisSurat.Border.Class = "TextBoxBorder";
+            this.textBoxEditJenisSurat.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.textBoxEditJenisSurat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxEditJenisSurat.Location = new System.Drawing.Point(12, 41);
+            this.textBoxEditJenisSurat.Name = "textBoxEditJenisSurat";
+            this.textBoxEditJenisSurat.Size = new System.Drawing.Size(337, 26);
+            this.textBoxEditJenisSurat.TabIndex = 0;
             // 
             // labelX1
             // 
@@ -71,6 +71,7 @@ namespace Surat
             this.buttonEditJenisSurat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonEditJenisSurat.TabIndex = 2;
             this.buttonEditJenisSurat.Text = "Edit Data";
+            this.buttonEditJenisSurat.Click += new System.EventHandler(this.buttonEditJenisSurat_Click);
             // 
             // buttonEditJenisSuratKembali
             // 
@@ -83,6 +84,7 @@ namespace Surat
             this.buttonEditJenisSuratKembali.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonEditJenisSuratKembali.TabIndex = 3;
             this.buttonEditJenisSuratKembali.Text = "Kembali";
+            this.buttonEditJenisSuratKembali.Click += new System.EventHandler(this.buttonEditJenisSuratKembali_Click);
             // 
             // FormKlasifikasiSuratEdit
             // 
@@ -90,9 +92,15 @@ namespace Surat
             this.Controls.Add(this.buttonEditJenisSuratKembali);
             this.Controls.Add(this.buttonEditJenisSurat);
             this.Controls.Add(this.labelX1);
-            this.Controls.Add(this.textBoxX1);
+            this.Controls.Add(this.textBoxEditJenisSurat);
             this.DoubleBuffered = true;
+            this.EnableGlass = false;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "FormKlasifikasiSuratEdit";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Jenis Surat";
             this.ResumeLayout(false);
 
@@ -100,7 +108,7 @@ namespace Surat
 
         #endregion
 
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
+        private DevComponents.DotNetBar.Controls.TextBoxX textBoxEditJenisSurat;
         private DevComponents.DotNetBar.LabelX labelX1;
         private DevComponents.DotNetBar.ButtonX buttonEditJenisSurat;
         private DevComponents.DotNetBar.ButtonX buttonEditJenisSuratKembali;

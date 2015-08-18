@@ -138,7 +138,7 @@ namespace Surat
             // 
             // FormBidang
             // 
-            this.ClientSize = new System.Drawing.Size(549, 389);
+            this.ClientSize = new System.Drawing.Size(549, 357);
             this.Controls.Add(this.labelCariBidang);
             this.Controls.Add(this.textBoxCariBidang);
             this.Controls.Add(this.buttonBidangKembali);

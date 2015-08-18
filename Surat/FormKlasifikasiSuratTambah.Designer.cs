@@ -102,7 +102,8 @@ namespace Surat
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tambah Data";
-            
+
+
             this.ResumeLayout(false);
 
         }
