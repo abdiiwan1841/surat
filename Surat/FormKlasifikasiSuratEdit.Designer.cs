@@ -44,7 +44,7 @@ namespace Surat
             this.textBoxEditJenisSurat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEditJenisSurat.Location = new System.Drawing.Point(12, 41);
             this.textBoxEditJenisSurat.Name = "textBoxEditJenisSurat";
-            this.textBoxEditJenisSurat.Size = new System.Drawing.Size(337, 26);
+            this.textBoxEditJenisSurat.Size = new System.Drawing.Size(275, 26);
             this.textBoxEditJenisSurat.TabIndex = 0;
             // 
             // labelX1
@@ -78,7 +78,7 @@ namespace Surat
             this.buttonEditJenisSuratKembali.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonEditJenisSuratKembali.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonEditJenisSuratKembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEditJenisSuratKembali.Location = new System.Drawing.Point(227, 83);
+            this.buttonEditJenisSuratKembali.Location = new System.Drawing.Point(165, 83);
             this.buttonEditJenisSuratKembali.Name = "buttonEditJenisSuratKembali";
             this.buttonEditJenisSuratKembali.Size = new System.Drawing.Size(122, 43);
             this.buttonEditJenisSuratKembali.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -88,7 +88,7 @@ namespace Surat
             // 
             // FormKlasifikasiSuratEdit
             // 
-            this.ClientSize = new System.Drawing.Size(361, 142);
+            this.ClientSize = new System.Drawing.Size(299, 148);
             this.Controls.Add(this.buttonEditJenisSuratKembali);
             this.Controls.Add(this.buttonEditJenisSurat);
             this.Controls.Add(this.labelX1);

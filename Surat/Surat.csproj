@@ -87,6 +87,18 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSuratMasuk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSuratMasuk.Designer.cs">
+      <DependentUpon>FormSuratMasuk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTambahSuratMasuk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahSuratMasuk.Designer.cs">
+      <DependentUpon>FormTambahSuratMasuk.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTambahUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +135,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormBidangTambah.resx">
       <DependentUpon>FormBidangTambah.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSuratMasuk.resx">
+      <DependentUpon>FormSuratMasuk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTambahSuratMasuk.resx">
+      <DependentUpon>FormTambahSuratMasuk.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahUser.resx">
       <DependentUpon>FormTambahUser.cs</DependentUpon>

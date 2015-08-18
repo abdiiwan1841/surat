@@ -28,7 +28,7 @@ namespace Surat
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonSuratMasuk = new DevComponents.DotNetBar.ButtonX();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             this.buttonKlasifikasiSurat = new DevComponents.DotNetBar.ButtonX();
             this.ButtonManajemenUser = new DevComponents.DotNetBar.ButtonX();
@@ -38,17 +38,18 @@ namespace Surat
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonX1
+            // buttonSuratMasuk
             // 
-            this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX1.Location = new System.Drawing.Point(12, 12);
-            this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(201, 54);
-            this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX1.TabIndex = 1;
-            this.buttonX1.Text = "Surat Masuk";
+            this.buttonSuratMasuk.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonSuratMasuk.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonSuratMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSuratMasuk.Location = new System.Drawing.Point(12, 12);
+            this.buttonSuratMasuk.Name = "buttonSuratMasuk";
+            this.buttonSuratMasuk.Size = new System.Drawing.Size(201, 54);
+            this.buttonSuratMasuk.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonSuratMasuk.TabIndex = 1;
+            this.buttonSuratMasuk.Text = "Surat Masuk";
+            this.buttonSuratMasuk.Click += new System.EventHandler(this.buttonX1_Click);
             // 
             // buttonX2
             // 
@@ -132,7 +133,7 @@ namespace Surat
             this.Controls.Add(this.ButtonManajemenUser);
             this.Controls.Add(this.buttonKlasifikasiSurat);
             this.Controls.Add(this.buttonX2);
-            this.Controls.Add(this.buttonX1);
+            this.Controls.Add(this.buttonSuratMasuk);
             this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
             this.EnableGlass = false;
@@ -150,7 +151,7 @@ namespace Surat
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private DevComponents.DotNetBar.ButtonX buttonX1;
+        private DevComponents.DotNetBar.ButtonX buttonSuratMasuk;
         private DevComponents.DotNetBar.ButtonX buttonX2;
         private DevComponents.DotNetBar.ButtonX buttonKlasifikasiSurat;
         private DevComponents.DotNetBar.ButtonX ButtonManajemenUser;

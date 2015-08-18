@@ -46,6 +46,12 @@ namespace Surat
             users.Show();
         }
 
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+            FormSuratMasuk surat_masuk = new FormSuratMasuk();
+            surat_masuk.Show();
+        }
+
 
 
     }
