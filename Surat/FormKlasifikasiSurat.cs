@@ -14,7 +14,7 @@ namespace Surat
     public partial class FormKlasifikasiSurat : DevComponents.DotNetBar.OfficeForm
     {
         public string id_jenis, nama_jenis;
-
+ 
         public FormKlasifikasiSurat()
         {
             InitializeComponent();
@@ -100,6 +100,37 @@ namespace Surat
         {
             FormKlasifikasiSuratEdit form = new FormKlasifikasiSuratEdit(id_jenis, nama_jenis, this);
             form.ShowDialog();
+        }
+
+        private void buttonHapusJenisSurat_Click(object sender, EventArgs e)
+        {
+            string title = "Konfirmasi Penghapusan Data";
+            string konten = "Apakah Anda yakin ingin menhapus data?";
+
+            DialogResult result = MessageBox.Show(konten, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                Database db = new Database();
+                string strconn = db.getString();
+                MySqlConnection conn = new MySqlConnection(strconn);
+                conn.Open();
+
+                string query = "DELETE FROM jenis_surat WHERE id_jenis = @id_jenis";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id_jenis", id_jenis);
+                //MessageBox.Show(query);
+                int sukses = cmd.ExecuteNonQuery();
+                if (sukses > 0)
+                {
+                    MessageBox.Show("Data berhasil diupdate", "Sukses");
+                    getAllJenisSurat();
+                }
+                else
+                {
+                    MessageBox.Show("Data gagal diupdate", "Gagal");
+                }
+                conn.Close();
+            }
         }
     }
 }
