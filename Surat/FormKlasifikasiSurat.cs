@@ -85,5 +85,13 @@ namespace Surat
         {
             cariJenisSurat();
         }
+
+        private void dataGridViewJenisSurat_SelectionChanged(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridViewJenisSurat.SelectedRows)
+            {
+
+            }
+        }
     }
 }
