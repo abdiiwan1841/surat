@@ -40,7 +40,7 @@ namespace Surat
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@id_jenis", id_jenis);
             cmd.Parameters.AddWithValue("@nama_jenis", textBoxEditJenisSurat.Text);
-            MessageBox.Show(query);
+            //MessageBox.Show(query);
             int sukses = cmd.ExecuteNonQuery();
             if (sukses > 0)
             {
