@@ -40,6 +40,12 @@ namespace Surat
             bidang.Show();
         }
 
+        private void ButtonManajemenUser_Click(object sender, EventArgs e)
+        {
+            FormUser users = new FormUser();
+            users.Show();
+        }
+
 
 
     }

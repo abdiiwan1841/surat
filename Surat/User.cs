@@ -6,8 +6,12 @@ namespace Surat
 {
     public class user
     {
-        private string username, password;
+        private string username, password, nama;
 
+        public string getNama()
+        {
+            return nama;
+        }
         public string getUsername()
         {
             return username;
@@ -26,6 +30,10 @@ namespace Surat
         public void setPassword(string pass)
         {
             this.password = pass;
+        }
+        public void setNama(string nama)
+        {
+            this.nama=nama;
         }
     }
 }

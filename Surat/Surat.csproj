@@ -87,6 +87,18 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTambahUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahUser.Designer.cs">
+      <DependentUpon>FormTambahUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUser.Designer.cs">
+      <DependentUpon>FormUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="JenisSurat.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -111,6 +123,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormBidangTambah.resx">
       <DependentUpon>FormBidangTambah.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTambahUser.resx">
+      <DependentUpon>FormTambahUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUser.resx">
+      <DependentUpon>FormUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

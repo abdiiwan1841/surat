@@ -31,7 +31,7 @@ namespace Surat
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             this.buttonKlasifikasiSurat = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX4 = new DevComponents.DotNetBar.ButtonX();
+            this.ButtonManajemenUser = new DevComponents.DotNetBar.ButtonX();
             this.buttonBidang = new DevComponents.DotNetBar.ButtonX();
             this.buttonLogout = new DevComponents.DotNetBar.ButtonX();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -75,17 +75,18 @@ namespace Surat
             this.buttonKlasifikasiSurat.Text = "Klasifikasi Surat";
             this.buttonKlasifikasiSurat.Click += new System.EventHandler(this.buttonKlasifikasiSurat_Click);
             // 
-            // buttonX4
+            // ButtonManajemenUser
             // 
-            this.buttonX4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX4.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX4.Location = new System.Drawing.Point(370, 153);
-            this.buttonX4.Name = "buttonX4";
-            this.buttonX4.Size = new System.Drawing.Size(201, 54);
-            this.buttonX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX4.TabIndex = 4;
-            this.buttonX4.Text = "Manajemen User";
+            this.ButtonManajemenUser.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.ButtonManajemenUser.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.ButtonManajemenUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonManajemenUser.Location = new System.Drawing.Point(370, 153);
+            this.ButtonManajemenUser.Name = "ButtonManajemenUser";
+            this.ButtonManajemenUser.Size = new System.Drawing.Size(201, 54);
+            this.ButtonManajemenUser.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ButtonManajemenUser.TabIndex = 4;
+            this.ButtonManajemenUser.Text = "Manajemen User";
+            this.ButtonManajemenUser.Click += new System.EventHandler(this.ButtonManajemenUser_Click);
             // 
             // buttonBidang
             // 
@@ -128,7 +129,7 @@ namespace Surat
             this.ClientSize = new System.Drawing.Size(583, 297);
             this.Controls.Add(this.buttonLogout);
             this.Controls.Add(this.buttonBidang);
-            this.Controls.Add(this.buttonX4);
+            this.Controls.Add(this.ButtonManajemenUser);
             this.Controls.Add(this.buttonKlasifikasiSurat);
             this.Controls.Add(this.buttonX2);
             this.Controls.Add(this.buttonX1);
@@ -152,7 +153,7 @@ namespace Surat
         private DevComponents.DotNetBar.ButtonX buttonX1;
         private DevComponents.DotNetBar.ButtonX buttonX2;
         private DevComponents.DotNetBar.ButtonX buttonKlasifikasiSurat;
-        private DevComponents.DotNetBar.ButtonX buttonX4;
+        private DevComponents.DotNetBar.ButtonX ButtonManajemenUser;
         private DevComponents.DotNetBar.ButtonX buttonBidang;
         private DevComponents.DotNetBar.ButtonX buttonLogout;
     }
