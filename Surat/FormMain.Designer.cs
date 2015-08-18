@@ -32,7 +32,7 @@ namespace Surat
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             this.buttonKlasifikasiSurat = new DevComponents.DotNetBar.ButtonX();
             this.buttonX4 = new DevComponents.DotNetBar.ButtonX();
-            this.buttonX5 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonBidang = new DevComponents.DotNetBar.ButtonX();
             this.buttonLogout = new DevComponents.DotNetBar.ButtonX();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -87,17 +87,18 @@ namespace Surat
             this.buttonX4.TabIndex = 4;
             this.buttonX4.Text = "Manajemen User";
             // 
-            // buttonX5
+            // buttonBidang
             // 
-            this.buttonX5.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX5.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX5.Location = new System.Drawing.Point(12, 225);
-            this.buttonX5.Name = "buttonX5";
-            this.buttonX5.Size = new System.Drawing.Size(201, 54);
-            this.buttonX5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonX5.TabIndex = 5;
-            this.buttonX5.Text = "Bidang && Sub Bidang";
+            this.buttonBidang.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonBidang.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonBidang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBidang.Location = new System.Drawing.Point(12, 225);
+            this.buttonBidang.Name = "buttonBidang";
+            this.buttonBidang.Size = new System.Drawing.Size(201, 54);
+            this.buttonBidang.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonBidang.TabIndex = 5;
+            this.buttonBidang.Text = "Bidang && Sub Bidang";
+            this.buttonBidang.Click += new System.EventHandler(this.buttonBidang_Click);
             // 
             // buttonLogout
             // 
@@ -126,7 +127,7 @@ namespace Surat
             // 
             this.ClientSize = new System.Drawing.Size(583, 297);
             this.Controls.Add(this.buttonLogout);
-            this.Controls.Add(this.buttonX5);
+            this.Controls.Add(this.buttonBidang);
             this.Controls.Add(this.buttonX4);
             this.Controls.Add(this.buttonKlasifikasiSurat);
             this.Controls.Add(this.buttonX2);
@@ -152,7 +153,7 @@ namespace Surat
         private DevComponents.DotNetBar.ButtonX buttonX2;
         private DevComponents.DotNetBar.ButtonX buttonKlasifikasiSurat;
         private DevComponents.DotNetBar.ButtonX buttonX4;
-        private DevComponents.DotNetBar.ButtonX buttonX5;
+        private DevComponents.DotNetBar.ButtonX buttonBidang;
         private DevComponents.DotNetBar.ButtonX buttonLogout;
     }
 }

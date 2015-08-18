@@ -34,5 +34,13 @@ namespace Surat
             klasifikasi.Show();
         }
 
+        private void buttonBidang_Click(object sender, EventArgs e)
+        {
+            FormBidang bidang = new FormBidang();
+            bidang.Show();
+        }
+
+
+
     }
 }
