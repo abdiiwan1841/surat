@@ -13,6 +13,8 @@ namespace Surat
 {
     public partial class FormKlasifikasiSurat : DevComponents.DotNetBar.OfficeForm
     {
+        public string id_jenis, nama_jenis;
+
         public FormKlasifikasiSurat()
         {
             InitializeComponent();
@@ -37,7 +39,6 @@ namespace Surat
             conn.Open();
 
             string query = "SELECT * FROM jenis_surat";
-            MessageBox.Show(query);
             MySqlCommand cmd = new MySqlCommand(query, conn);
             MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -90,8 +91,15 @@ namespace Surat
         {
             foreach (DataGridViewRow row in dataGridViewJenisSurat.SelectedRows)
             {
-
+                id_jenis = row.Cells[0].Value.ToString();
+                nama_jenis = row.Cells[1].Value.ToString();
             }
+        }
+
+        private void buttonEditJenisSurat_Click(object sender, EventArgs e)
+        {
+            FormKlasifikasiSuratEdit form = new FormKlasifikasiSuratEdit(id_jenis, nama_jenis, this);
+            form.ShowDialog();
         }
     }
 }

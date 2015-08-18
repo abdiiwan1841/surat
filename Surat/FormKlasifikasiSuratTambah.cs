@@ -53,12 +53,6 @@ namespace Surat
             tambahJenisSurat();
         }
 
-        private void FormKlasifikasiSuratTambah_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            FormKlasifikasiSurat form = new FormKlasifikasiSurat();
-            form.getAllJenisSurat();
-        }
-
         private void buttonKembali_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -59,7 +59,7 @@ namespace Surat
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewJenisSurat.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewJenisSurat.EnableHeadersVisualStyles = false;
@@ -75,6 +75,7 @@ namespace Surat
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewJenisSurat.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewJenisSurat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewJenisSurat.Size = new System.Drawing.Size(301, 255);
             this.dataGridViewJenisSurat.TabIndex = 0;
             this.dataGridViewJenisSurat.SelectionChanged += new System.EventHandler(this.dataGridViewJenisSurat_SelectionChanged);
@@ -118,6 +119,7 @@ namespace Surat
             this.buttonEditJenisSurat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonEditJenisSurat.TabIndex = 4;
             this.buttonEditJenisSurat.Text = "Edit Data";
+            this.buttonEditJenisSurat.Click += new System.EventHandler(this.buttonEditJenisSurat_Click);
             // 
             // buttonHapusJenisSurat
             // 

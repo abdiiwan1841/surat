@@ -32,7 +32,7 @@ namespace Surat
             // 
             // FormBidang
             // 
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(422, 262);
             this.DoubleBuffered = true;
             this.Name = "FormBidang";
             this.Text = "Form Bidang && Sub";
