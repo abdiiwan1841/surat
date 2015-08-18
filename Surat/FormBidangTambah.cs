@@ -11,34 +11,45 @@ using MySql.Data.MySqlClient;
 
 namespace Surat
 {
-    public partial class FormKlasifikasiSuratTambah : DevComponents.DotNetBar.OfficeForm
+    public partial class FormBidangTambah : DevComponents.DotNetBar.OfficeForm
     {
-        private readonly FormKlasifikasiSurat frm1;
-        public FormKlasifikasiSuratTambah(FormKlasifikasiSurat frm)
+        private readonly FormBidang frm1;
+        
+        public FormBidangTambah(FormBidang frm)
         {
             InitializeComponent();
             frm1 = frm;
         }
 
-        private void tambahJenisSurat()
+        private void buttonBidangTambahKembali_Click(object sender, EventArgs e)
         {
-            JenisSurat j = new JenisSurat();
-            j.setJenis(textBoxJenis.Text);
-            string jenis = j.getJenis();
+            this.Close();
+        }
+
+        private void buttonBidangTambah_Click(object sender, EventArgs e)
+        {
+            tambahBidang();
+        }
+
+        private void tambahBidang()
+        {
+            BidangBagian bdg = new BidangBagian();
+            bdg.setBidang(textBoxBidangTambah.Text);
+            string bidang = bdg.getBidang();
 
             Database db = new Database();
             string strconn = db.getString();
             MySqlConnection conn = new MySqlConnection(strconn);
             conn.Open();
-            string query = "INSERT INTO jenis_surat VALUES(NULL, @jenis)";
+            string query = "INSERT INTO bagian_bidang VALUES(NULL, @nama_bagian_bidang)";
             MySqlCommand cmd = new MySqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@jenis", jenis);
+            cmd.Parameters.AddWithValue("@nama_bagian_bidang", bidang);
             int hasil = cmd.ExecuteNonQuery();
             if (hasil > 0)
             {
                 MessageBox.Show("Data berhasil ditambah", "Sukses");
-                frm1.getAllJenisSurat();
-                
+                frm1.getAllBidang();
+
             }
             else
             {
@@ -47,17 +58,5 @@ namespace Surat
 
             conn.Close();
         }
-
-        private void buttonTambah_Click(object sender, EventArgs e)
-        {
-            tambahJenisSurat();
-        }
-
-
-        private void buttonKembali_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
     }
-
 }
