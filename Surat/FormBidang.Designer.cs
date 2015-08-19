@@ -178,7 +178,7 @@ namespace Surat
             this.dataGridViewBidang1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewBidang1.Size = new System.Drawing.Size(301, 250);
             this.dataGridViewBidang1.TabIndex = 0;
-            this.dataGridViewBidang1.SelectionChanged += new System.EventHandler(this.dataGridViewBidang1_SelectionChanged);
+            this.dataGridViewBidang1.SelectionChanged += new System.EventHandler(this.dataGridViewBidang1_SelectionChanged_1);
             // 
             // FormBidang
             // 

@@ -104,13 +104,7 @@ namespace Surat
 
         private void dataGridViewBidang1_SelectionChanged(object sender, EventArgs e) ////////BELUM BERHASIL
         {
-            foreach (DataGridViewRow rows in dataGridViewBidang1.SelectedRows)
-            {
-                id_bagian_bidang = rows.Cells[0].Value.ToString();
-                nama_bagian_bidang = rows.Cells[1].Value.ToString();
-                textBox1.Text = id_bagian_bidang;
-                this.Close();
-            }
+
         }
 
         private void buttonHapusBidang_Click(object sender, EventArgs e)
@@ -141,6 +135,15 @@ namespace Surat
                     MessageBox.Show("Data gagal diupdate", "Gagal");
                 }
                 conn.Close();
+            }
+        }
+
+        private void dataGridViewBidang1_SelectionChanged_1(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridViewBidang1.SelectedRows)
+            {
+                id_bagian_bidang = row.Cells[0].Value.ToString();
+                nama_bagian_bidang = row.Cells[1].Value.ToString();
             }
         }
     }
