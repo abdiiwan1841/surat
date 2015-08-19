@@ -804,6 +804,7 @@ namespace Surat
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tambah Data Surat Masuk";
+            this.Load += new System.EventHandler(this.FormTambahSuratMasuk_Load);
             this.groupBoxTanggalSuratMasuk.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalTerimaSuratMasuk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalSuratMasuk)).EndInit();

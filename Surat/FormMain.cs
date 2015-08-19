@@ -51,8 +51,5 @@ namespace Surat
             FormSuratMasuk surat_masuk = new FormSuratMasuk();
             surat_masuk.Show();
         }
-
-
-
     }
 }
