@@ -127,7 +127,7 @@ namespace Surat
 
                 string query = "DELETE FROM bagian_bidang WHERE id_bagian_bidang = @id_bagian_bidang";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@id_jenis", id_bagian_bidang);
+                cmd.Parameters.AddWithValue("@id_bagian_bidang", id_bagian_bidang);
                 //MessageBox.Show(query);
                 int sukses = cmd.ExecuteNonQuery();
                 if (sukses > 0)
