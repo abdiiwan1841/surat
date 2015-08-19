@@ -36,6 +36,7 @@ namespace Surat
             this.buttonBidangKembali = new DevComponents.DotNetBar.ButtonX();
             this.labelCariBidang = new DevComponents.DotNetBar.LabelX();
             this.textBoxCariBidang = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBidang)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,9 +44,13 @@ namespace Surat
             // 
             this.dataGridViewBidang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBidang.Location = new System.Drawing.Point(12, 84);
+            this.dataGridViewBidang.MultiSelect = false;
             this.dataGridViewBidang.Name = "dataGridViewBidang";
+            this.dataGridViewBidang.ReadOnly = true;
             this.dataGridViewBidang.Size = new System.Drawing.Size(301, 255);
             this.dataGridViewBidang.TabIndex = 0;
+            this.dataGridViewBidang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBidang_CellContentClick);
+            this.dataGridViewBidang.SelectionChanged += new System.EventHandler(this.dataGridViewBidang_SelectionChanged);
             // 
             // buttonTambahBidang
             // 
@@ -71,6 +76,7 @@ namespace Surat
             this.buttonEditBidang.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonEditBidang.TabIndex = 2;
             this.buttonEditBidang.Text = "Edit Data";
+            this.buttonEditBidang.Click += new System.EventHandler(this.buttonEditBidang_Click);
             // 
             // buttonHapusBidang
             // 
@@ -83,6 +89,7 @@ namespace Surat
             this.buttonHapusBidang.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonHapusBidang.TabIndex = 3;
             this.buttonHapusBidang.Text = "Hapus Data";
+            this.buttonHapusBidang.Click += new System.EventHandler(this.buttonHapusBidang_Click);
             // 
             // buttonCallFormSub
             // 
@@ -136,9 +143,17 @@ namespace Surat
             this.textBoxCariBidang.TabIndex = 6;
             this.textBoxCariBidang.TextChanged += new System.EventHandler(this.textBoxCariBidang_TextChanged);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(213, 357);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 8;
+            // 
             // FormBidang
             // 
-            this.ClientSize = new System.Drawing.Size(549, 357);
+            this.ClientSize = new System.Drawing.Size(549, 386);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.labelCariBidang);
             this.Controls.Add(this.textBoxCariBidang);
             this.Controls.Add(this.buttonBidangKembali);
@@ -157,6 +172,7 @@ namespace Surat
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBidang)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -170,5 +186,6 @@ namespace Surat
         private DevComponents.DotNetBar.ButtonX buttonBidangKembali;
         private DevComponents.DotNetBar.LabelX labelCariBidang;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxCariBidang;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
