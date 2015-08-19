@@ -27,8 +27,8 @@ namespace Surat
             bidang.Columns[0].ColumnName = "ID Bidang";
             bidang.Columns[1].ColumnName = "Bidang";
 
-            dataGridViewBidang.ClearSelection();
-            dataGridViewBidang.DataSource = bidang;
+            dataGridViewBidang1.ClearSelection();
+            dataGridViewBidang1.DataSource = bidang;
         }
 
         public void getAllBidang()
@@ -102,13 +102,14 @@ namespace Surat
 
         }
 
-        private void dataGridViewBidang_SelectionChanged(object sender, EventArgs e) ////////BELUM BERHASIL
+        private void dataGridViewBidang1_SelectionChanged(object sender, EventArgs e) ////////BELUM BERHASIL
         {
-            foreach (DataGridViewRow row in dataGridViewBidang.SelectedRows)
+            foreach (DataGridViewRow rows in dataGridViewBidang1.SelectedRows)
             {
-                id_bagian_bidang = row.Cells[0].Value.ToString();
-                nama_bagian_bidang = row.Cells[1].Value.ToString();
+                id_bagian_bidang = rows.Cells[0].Value.ToString();
+                nama_bagian_bidang = rows.Cells[1].Value.ToString();
                 textBox1.Text = id_bagian_bidang;
+                this.Close();
             }
         }
 
