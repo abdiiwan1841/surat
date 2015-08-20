@@ -45,6 +45,12 @@
   <ItemGroup>
     <Compile Include="BidangBagian.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="FormBidangEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBidangEdit.Designer.cs">
+      <DependentUpon>FormBidangEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormBidangTambah.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,9 @@
     <Compile Include="User.cs" />
     <EmbeddedResource Include="FormBidang.resx">
       <DependentUpon>FormBidang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBidangEdit.resx">
+      <DependentUpon>FormBidangEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormKlasifikasiSurat.resx">
       <DependentUpon>FormKlasifikasiSurat.cs</DependentUpon>
