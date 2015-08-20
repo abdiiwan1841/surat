@@ -15,7 +15,7 @@ namespace Surat
             username = "root";
             password = "";
 
-            string strconn = "server=localhost;User Id='root';password='';database=db_surat";
+            string strconn = "server=localhost;User Id='root';password='';database=db_surat; Allow Zero Datetime=true ";
 
             return strconn;
         }

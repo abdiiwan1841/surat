@@ -95,15 +95,15 @@ namespace Surat
             this.Controls.Add(this.labelX1);
             this.Controls.Add(this.textBoxJenis);
             this.DoubleBuffered = true;
+            this.EnableGlass = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormKlasifikasiSuratTambah";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tambah Data";
-
-
             this.ResumeLayout(false);
 
         }

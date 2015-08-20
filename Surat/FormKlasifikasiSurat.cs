@@ -105,7 +105,7 @@ namespace Surat
         private void buttonHapusJenisSurat_Click(object sender, EventArgs e)
         {
             string title = "Konfirmasi Penghapusan Data";
-            string konten = "Apakah Anda yakin ingin menhapus data?";
+            string konten = "Apakah Anda yakin ingin menghapus data?";
 
             DialogResult result = MessageBox.Show(konten, title, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == System.Windows.Forms.DialogResult.Yes)
@@ -131,6 +131,12 @@ namespace Surat
                 }
                 conn.Close();
             }
+        }
+
+        private void FormKlasifikasiSurat_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormMain form_main = new FormMain();
+            form_main.Show();
         }
     }
 }

@@ -30,24 +30,28 @@ namespace Surat
 
         private void buttonKlasifikasiSurat_Click(object sender, EventArgs e)
         {
+            this.Hide();
             FormKlasifikasiSurat klasifikasi = new FormKlasifikasiSurat();
             klasifikasi.Show();
         }
 
         private void buttonBidang_Click(object sender, EventArgs e)
         {
+            this.Hide();
             FormBidang bidang = new FormBidang();
             bidang.Show();
         }
 
         private void ButtonManajemenUser_Click(object sender, EventArgs e)
         {
+            this.Hide();
             FormUser users = new FormUser();
             users.Show();
         }
 
         private void buttonX1_Click(object sender, EventArgs e)
         {
+            this.Hide();
             FormSuratMasuk surat_masuk = new FormSuratMasuk();
             surat_masuk.Show();
         }

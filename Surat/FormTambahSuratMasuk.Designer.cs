@@ -836,6 +836,7 @@ namespace Surat
             this.EnableGlass = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormTambahSuratMasuk";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

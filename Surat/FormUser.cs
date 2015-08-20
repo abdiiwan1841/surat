@@ -39,7 +39,7 @@ namespace Surat
             conn.Open();
 
             string query = "SELECT * FROM user";
-            MessageBox.Show(query);
+            //MessageBox.Show(query);
             MySqlCommand cmd = new MySqlCommand(query, conn);
             MySqlDataReader reader = cmd.ExecuteReader();
 
