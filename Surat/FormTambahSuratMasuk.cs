@@ -39,6 +39,19 @@ namespace Surat
         private void FormTambahSuratMasuk_Load(object sender, EventArgs e)
         {
             getJenisSurat();
+            comboBoxJenisSuratMasuk.SelectedIndex = 0;
+            comboBoxSifatSuratMasuk.SelectedIndex = 0;
+            textBoxNomorSuratMasuk.Focus();
+        }
+
+        private void buttonGambarSuratMasuk_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                pictureBoxGambarSuratMasuk.Image = new Bitmap(dialog.FileName);
+            }
         }
     }
 }

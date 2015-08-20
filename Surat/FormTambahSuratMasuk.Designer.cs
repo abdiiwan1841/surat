@@ -34,7 +34,7 @@ namespace Surat
             this.labelTanggalSuratMasuk = new DevComponents.DotNetBar.LabelX();
             this.dateTimeInputTanggalSuratMasuk = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.labelNomorSuratMasuk = new DevComponents.DotNetBar.LabelX();
-            this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.textBoxNomorSuratMasuk = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.groupBoxJenisSifatSuratMasuk = new System.Windows.Forms.GroupBox();
             this.comboBoxSifatSuratMasuk = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.comboItemSifatSuratMasukBiasa = new DevComponents.Editors.ComboItem();
@@ -121,7 +121,6 @@ namespace Surat
             this.dateTimeInputTanggalTerimaSuratMasuk.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.dateTimeInputTanggalTerimaSuratMasuk.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.dateTimeInputTanggalTerimaSuratMasuk.ButtonDropDown.Visible = true;
-            this.dateTimeInputTanggalTerimaSuratMasuk.Format = DevComponents.Editors.eDateTimePickerFormat.Long;
             this.dateTimeInputTanggalTerimaSuratMasuk.IsPopupCalendarOpen = false;
             this.dateTimeInputTanggalTerimaSuratMasuk.Location = new System.Drawing.Point(120, 49);
             // 
@@ -184,7 +183,6 @@ namespace Surat
             this.dateTimeInputTanggalSuratMasuk.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.dateTimeInputTanggalSuratMasuk.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.dateTimeInputTanggalSuratMasuk.ButtonDropDown.Visible = true;
-            this.dateTimeInputTanggalSuratMasuk.Format = DevComponents.Editors.eDateTimePickerFormat.Long;
             this.dateTimeInputTanggalSuratMasuk.IsPopupCalendarOpen = false;
             this.dateTimeInputTanggalSuratMasuk.Location = new System.Drawing.Point(120, 21);
             // 
@@ -238,19 +236,19 @@ namespace Surat
             this.labelNomorSuratMasuk.TabIndex = 1;
             this.labelNomorSuratMasuk.Text = "Nomor Surat: ";
             // 
-            // textBoxX1
+            // textBoxNomorSuratMasuk
             // 
             // 
             // 
             // 
-            this.textBoxX1.Border.Class = "TextBoxBorder";
-            this.textBoxX1.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxX1.Location = new System.Drawing.Point(93, 16);
-            this.textBoxX1.MaxLength = 40;
-            this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(273, 22);
-            this.textBoxX1.TabIndex = 2;
+            this.textBoxNomorSuratMasuk.Border.Class = "TextBoxBorder";
+            this.textBoxNomorSuratMasuk.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.textBoxNomorSuratMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNomorSuratMasuk.Location = new System.Drawing.Point(93, 16);
+            this.textBoxNomorSuratMasuk.MaxLength = 40;
+            this.textBoxNomorSuratMasuk.Name = "textBoxNomorSuratMasuk";
+            this.textBoxNomorSuratMasuk.Size = new System.Drawing.Size(273, 22);
+            this.textBoxNomorSuratMasuk.TabIndex = 2;
             // 
             // groupBoxJenisSifatSuratMasuk
             // 
@@ -641,7 +639,6 @@ namespace Surat
             this.dateTimeInputTanggalDistribusiSuratMasuk.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.dateTimeInputTanggalDistribusiSuratMasuk.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.dateTimeInputTanggalDistribusiSuratMasuk.ButtonDropDown.Visible = true;
-            this.dateTimeInputTanggalDistribusiSuratMasuk.Format = DevComponents.Editors.eDateTimePickerFormat.Long;
             this.dateTimeInputTanggalDistribusiSuratMasuk.IsPopupCalendarOpen = false;
             this.dateTimeInputTanggalDistribusiSuratMasuk.Location = new System.Drawing.Point(178, 22);
             // 
@@ -776,6 +773,7 @@ namespace Surat
             this.buttonGambarSuratMasuk.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonGambarSuratMasuk.TabIndex = 19;
             this.buttonGambarSuratMasuk.Text = "...";
+            this.buttonGambarSuratMasuk.Click += new System.EventHandler(this.buttonGambarSuratMasuk_Click);
             // 
             // FormTambahSuratMasuk
             // 
@@ -792,7 +790,7 @@ namespace Surat
             this.Controls.Add(this.groupBoxPengirimSuratMasuk);
             this.Controls.Add(this.groupBoxIsiSuratMasuk);
             this.Controls.Add(this.groupBoxJenisSifatSuratMasuk);
-            this.Controls.Add(this.textBoxX1);
+            this.Controls.Add(this.textBoxNomorSuratMasuk);
             this.Controls.Add(this.labelNomorSuratMasuk);
             this.Controls.Add(this.groupBoxTanggalSuratMasuk);
             this.DoubleBuffered = true;
@@ -823,7 +821,7 @@ namespace Surat
 
         private System.Windows.Forms.GroupBox groupBoxTanggalSuratMasuk;
         private DevComponents.DotNetBar.LabelX labelNomorSuratMasuk;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
+        private DevComponents.DotNetBar.Controls.TextBoxX textBoxNomorSuratMasuk;
         private DevComponents.DotNetBar.LabelX labelTanggalTerimaSuratMasuk;
         private DevComponents.Editors.DateTimeAdv.DateTimeInput dateTimeInputTanggalTerimaSuratMasuk;
         private DevComponents.DotNetBar.LabelX labelTanggalSuratMasuk;
