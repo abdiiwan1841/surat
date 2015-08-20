@@ -102,7 +102,7 @@ namespace Surat
 
         }
 
-        private void dataGridViewBidang1_SelectionChanged(object sender, EventArgs e) ////////BELUM BERHASIL
+        private void dataGridViewBidang1_SelectionChanged(object sender, EventArgs e) 
         {
 
         }
@@ -145,6 +145,13 @@ namespace Surat
                 id_bagian_bidang = row.Cells[0].Value.ToString();
                 nama_bagian_bidang = row.Cells[1].Value.ToString();
             }
+        }
+
+        private void buttonCallFormSub_Click(object sender, EventArgs e)
+        {
+            FormSubBidang sub = new FormSubBidang(id_bagian_bidang, nama_bagian_bidang, this);
+            sub.Show();
+            this.Close();
         }
     }
 }
