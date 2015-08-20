@@ -93,6 +93,7 @@ namespace Surat
             this.buttonCallFormSub.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonCallFormSub.TabIndex = 4;
             this.buttonCallFormSub.Text = "Tambah Sub Bidang/Bagian";
+            this.buttonCallFormSub.Click += new System.EventHandler(this.buttonCallFormSub_Click);
             // 
             // buttonBidangKembali
             // 

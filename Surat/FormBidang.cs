@@ -146,5 +146,12 @@ namespace Surat
                 nama_bagian_bidang = row.Cells[1].Value.ToString();
             }
         }
+
+        private void buttonCallFormSub_Click(object sender, EventArgs e)
+        {
+            FormSubBidang sub = new FormSubBidang(id_bagian_bidang, nama_bagian_bidang, this);
+            sub.Show();
+            this.Close();
+        }
     }
 }
