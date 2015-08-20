@@ -105,6 +105,12 @@
     <Compile Include="FormSubBidangTambah.Designer.cs">
       <DependentUpon>FormSubBidangTambah.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSuBidangEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSuBidangEdit.Designer.cs">
+      <DependentUpon>FormSuBidangEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSuratMasuk.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,7 @@
     <Compile Include="JenisSurat.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubBidangBagian.cs" />
     <Compile Include="User.cs" />
     <EmbeddedResource Include="FormBidang.resx">
       <DependentUpon>FormBidang.cs</DependentUpon>
@@ -162,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSubBidangTambah.resx">
       <DependentUpon>FormSubBidangTambah.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSuBidangEdit.resx">
+      <DependentUpon>FormSuBidangEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSuratMasuk.resx">
       <DependentUpon>FormSuratMasuk.cs</DependentUpon>

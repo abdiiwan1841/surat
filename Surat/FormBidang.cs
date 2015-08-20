@@ -102,7 +102,7 @@ namespace Surat
 
         }
 
-        private void dataGridViewBidang1_SelectionChanged(object sender, EventArgs e) ////////BELUM BERHASIL
+        private void dataGridViewBidang1_SelectionChanged(object sender, EventArgs e) 
         {
 
         }

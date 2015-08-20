@@ -111,5 +111,36 @@ namespace Surat
                 nama_sub_bagian_bidang = row.Cells[2].Value.ToString();
             }
         }
+
+        private void buttonEditSubBidang_Click(object sender, EventArgs e)
+        {
+            FormSuBidangEdit edit = new FormSuBidangEdit(id_sub_bagian_bidang, nama_sub_bagian_bidang, this);
+            edit.ShowDialog();
+        }
+
+        private void cariBidang()
+        {
+            SubBidangBagian namaBidang = new SubBidangBagian();
+            string cari = textBoxCariSubBidang.Text;
+
+            Database db = new Database();
+            string strconn = db.getString();
+            MySqlConnection conn = new MySqlConnection(strconn);
+            conn.Open();
+
+            string query = "SELECT * FROM sub_bagian_bidang WHERE nama_sub_bagian_bidang LIKE '%" + cari + "%'";
+            //MessageBox.Show(query);
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@cari", cari);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            setDataTable(reader);
+            conn.Close();
+        }
+
+        private void textBoxCariSubBidang_TextChanged(object sender, EventArgs e)
+        {
+            cariBidang();
+        }
     }
 }

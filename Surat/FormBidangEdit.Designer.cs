@@ -71,7 +71,7 @@ namespace Surat
             this.labelBidangEdit.Name = "labelBidangEdit";
             this.labelBidangEdit.Size = new System.Drawing.Size(103, 23);
             this.labelBidangEdit.TabIndex = 5;
-            this.labelBidangEdit.Text = "Edit Jenis Surat";
+            this.labelBidangEdit.Text = "Edit Bidang";
             // 
             // textBoxEditBidang
             // 

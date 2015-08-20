@@ -71,7 +71,7 @@ namespace Surat
             this.labelBidangTambah.Name = "labelBidangTambah";
             this.labelBidangTambah.Size = new System.Drawing.Size(158, 23);
             this.labelBidangTambah.TabIndex = 9;
-            this.labelBidangTambah.Text = "Bagian/Bidang Baru";
+            this.labelBidangTambah.Text = "Sub Bagian/Bidang Baru";
             // 
             // textBoxSubBidangTambah
             // 

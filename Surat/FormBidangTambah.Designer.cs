@@ -69,7 +69,7 @@ namespace Surat
             this.labelBidangTambah.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBidangTambah.Location = new System.Drawing.Point(10, 18);
             this.labelBidangTambah.Name = "labelBidangTambah";
-            this.labelBidangTambah.Size = new System.Drawing.Size(115, 23);
+            this.labelBidangTambah.Size = new System.Drawing.Size(136, 23);
             this.labelBidangTambah.TabIndex = 5;
             this.labelBidangTambah.Text = "Bagian/Bidang Baru";
             // 
