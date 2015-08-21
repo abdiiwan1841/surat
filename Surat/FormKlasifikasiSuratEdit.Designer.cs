@@ -103,6 +103,7 @@ namespace Surat
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Jenis Surat";
+            this.Load += new System.EventHandler(this.FormKlasifikasiSuratEdit_Load);
             this.ResumeLayout(false);
 
         }
