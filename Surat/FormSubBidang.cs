@@ -22,6 +22,10 @@ namespace Surat
             InitializeComponent();
             id_bagian_bidang = id;
             nama_bagian_bidang = nama;
+            getBidang();
+            //getIdBidang(nama);
+            comboBoxBidang.SelectedValue = id_bagian_bidang;
+            comboBoxBidang.SelectedText = nama_bagian_bidang;
             frm1 = frm;
         }
 
@@ -69,7 +73,7 @@ namespace Surat
         {
             this.Close();
             FormBidang bidang = new FormBidang();
-            bidang.Show();
+            //bidang.Show();
         }
 
         private void buttonHapusSubBidang_Click(object sender, EventArgs e)
@@ -141,6 +145,54 @@ namespace Surat
         private void textBoxCariSubBidang_TextChanged(object sender, EventArgs e)
         {
             cariBidang();
+        }
+
+        public void getBidang()
+        {
+            Database db = new Database();
+            string strconn = db.getString();
+            MySqlConnection conn = new MySqlConnection(strconn);
+            conn.Open();
+            string query = "SELECT * FROM bagian_bidang";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                comboBoxBidang.SelectedValue = reader[0];
+                comboBoxBidang.Items.Add(reader[1]);
+            }
+            conn.Close();
+        }
+
+        public string getIdBidang(string nama_bagian)
+        {
+            string id_bagian = "";
+            Database db = new Database();
+            string strconn = db.getString();
+            MySqlConnection conn = new MySqlConnection(strconn);
+            conn.Open();
+            string query = "SELECT id_bagian_bidang FROM bagian_bidang WHERE nama_bagian_bidang = @nama_bagian";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@nama_jenis", nama_bagian);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                id_bagian = reader[0].ToString();
+            }
+            conn.Close();
+            return id_bagian;
+        }
+
+        private void comboBoxBidang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            id_bagian_bidang = comboBoxBidang.SelectedValue.ToString();
+            getAllSubBidang();
+        }
+
+        private void FormSubBidang_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormBidang bidang = new FormBidang();
+            bidang.Show();
         }
     }
 }
