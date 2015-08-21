@@ -14,7 +14,7 @@ namespace Surat
     public partial class FormSubBidang : DevComponents.DotNetBar.OfficeForm
     {
         public string id_bagian_bidang, nama_bagian_bidang;
-        public string id_sub_bagian_bidang, nama_sub_bagian_bidang,id_bidang;
+        public string id_sub_bagian_bidang, nama_sub_bagian_bidang,id_bidang,nama_bidang,id_bagian;
         private readonly FormBidang frm1;
 
         public FormSubBidang(string id, string nama, FormBidang frm)
@@ -84,7 +84,10 @@ namespace Surat
         private void buttonTambahSubBidang_Click(object sender, EventArgs e)
         {
             FormSubBidangTambah tambah = new FormSubBidangTambah(id_bagian_bidang, nama_bagian_bidang, this);
+            //pilihBidang();
+            //MessageBox.Show(id_bagian);
             tambah.ShowDialog();
+            
         }
 
         private void buttonSubBidangKembali_Click(object sender, EventArgs e)
@@ -191,34 +194,20 @@ namespace Surat
             conn.Open();
             string query = "SELECT id_bagian_bidang FROM bagian_bidang WHERE nama_bagian_bidang = @nama_bagian";
             MySqlCommand cmd = new MySqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@nama_jenis", nama_bagian);
+            cmd.Parameters.AddWithValue("@nama_bagian", nama_bagian);
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
                 id_bagian = reader[0].ToString();
             }
             conn.Close();
+            MessageBox.Show(id_bagian);
             return id_bagian;
+            
         }
 
         private void comboBoxBidang_SelectedIndexChanged(object sender, EventArgs e)
         {
-            id_bidang = comboBoxBidang.SelectedValue.ToString();
-            //getAllSubBidang2(id_bidang);
-            Database db = new Database();
-            string strconn = db.getString();
-            MySqlConnection conn = new MySqlConnection(strconn);
-            conn.Open();
-
-            string query = "SELECT * FROM sub_bagian_bidang where id_bagian_bidang = @id_bidang";
-            MessageBox.Show(query);
-            MySqlCommand cmd = new MySqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@id_bagian_bidang", id_bidang);
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            setDataTable(reader);
-            conn.Close();
-            MessageBox.Show(id_bidang);
             
         }
 
@@ -230,22 +219,33 @@ namespace Surat
 
         private void buttonPilihBidang_Click(object sender, EventArgs e)
         {
-            id_bidang = comboBoxBidang.SelectedItem.ToString();
+
+            pilihBidang();
+            
+        }
+
+        private string pilihBidang()
+        {
+            
+            nama_bidang = comboBoxBidang.SelectedItem.ToString();
             //getAllSubBidang2(id_bidang);
             Database db = new Database();
             string strconn = db.getString();
             MySqlConnection conn = new MySqlConnection(strconn);
             conn.Open();
 
-            string query = "SELECT sub.*,bdg.nama_bagian_bidang FROM sub_bagian_bidang as sub join bagian_bidang as bdg USING (id_bagian_bidang) where  nama_bagian_bidang = @id_bidang";
+            string query = "SELECT sub.*,bdg.nama_bagian_bidang FROM sub_bagian_bidang as sub join bagian_bidang as bdg USING (id_bagian_bidang) where  nama_bagian_bidang = @nama_bidang";
             //MessageBox.Show(query);
             MySqlCommand cmd = new MySqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@id_bidang", id_bidang);
+            cmd.Parameters.AddWithValue("@nama_bidang", nama_bidang);
             MySqlDataReader reader = cmd.ExecuteReader();
 
             setDataTable(reader);
-            conn.Close();
-        }
 
+
+            conn.Close();
+            getIdBidang(nama_bidang);
+            return id_bagian;
+        }
     }
 }

@@ -13,15 +13,18 @@ namespace Surat
 {
     public partial class FormSubBidangTambah : DevComponents.DotNetBar.OfficeForm
     {
-        public string id_bagian_bidang, nama_bagian_bidang;
+        public string id_bagian, nama_bidang;
         private readonly FormSubBidang frm1;
 
         public FormSubBidangTambah(string id, string nama, FormSubBidang frm)
         {
             InitializeComponent();
-            id_bagian_bidang = id;
-            nama_bagian_bidang = nama;
+            id_bagian = id;
+            nama_bidang = nama;
             frm1 = frm;
+            //frm1.getIdBidang(nama_bidang);
+
+            textBoxSubBidangTambah.Text = id;
         }
 
         private void tambahSubBidang()
@@ -34,10 +37,10 @@ namespace Surat
             string strconn = db.getString();
             MySqlConnection conn = new MySqlConnection(strconn);
             conn.Open();
-            string query = "INSERT INTO sub_bagian_bidang VALUES(NULL, @id_bagian_bidang, @nama_sub_bagian_bidang)";
+            string query = "INSERT INTO sub_bagian_bidang VALUES(NULL, @id_bidang, @nama_sub_bagian_bidang)";
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@nama_sub_bagian_bidang", bidang);
-            cmd.Parameters.AddWithValue("@id_bagian_bidang", id_bagian_bidang);
+            cmd.Parameters.AddWithValue("@id_bidang", id_bagian);
             int hasil = cmd.ExecuteNonQuery();
             if (hasil > 0)
             {
