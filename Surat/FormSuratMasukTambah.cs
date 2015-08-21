@@ -32,11 +32,35 @@ namespace Surat
             conn.Open();
             try
             {
-                foreach (string tembusan in FormTembusanSuratMasuk.list_tembusan)
+                foreach (string tembusan in FormSuratMasukTembusan.list_tembusan)
                 {
                     query = "INSERT INTO tembusan_surat_masuk VALUES(NULL, @tembusan, @nomor_surat_masuk)";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@tembusan", tembusan);
+                    cmd.Parameters.AddWithValue("@nomor_surat_masuk", nomor_surat);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            conn.Close();
+        }
+
+        private void tambahLampiran()
+        {
+            Database db = new Database();
+            strconn = db.getString();
+            MySqlConnection conn = new MySqlConnection(strconn);
+            conn.Open();
+            try
+            {
+                foreach (string lampiran in FormSuratMasukLampiran.list_lampiran)
+                {
+                    query = "INSERT INTO lampiran_surat_masuk VALUES(NULL, @lampiran, @nomor_surat_masuk)";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@lampiran", lampiran);
                     cmd.Parameters.AddWithValue("@nomor_surat_masuk", nomor_surat);
                     cmd.ExecuteNonQuery();
                 }
@@ -174,20 +198,39 @@ namespace Surat
 
         private void buttonTembusanSuratMasuk_Click(object sender, EventArgs e)
         {
-            FormTembusanSuratMasuk form_tembusan = new FormTembusanSuratMasuk();
+            FormSuratMasukTembusan form_tembusan = new FormSuratMasukTembusan();
             form_tembusan.ShowDialog();
         }
 
         private void buttonTambahSuratMasuk_Click(object sender, EventArgs e)
         {
             tambahSuratMasuk();
-            tambahTembusan();
-            MessageBox.Show("Data berhasil ditambah", "Sukses");
+            if (FormSuratMasukLampiran.list_lampiran.Count != 0)
+            {
+                tambahLampiran();
+            }
+            if (FormSuratMasukTembusan.list_tembusan.Count != 0)
+            {
+                tambahTembusan();
+            }
+            MessageBox.Show("Data berhasil ditambah", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void buttonKembaliSuratMasuk_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void buttonLampiranSuratMasuk_Click(object sender, EventArgs e)
+        {
+            FormSuratMasukLampiran form_lampiran = new FormSuratMasukLampiran();
+            form_lampiran.ShowDialog();
+        }
+
+        private void FormTambahSuratMasuk_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormSuratMasukLampiran.list_lampiran.Clear();
+            FormSuratMasukTembusan.list_tembusan.Clear();
         }
     }
 }

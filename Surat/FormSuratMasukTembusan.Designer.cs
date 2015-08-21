@@ -1,6 +1,6 @@
 namespace Surat
 {
-    partial class FormTembusanSuratMasuk
+    partial class FormSuratMasukTembusan
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@ namespace Surat
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.textBoxTembusanSuratMasuk = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.buttonTambahTembusanSuratMasuk = new DevComponents.DotNetBar.ButtonX();
             this.dataGridViewTembusanSuratMasuk = new DevComponents.DotNetBar.Controls.DataGridViewX();
@@ -53,6 +53,7 @@ namespace Surat
             this.textBoxTembusanSuratMasuk.Name = "textBoxTembusanSuratMasuk";
             this.textBoxTembusanSuratMasuk.Size = new System.Drawing.Size(277, 26);
             this.textBoxTembusanSuratMasuk.TabIndex = 0;
+            this.textBoxTembusanSuratMasuk.TextChanged += new System.EventHandler(this.textBoxTembusanSuratMasuk_TextChanged);
             // 
             // buttonTambahTembusanSuratMasuk
             // 
@@ -74,14 +75,14 @@ namespace Surat
             this.dataGridViewTembusanSuratMasuk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTembusanSuratMasuk.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnNamaTembusanSuratMasuk});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTembusanSuratMasuk.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTembusanSuratMasuk.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTembusanSuratMasuk.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewTembusanSuratMasuk.Location = new System.Drawing.Point(12, 68);
             this.dataGridViewTembusanSuratMasuk.Name = "dataGridViewTembusanSuratMasuk";
@@ -150,7 +151,7 @@ namespace Surat
             this.buttonKembaliTembusanSuratMasuk.Text = "Kembali";
             this.buttonKembaliTembusanSuratMasuk.Click += new System.EventHandler(this.buttonKembaliTembusanSuratMasuk_Click);
             // 
-            // FormTembusanSuratMasuk
+            // FormSuratMasukTembusan
             // 
             this.ClientSize = new System.Drawing.Size(381, 300);
             this.Controls.Add(this.buttonKembaliTembusanSuratMasuk);
@@ -165,7 +166,7 @@ namespace Surat
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FormTembusanSuratMasuk";
+            this.Name = "FormSuratMasukTembusan";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

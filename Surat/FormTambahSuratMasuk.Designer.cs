@@ -725,6 +725,7 @@ namespace Surat
             this.buttonLampiranSuratMasuk.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonLampiranSuratMasuk.TabIndex = 14;
             this.buttonLampiranSuratMasuk.Text = "...";
+            this.buttonLampiranSuratMasuk.Click += new System.EventHandler(this.buttonLampiranSuratMasuk_Click);
             // 
             // labelTembusanSuratMasuk
             // 
@@ -842,6 +843,7 @@ namespace Surat
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tambah Data Surat Masuk";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormTambahSuratMasuk_FormClosed);
             this.Load += new System.EventHandler(this.FormTambahSuratMasuk_Load);
             this.groupBoxTanggalSuratMasuk.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalTerimaSuratMasuk)).EndInit();

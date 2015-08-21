@@ -9,13 +9,13 @@ using DevComponents.DotNetBar;
 
 namespace Surat
 {
-    public partial class FormTembusanSuratMasuk : DevComponents.DotNetBar.OfficeForm
+    public partial class FormSuratMasukTembusan : DevComponents.DotNetBar.OfficeForm
     {
         public static List<string> list_tembusan = new List<string>();
         private string tembusan;
         private int index_tembusan;
 
-        public FormTembusanSuratMasuk()
+        public FormSuratMasukTembusan()
         {
             InitializeComponent();
         }
@@ -27,6 +27,7 @@ namespace Surat
             {
                 dataGridViewTembusanSuratMasuk.Rows.Add(tembusan);
             }
+
         }
 
         private void buttonKembaliTembusanSuratMasuk_Click(object sender, EventArgs e)
@@ -46,6 +47,16 @@ namespace Surat
         private void FormTembusanSuratMasuk_Load(object sender, EventArgs e)
         {
             tampil_tembusan();
+            if (list_tembusan.Count == 0)
+            {
+                buttonEditTembusanSuratMasuk.Enabled = false;
+                buttonHapusTembusanSuratMasuk.Enabled = false;
+            }
+            if (textBoxTembusanSuratMasuk.Text == "")
+            {
+                buttonEditTembusanSuratMasuk.Enabled = false;
+                buttonTambahTembusanSuratMasuk.Enabled = false;
+            }
         }
 
         private void dataGridViewTembusanSuratMasuk_SelectionChanged(object sender, EventArgs e)
@@ -68,6 +79,27 @@ namespace Surat
         {
             list_tembusan.RemoveAt(index_tembusan);
             tampil_tembusan();
+        }
+
+        private void textBoxTembusanSuratMasuk_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxTembusanSuratMasuk.Text == "")
+            {
+                buttonTambahTembusanSuratMasuk.Enabled = false;
+                buttonEditTembusanSuratMasuk.Enabled = false;
+            }
+            else
+            {
+                buttonTambahTembusanSuratMasuk.Enabled = true;
+                if (list_tembusan.Count == 0)
+                {
+                    buttonEditTembusanSuratMasuk.Enabled = false;
+                }
+                else
+                {
+                    buttonEditTembusanSuratMasuk.Enabled = true;
+                }
+            }
         }
     }
 }

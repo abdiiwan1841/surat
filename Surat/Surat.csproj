@@ -45,6 +45,18 @@
   <ItemGroup>
     <Compile Include="BidangBagian.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="FormSuratMasukEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSuratMasukEdit.Designer.cs">
+      <DependentUpon>FormSuratMasukEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSuratMasukLampiran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSuratMasukLampiran.Designer.cs">
+      <DependentUpon>FormSuratMasukLampiran.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSubBidang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,11 +129,11 @@
     <Compile Include="FormSuratMasuk.Designer.cs">
       <DependentUpon>FormSuratMasuk.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormTambahSuratMasuk.cs">
+    <Compile Include="FormSuratMasukTambah.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormTambahSuratMasuk.Designer.cs">
-      <DependentUpon>FormTambahSuratMasuk.cs</DependentUpon>
+      <DependentUpon>FormSuratMasukTambah.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTambahUser.cs">
       <SubType>Form</SubType>
@@ -129,11 +141,11 @@
     <Compile Include="FormTambahUser.Designer.cs">
       <DependentUpon>FormTambahUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormTembusanSuratMasuk.cs">
+    <Compile Include="FormSuratMasukTembusan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormTembusanSuratMasuk.Designer.cs">
-      <DependentUpon>FormTembusanSuratMasuk.cs</DependentUpon>
+    <Compile Include="FormSuratMasukTembusan.Designer.cs">
+      <DependentUpon>FormSuratMasukTembusan.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUser.cs">
       <SubType>Form</SubType>
@@ -161,6 +173,12 @@
     <EmbeddedResource Include="FormKlasifikasiSuratTambah.resx">
       <DependentUpon>FormKlasifikasiSuratTambah.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSuratMasukEdit.resx">
+      <DependentUpon>FormSuratMasukEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSuratMasukLampiran.resx">
+      <DependentUpon>FormSuratMasukLampiran.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -183,13 +201,13 @@
       <DependentUpon>FormSuratMasuk.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahSuratMasuk.resx">
-      <DependentUpon>FormTambahSuratMasuk.cs</DependentUpon>
+      <DependentUpon>FormSuratMasukTambah.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahUser.resx">
       <DependentUpon>FormTambahUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormTembusanSuratMasuk.resx">
-      <DependentUpon>FormTembusanSuratMasuk.cs</DependentUpon>
+    <EmbeddedResource Include="FormSuratMasukTembusan.resx">
+      <DependentUpon>FormSuratMasukTembusan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUser.resx">
       <DependentUpon>FormUser.cs</DependentUpon>
