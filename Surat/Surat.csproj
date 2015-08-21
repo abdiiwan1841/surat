@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="BidangBagian.cs" />
     <Compile Include="Database.cs" />
-<<<<<<< HEAD
     <Compile Include="FormSuratMasukEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,13 +56,12 @@
     </Compile>
     <Compile Include="FormSuratMasukLampiran.Designer.cs">
       <DependentUpon>FormSuratMasukLampiran.cs</DependentUpon>
-=======
+</Compile>
     <Compile Include="FormEditUser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormEditUser.Designer.cs">
       <DependentUpon>FormEditUser.cs</DependentUpon>
->>>>>>> 613064a112b52f46bf913a0cf5da6439db4c6346
     </Compile>
     <Compile Include="FormSubBidang.cs">
       <SubType>Form</SubType>
