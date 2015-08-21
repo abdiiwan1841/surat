@@ -154,6 +154,8 @@ namespace Surat
             this.Controls.Add(this.txtBoxnama);
             this.Controls.Add(this.LabelNamaLengkap);
             this.DoubleBuffered = true;
+            this.EnableGlass = false;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "FormTambahUser";
             this.ShowIcon = false;

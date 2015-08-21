@@ -28,7 +28,7 @@ namespace Surat
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.txtboxsearch = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.ButtonTambahUser = new DevComponents.DotNetBar.ButtonX();
@@ -82,20 +82,22 @@ namespace Surat
             // dataGridUser
             // 
             this.dataGridUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridUser.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridUser.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridUser.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridUser.Location = new System.Drawing.Point(12, 84);
             this.dataGridUser.Name = "dataGridUser";
+            this.dataGridUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridUser.Size = new System.Drawing.Size(301, 255);
             this.dataGridUser.TabIndex = 4;
             this.dataGridUser.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridUser_CellContentClick);
+            this.dataGridUser.SelectionChanged += new System.EventHandler(this.dataGridUser_SelectionChanged);
             // 
             // ButtonEditUser
             // 
@@ -108,6 +110,7 @@ namespace Surat
             this.ButtonEditUser.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ButtonEditUser.TabIndex = 5;
             this.ButtonEditUser.Text = "Edit";
+            this.ButtonEditUser.Click += new System.EventHandler(this.ButtonEditUser_Click);
             // 
             // ButtonHapusUser
             // 
@@ -120,6 +123,7 @@ namespace Surat
             this.ButtonHapusUser.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ButtonHapusUser.TabIndex = 6;
             this.ButtonHapusUser.Text = "Hapus Data";
+            this.ButtonHapusUser.Click += new System.EventHandler(this.ButtonHapusUser_Click);
             // 
             // ButtonKembaliUser
             // 
@@ -145,6 +149,8 @@ namespace Surat
             this.Controls.Add(this.txtboxsearch);
             this.Controls.Add(this.labelX1);
             this.DoubleBuffered = true;
+            this.EnableGlass = false;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "FormUser";
             this.ShowIcon = false;
