@@ -84,7 +84,7 @@ namespace Surat
         {
             this.Close();
             FormMain main = new FormMain();
-            main.Show();
+            //main.Show();
         }
 
         private void buttonTambahBidang_Click(object sender, EventArgs e)
@@ -152,8 +152,14 @@ namespace Surat
         private void buttonCallFormSub_Click(object sender, EventArgs e)
         {
             FormSubBidang sub = new FormSubBidang(id_bagian_bidang, nama_bagian_bidang, this);
-            sub.Show();
-            //this.Close();
+            sub.ShowDialog();
+            
+        }
+
+        private void FormBidang_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormMain main = new FormMain();
+            main.Show();
         }
     }
 }

@@ -28,9 +28,9 @@ namespace Surat
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewSubBidang = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.textBoxCariSubBidang = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.buttonSubBidangKembali = new DevComponents.DotNetBar.ButtonX();
@@ -40,6 +40,7 @@ namespace Surat
             this.labelCariBidang = new DevComponents.DotNetBar.LabelX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.comboBoxBidang = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.buttonPilihBidang = new DevComponents.DotNetBar.ButtonX();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSubBidang)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,38 +48,38 @@ namespace Surat
             // 
             this.dataGridViewSubBidang.AllowUserToAddRows = false;
             this.dataGridViewSubBidang.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSubBidang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSubBidang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewSubBidang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewSubBidang.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewSubBidang.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewSubBidang.EnableHeadersVisualStyles = false;
             this.dataGridViewSubBidang.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewSubBidang.Location = new System.Drawing.Point(9, 132);
             this.dataGridViewSubBidang.Name = "dataGridViewSubBidang";
             this.dataGridViewSubBidang.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSubBidang.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSubBidang.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewSubBidang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSubBidang.Size = new System.Drawing.Size(301, 250);
+            this.dataGridViewSubBidang.Size = new System.Drawing.Size(454, 250);
             this.dataGridViewSubBidang.TabIndex = 7;
             this.dataGridViewSubBidang.SelectionChanged += new System.EventHandler(this.dataGridViewSubBidang_SelectionChanged);
             // 
@@ -101,7 +102,7 @@ namespace Surat
             this.buttonSubBidangKembali.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonSubBidangKembali.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonSubBidangKembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSubBidangKembali.Location = new System.Drawing.Point(345, 328);
+            this.buttonSubBidangKembali.Location = new System.Drawing.Point(512, 329);
             this.buttonSubBidangKembali.Name = "buttonSubBidangKembali";
             this.buttonSubBidangKembali.Size = new System.Drawing.Size(186, 54);
             this.buttonSubBidangKembali.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -114,7 +115,7 @@ namespace Surat
             this.buttonHapusSubBidang.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonHapusSubBidang.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonHapusSubBidang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonHapusSubBidang.Location = new System.Drawing.Point(345, 213);
+            this.buttonHapusSubBidang.Location = new System.Drawing.Point(512, 214);
             this.buttonHapusSubBidang.Name = "buttonHapusSubBidang";
             this.buttonHapusSubBidang.Size = new System.Drawing.Size(186, 54);
             this.buttonHapusSubBidang.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -127,7 +128,7 @@ namespace Surat
             this.buttonEditSubBidang.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonEditSubBidang.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonEditSubBidang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEditSubBidang.Location = new System.Drawing.Point(345, 137);
+            this.buttonEditSubBidang.Location = new System.Drawing.Point(512, 138);
             this.buttonEditSubBidang.Name = "buttonEditSubBidang";
             this.buttonEditSubBidang.Size = new System.Drawing.Size(186, 54);
             this.buttonEditSubBidang.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -140,7 +141,7 @@ namespace Surat
             this.buttonTambahSubBidang.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonTambahSubBidang.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonTambahSubBidang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTambahSubBidang.Location = new System.Drawing.Point(345, 65);
+            this.buttonTambahSubBidang.Location = new System.Drawing.Point(512, 66);
             this.buttonTambahSubBidang.Name = "buttonTambahSubBidang";
             this.buttonTambahSubBidang.Size = new System.Drawing.Size(186, 54);
             this.buttonTambahSubBidang.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -187,9 +188,23 @@ namespace Surat
             this.comboBoxBidang.TabIndex = 15;
             this.comboBoxBidang.SelectedIndexChanged += new System.EventHandler(this.comboBoxBidang_SelectedIndexChanged);
             // 
+            // buttonPilihBidang
+            // 
+            this.buttonPilihBidang.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonPilihBidang.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonPilihBidang.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPilihBidang.Location = new System.Drawing.Point(530, 8);
+            this.buttonPilihBidang.Name = "buttonPilihBidang";
+            this.buttonPilihBidang.Size = new System.Drawing.Size(113, 34);
+            this.buttonPilihBidang.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonPilihBidang.TabIndex = 16;
+            this.buttonPilihBidang.Text = "Pilih Bidang/Bagian";
+            this.buttonPilihBidang.Click += new System.EventHandler(this.buttonPilihBidang_Click);
+            // 
             // FormSubBidang
             // 
-            this.ClientSize = new System.Drawing.Size(543, 394);
+            this.ClientSize = new System.Drawing.Size(710, 394);
+            this.Controls.Add(this.buttonPilihBidang);
             this.Controls.Add(this.comboBoxBidang);
             this.Controls.Add(this.labelX1);
             this.Controls.Add(this.labelCariBidang);
@@ -200,6 +215,9 @@ namespace Surat
             this.Controls.Add(this.buttonEditSubBidang);
             this.Controls.Add(this.buttonTambahSubBidang);
             this.DoubleBuffered = true;
+            this.EnableGlass = false;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "FormSubBidang";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FormSubBidang_Load);
@@ -219,5 +237,6 @@ namespace Surat
         private DevComponents.DotNetBar.LabelX labelCariBidang;
         private DevComponents.DotNetBar.LabelX labelX1;
         private DevComponents.DotNetBar.Controls.ComboBoxEx comboBoxBidang;
+        private DevComponents.DotNetBar.ButtonX buttonPilihBidang;
     }
 }

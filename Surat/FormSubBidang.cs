@@ -14,7 +14,7 @@ namespace Surat
     public partial class FormSubBidang : DevComponents.DotNetBar.OfficeForm
     {
         public string id_bagian_bidang, nama_bagian_bidang;
-        public string id_sub_bagian_bidang, nama_sub_bagian_bidang;
+        public string id_sub_bagian_bidang, nama_sub_bagian_bidang,id_bidang;
         private readonly FormBidang frm1;
 
         public FormSubBidang(string id, string nama, FormBidang frm)
@@ -34,8 +34,9 @@ namespace Surat
             DataTable subbidang = new DataTable();
             subbidang.Load(reader);
             subbidang.Columns[0].ColumnName = "ID Sub Bidang";
-            subbidang.Columns[1].ColumnName = "Sub Bidang";
-            subbidang.Columns[2].ColumnName = "Bidang";
+            subbidang.Columns[1].ColumnName = "ID Bidang";
+            subbidang.Columns[2].ColumnName = "Sub Bidang";
+            subbidang.Columns[3].ColumnName = "Bidang";
 
             dataGridViewSubBidang.ClearSelection();
             dataGridViewSubBidang.DataSource = subbidang;
@@ -48,10 +49,27 @@ namespace Surat
             MySqlConnection conn = new MySqlConnection(strconn);
             conn.Open();
 
-            string query = "SELECT * FROM sub_bagian_bidang where id_bagian_bidang = @id_bagian_bidang";
+            string query = "SELECT sub.*,bdg.nama_bagian_bidang FROM sub_bagian_bidang as sub join bagian_bidang as bdg USING (id_bagian_bidang) where  id_bagian_bidang = @id_bagian_bidang";
             //MessageBox.Show(query);
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@id_bagian_bidang", id_bagian_bidang);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            setDataTable(reader);
+            conn.Close();
+        }
+
+        public void getAllSubBidang2(string id_bidang)
+        {
+            Database db = new Database();
+            string strconn = db.getString();
+            MySqlConnection conn = new MySqlConnection(strconn);
+            conn.Open();
+
+            string query = "SELECT * FROM sub_bagian_bidang where id_bagian_bidang = @id_bidang";
+            //MessageBox.Show(query);
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id_bagian_bidang", id_bidang);
             MySqlDataReader reader = cmd.ExecuteReader();
 
             setDataTable(reader);
@@ -185,8 +203,23 @@ namespace Surat
 
         private void comboBoxBidang_SelectedIndexChanged(object sender, EventArgs e)
         {
-            id_bagian_bidang = comboBoxBidang.SelectedValue.ToString();
-            getAllSubBidang();
+            id_bidang = comboBoxBidang.SelectedValue.ToString();
+            //getAllSubBidang2(id_bidang);
+            Database db = new Database();
+            string strconn = db.getString();
+            MySqlConnection conn = new MySqlConnection(strconn);
+            conn.Open();
+
+            string query = "SELECT * FROM sub_bagian_bidang where id_bagian_bidang = @id_bidang";
+            MessageBox.Show(query);
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id_bagian_bidang", id_bidang);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            setDataTable(reader);
+            conn.Close();
+            MessageBox.Show(id_bidang);
+            
         }
 
         private void FormSubBidang_FormClosed(object sender, FormClosedEventArgs e)
@@ -194,5 +227,25 @@ namespace Surat
             FormBidang bidang = new FormBidang();
             bidang.Show();
         }
+
+        private void buttonPilihBidang_Click(object sender, EventArgs e)
+        {
+            id_bidang = comboBoxBidang.SelectedItem.ToString();
+            //getAllSubBidang2(id_bidang);
+            Database db = new Database();
+            string strconn = db.getString();
+            MySqlConnection conn = new MySqlConnection(strconn);
+            conn.Open();
+
+            string query = "SELECT sub.*,bdg.nama_bagian_bidang FROM sub_bagian_bidang as sub join bagian_bidang as bdg USING (id_bagian_bidang) where  nama_bagian_bidang = @id_bidang";
+            //MessageBox.Show(query);
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id_bidang", id_bidang);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            setDataTable(reader);
+            conn.Close();
+        }
+
     }
 }
