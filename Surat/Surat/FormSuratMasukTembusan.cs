@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace Surat
 {
@@ -14,10 +16,36 @@ namespace Surat
         public static List<string> list_tembusan = new List<string>();
         private string tembusan;
         private int index_tembusan;
+        public static bool opened = false;
 
         public FormSuratMasukTembusan()
         {
             InitializeComponent();
+        }
+
+        private void getTembusan()
+        {
+            dataGridViewTembusanSuratMasuk.Rows.Clear();
+            Database db = new Database();
+            string strconn = db.getString();
+            MySqlConnection conn = new MySqlConnection(strconn);
+            conn.Open();
+            try
+            {
+                string query = "SELECT * FROM tembusan_surat_masuk WHERE nomor_surat_masuk = @nomor_surat";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@nomor_surat", FormSuratMasuk.nomor_surat);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    list_tembusan.Add(reader[2].ToString());
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            conn.Close();
         }
 
         private void tampil_tembusan()
@@ -27,7 +55,6 @@ namespace Surat
             {
                 dataGridViewTembusanSuratMasuk.Rows.Add(tembusan);
             }
-
         }
 
         private void buttonKembaliTembusanSuratMasuk_Click(object sender, EventArgs e)
@@ -46,7 +73,19 @@ namespace Surat
 
         private void FormTembusanSuratMasuk_Load(object sender, EventArgs e)
         {
-            tampil_tembusan();
+            if (FormSuratMasuk.status == "Tambah")
+            {
+                tampil_tembusan();
+            }
+            else if (FormSuratMasuk.status == "Edit" && opened == false)
+            {
+                getTembusan();
+                tampil_tembusan();
+            }
+            else if (FormSuratMasuk.status == "Edit" && opened == true)
+            {
+                tampil_tembusan();
+            }
             if (list_tembusan.Count == 0)
             {
                 buttonEditTembusanSuratMasuk.Enabled = false;
@@ -71,7 +110,6 @@ namespace Surat
         private void buttonEditTembusanSuratMasuk_Click(object sender, EventArgs e)
         {
             list_tembusan[index_tembusan] = textBoxTembusanSuratMasuk.Text;
-            //MessageBox.Show("Tembusan berhasil diedit", "Sukses", MessageBoxButtons.OK);
             tampil_tembusan();
         }
 
@@ -99,6 +137,15 @@ namespace Surat
                 {
                     buttonEditTembusanSuratMasuk.Enabled = true;
                 }
+            }
+        }
+
+        private void FormSuratMasukTembusan_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (FormSuratMasuk.status == "Edit")
+            {
+                dataGridViewTembusanSuratMasuk.Rows.Clear();
+                opened = true;
             }
         }
     }

@@ -171,6 +171,7 @@ namespace Surat
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tembusan";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormSuratMasukTembusan_FormClosed);
             this.Load += new System.EventHandler(this.FormTembusanSuratMasuk_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTembusanSuratMasuk)).EndInit();
             this.ResumeLayout(false);

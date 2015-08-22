@@ -12,16 +12,18 @@ using MySql.Data.MySqlClient;
 
 namespace Surat
 {
-    public partial class FormTambahSuratMasuk : DevComponents.DotNetBar.OfficeForm
+    public partial class FormSuratMasukTambah : DevComponents.DotNetBar.OfficeForm
     {
         private string strconn, query;
         private string nomor_surat, tgl_surat, tgl_terima, jenis_surat, sifat_surat, 
                         perihal_surat, keterangan_surat, isi_surat, nama_gambar, lokasi_gambar, pengirim,
                         alamat_pengirim, penerima, jabatan_tertanda, tertanda, distribusi_tanggal;
+        private readonly FormSuratMasuk frm1;
 
-        public FormTambahSuratMasuk()
+        public FormSuratMasukTambah(FormSuratMasuk frm)
         {
             InitializeComponent();
+            frm1 = frm;
         }
 
         private void tambahTembusan()
@@ -154,7 +156,7 @@ namespace Surat
                 cmd.Parameters.AddWithValue("@nomor_surat", nomor_surat);
                 cmd.Parameters.AddWithValue("@sifat_surat", sifat_surat);
                 cmd.Parameters.AddWithValue("@id_jenis", getIdJenisSurat(jenis_surat));
-                cmd.Parameters.AddWithValue("@gambar_surat", lokasi_tujuan + "\\" + nama_gambar);
+                cmd.Parameters.AddWithValue("@gambar_surat", nama_gambar);
                 cmd.Parameters.AddWithValue("@perihal_surat", perihal_surat);
                 cmd.Parameters.AddWithValue("@tanggal_surat", tgl_surat);
                 cmd.Parameters.AddWithValue("@tanggal_terima", tgl_terima);
@@ -214,6 +216,7 @@ namespace Surat
                 tambahTembusan();
             }
             MessageBox.Show("Data berhasil ditambah", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            frm1.getAllSuratMasuk();
         }
 
         private void buttonKembaliSuratMasuk_Click(object sender, EventArgs e)

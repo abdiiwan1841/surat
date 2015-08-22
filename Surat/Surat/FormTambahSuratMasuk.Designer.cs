@@ -1,6 +1,6 @@
 namespace Surat
 {
-    partial class FormTambahSuratMasuk
+    partial class FormSuratMasukTambah
     {
         /// <summary>
         /// Required designer variable.
@@ -72,9 +72,9 @@ namespace Surat
             this.buttonTembusanSuratMasuk = new DevComponents.DotNetBar.ButtonX();
             this.labelGambarSuratMasuk = new DevComponents.DotNetBar.LabelX();
             this.buttonGambarSuratMasuk = new DevComponents.DotNetBar.ButtonX();
-            this.pictureBoxGambarSuratMasuk = new System.Windows.Forms.PictureBox();
             this.buttonKembaliSuratMasuk = new DevComponents.DotNetBar.ButtonX();
             this.buttonTambahSuratMasuk = new DevComponents.DotNetBar.ButtonX();
+            this.pictureBoxGambarSuratMasuk = new System.Windows.Forms.PictureBox();
             this.groupBoxTanggalSuratMasuk.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalTerimaSuratMasuk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalSuratMasuk)).BeginInit();
@@ -777,16 +777,6 @@ namespace Surat
             this.buttonGambarSuratMasuk.Text = "...";
             this.buttonGambarSuratMasuk.Click += new System.EventHandler(this.buttonGambarSuratMasuk_Click);
             // 
-            // pictureBoxGambarSuratMasuk
-            // 
-            this.pictureBoxGambarSuratMasuk.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxGambarSuratMasuk.Location = new System.Drawing.Point(776, 54);
-            this.pictureBoxGambarSuratMasuk.Name = "pictureBoxGambarSuratMasuk";
-            this.pictureBoxGambarSuratMasuk.Size = new System.Drawing.Size(335, 446);
-            this.pictureBoxGambarSuratMasuk.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxGambarSuratMasuk.TabIndex = 17;
-            this.pictureBoxGambarSuratMasuk.TabStop = false;
-            // 
             // buttonKembaliSuratMasuk
             // 
             this.buttonKembaliSuratMasuk.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -813,7 +803,17 @@ namespace Surat
             this.buttonTambahSuratMasuk.Text = "Tambah";
             this.buttonTambahSuratMasuk.Click += new System.EventHandler(this.buttonTambahSuratMasuk_Click);
             // 
-            // FormTambahSuratMasuk
+            // pictureBoxGambarSuratMasuk
+            // 
+            this.pictureBoxGambarSuratMasuk.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxGambarSuratMasuk.Location = new System.Drawing.Point(776, 54);
+            this.pictureBoxGambarSuratMasuk.Name = "pictureBoxGambarSuratMasuk";
+            this.pictureBoxGambarSuratMasuk.Size = new System.Drawing.Size(335, 446);
+            this.pictureBoxGambarSuratMasuk.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxGambarSuratMasuk.TabIndex = 17;
+            this.pictureBoxGambarSuratMasuk.TabStop = false;
+            // 
+            // FormSuratMasukTambah
             // 
             this.ClientSize = new System.Drawing.Size(1123, 553);
             this.Controls.Add(this.buttonTambahSuratMasuk);
@@ -838,7 +838,7 @@ namespace Surat
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FormTambahSuratMasuk";
+            this.Name = "FormSuratMasukTambah";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

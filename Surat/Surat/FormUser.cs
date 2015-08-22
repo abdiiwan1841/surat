@@ -136,5 +136,11 @@ namespace Surat
                 conn.Close();
             }
         }
+
+        private void FormUser_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormMain form_main = new FormMain();
+            form_main.Show();
+        }
     }
 }

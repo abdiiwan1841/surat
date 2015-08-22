@@ -53,10 +53,5 @@ namespace Surat
             }
             conn.Close();
         }
-
-        private void FormKlasifikasiSuratEdit_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

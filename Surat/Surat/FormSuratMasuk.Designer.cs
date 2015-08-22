@@ -178,6 +178,7 @@ namespace Surat
             this.buttonEditSuratMasuk.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonEditSuratMasuk.TabIndex = 4;
             this.buttonEditSuratMasuk.Text = "Edit";
+            this.buttonEditSuratMasuk.Click += new System.EventHandler(this.buttonEditSuratMasuk_Click);
             // 
             // buttonKembali
             // 
@@ -194,7 +195,7 @@ namespace Surat
             // 
             // FormSuratMasuk
             // 
-            this.ClientSize = new System.Drawing.Size(951, 546);
+            this.ClientSize = new System.Drawing.Size(951, 547);
             this.Controls.Add(this.buttonKembali);
             this.Controls.Add(this.buttonEditSuratMasuk);
             this.Controls.Add(this.buttonHapusSuratMasuk);

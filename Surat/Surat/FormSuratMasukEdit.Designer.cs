@@ -28,11 +28,10 @@ namespace Surat
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonTambahSuratMasuk = new DevComponents.DotNetBar.ButtonX();
+            this.buttonEditSuratMasuk = new DevComponents.DotNetBar.ButtonX();
             this.buttonKembaliSuratMasuk = new DevComponents.DotNetBar.ButtonX();
             this.buttonGambarSuratMasuk = new DevComponents.DotNetBar.ButtonX();
             this.labelGambarSuratMasuk = new DevComponents.DotNetBar.LabelX();
-            this.pictureBoxGambarSuratMasuk = new System.Windows.Forms.PictureBox();
             this.buttonTembusanSuratMasuk = new DevComponents.DotNetBar.ButtonX();
             this.labelTembusanSuratMasuk = new DevComponents.DotNetBar.LabelX();
             this.buttonLampiranSuratMasuk = new DevComponents.DotNetBar.ButtonX();
@@ -75,7 +74,7 @@ namespace Surat
             this.dateTimeInputTanggalTerimaSuratMasuk = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.labelTanggalSuratMasuk = new DevComponents.DotNetBar.LabelX();
             this.dateTimeInputTanggalSuratMasuk = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGambarSuratMasuk)).BeginInit();
+            this.pictureBoxGambarSuratMasuk = new System.Windows.Forms.PictureBox();
             this.groupBoxDistribusiSuratMasuk.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalDistribusiSuratMasuk)).BeginInit();
             this.groupBoxPenerimaSuratMasuk.SuspendLayout();
@@ -85,19 +84,20 @@ namespace Surat
             this.groupBoxTanggalSuratMasuk.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalTerimaSuratMasuk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalSuratMasuk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGambarSuratMasuk)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonTambahSuratMasuk
+            // buttonEditSuratMasuk
             // 
-            this.buttonTambahSuratMasuk.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonTambahSuratMasuk.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonTambahSuratMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTambahSuratMasuk.Location = new System.Drawing.Point(925, 505);
-            this.buttonTambahSuratMasuk.Name = "buttonTambahSuratMasuk";
-            this.buttonTambahSuratMasuk.Size = new System.Drawing.Size(90, 33);
-            this.buttonTambahSuratMasuk.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonTambahSuratMasuk.TabIndex = 38;
-            this.buttonTambahSuratMasuk.Text = "Tambah";
+            this.buttonEditSuratMasuk.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonEditSuratMasuk.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonEditSuratMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEditSuratMasuk.Location = new System.Drawing.Point(925, 505);
+            this.buttonEditSuratMasuk.Name = "buttonEditSuratMasuk";
+            this.buttonEditSuratMasuk.Size = new System.Drawing.Size(90, 33);
+            this.buttonEditSuratMasuk.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonEditSuratMasuk.TabIndex = 38;
+            this.buttonEditSuratMasuk.Text = "Edit";
             // 
             // buttonKembaliSuratMasuk
             // 
@@ -110,6 +110,7 @@ namespace Surat
             this.buttonKembaliSuratMasuk.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonKembaliSuratMasuk.TabIndex = 37;
             this.buttonKembaliSuratMasuk.Text = "Kembali";
+            this.buttonKembaliSuratMasuk.Click += new System.EventHandler(this.buttonKembaliSuratMasuk_Click);
             // 
             // buttonGambarSuratMasuk
             // 
@@ -135,16 +136,6 @@ namespace Surat
             this.labelGambarSuratMasuk.TabIndex = 35;
             this.labelGambarSuratMasuk.Text = "File Gambar Hasil Scan Surat:";
             // 
-            // pictureBoxGambarSuratMasuk
-            // 
-            this.pictureBoxGambarSuratMasuk.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxGambarSuratMasuk.Location = new System.Drawing.Point(776, 51);
-            this.pictureBoxGambarSuratMasuk.Name = "pictureBoxGambarSuratMasuk";
-            this.pictureBoxGambarSuratMasuk.Size = new System.Drawing.Size(335, 446);
-            this.pictureBoxGambarSuratMasuk.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxGambarSuratMasuk.TabIndex = 34;
-            this.pictureBoxGambarSuratMasuk.TabStop = false;
-            // 
             // buttonTembusanSuratMasuk
             // 
             this.buttonTembusanSuratMasuk.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -155,6 +146,7 @@ namespace Surat
             this.buttonTembusanSuratMasuk.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonTembusanSuratMasuk.TabIndex = 33;
             this.buttonTembusanSuratMasuk.Text = "...";
+            this.buttonTembusanSuratMasuk.Click += new System.EventHandler(this.buttonTembusanSuratMasuk_Click);
             // 
             // labelTembusanSuratMasuk
             // 
@@ -179,6 +171,7 @@ namespace Surat
             this.buttonLampiranSuratMasuk.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonLampiranSuratMasuk.TabIndex = 31;
             this.buttonLampiranSuratMasuk.Text = "...";
+            this.buttonLampiranSuratMasuk.Click += new System.EventHandler(this.buttonLampiranSuratMasuk_Click);
             // 
             // labelLampiranSuratMasuk
             // 
@@ -808,10 +801,20 @@ namespace Surat
             this.dateTimeInputTanggalSuratMasuk.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.dateTimeInputTanggalSuratMasuk.TabIndex = 0;
             // 
+            // pictureBoxGambarSuratMasuk
+            // 
+            this.pictureBoxGambarSuratMasuk.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxGambarSuratMasuk.Location = new System.Drawing.Point(776, 51);
+            this.pictureBoxGambarSuratMasuk.Name = "pictureBoxGambarSuratMasuk";
+            this.pictureBoxGambarSuratMasuk.Size = new System.Drawing.Size(335, 446);
+            this.pictureBoxGambarSuratMasuk.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxGambarSuratMasuk.TabIndex = 34;
+            this.pictureBoxGambarSuratMasuk.TabStop = false;
+            // 
             // FormSuratMasukEdit
             // 
-            this.ClientSize = new System.Drawing.Size(1123, 554);
-            this.Controls.Add(this.buttonTambahSuratMasuk);
+            this.ClientSize = new System.Drawing.Size(1127, 554);
+            this.Controls.Add(this.buttonEditSuratMasuk);
             this.Controls.Add(this.buttonKembaliSuratMasuk);
             this.Controls.Add(this.buttonGambarSuratMasuk);
             this.Controls.Add(this.labelGambarSuratMasuk);
@@ -838,7 +841,8 @@ namespace Surat
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Surat Masuk";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGambarSuratMasuk)).EndInit();
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormSuratMasukEdit_FormClosed);
+            this.Load += new System.EventHandler(this.FormSuratMasukEdit_Load);
             this.groupBoxDistribusiSuratMasuk.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalDistribusiSuratMasuk)).EndInit();
             this.groupBoxPenerimaSuratMasuk.ResumeLayout(false);
@@ -848,13 +852,14 @@ namespace Surat
             this.groupBoxTanggalSuratMasuk.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalTerimaSuratMasuk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalSuratMasuk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGambarSuratMasuk)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevComponents.DotNetBar.ButtonX buttonTambahSuratMasuk;
+        private DevComponents.DotNetBar.ButtonX buttonEditSuratMasuk;
         private DevComponents.DotNetBar.ButtonX buttonKembaliSuratMasuk;
         private DevComponents.DotNetBar.ButtonX buttonGambarSuratMasuk;
         private DevComponents.DotNetBar.LabelX labelGambarSuratMasuk;

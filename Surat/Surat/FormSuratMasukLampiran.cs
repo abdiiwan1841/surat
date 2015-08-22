@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace Surat
 {
@@ -19,6 +21,32 @@ namespace Surat
         public static List<string> list_lampiran = new List<string>();
         private string lampiran;
         private int index_lampiran;
+        public static bool opened = false;
+
+        private void getLampiran()
+        {
+            dataGridViewLampiranSuratMasuk.Rows.Clear();
+            Database db = new Database();
+            string strconn = db.getString();
+            MySqlConnection conn = new MySqlConnection(strconn);
+            conn.Open();
+            try
+            {
+                string query = "SELECT * FROM lampiran_surat_masuk WHERE nomor_surat_masuk = @nomor_surat";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@nomor_surat", FormSuratMasuk.nomor_surat);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    list_lampiran.Add(reader["nama_lampiran"].ToString());
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            conn.Close();
+        }
 
         private void tampil_lampiran()
         {
@@ -31,7 +59,19 @@ namespace Surat
 
         private void FormSuratMasukLampiran_Load(object sender, EventArgs e)
         {
-            tampil_lampiran();
+            if (FormSuratMasuk.status == "Tambah")
+            {
+                tampil_lampiran();
+            }
+            else if (FormSuratMasuk.status == "Edit" && opened == false)
+            {
+                getLampiran();
+                tampil_lampiran();
+            }
+            else if (FormSuratMasuk.status == "Edit" && opened == true)
+            {
+                tampil_lampiran();
+            }
             if (list_lampiran.Count == 0)
             {
                 buttonEditLampiranSuratMasuk.Enabled = false;
@@ -42,6 +82,7 @@ namespace Surat
                 buttonEditLampiranSuratMasuk.Enabled = false;
                 buttonTambahLampiranSuratMasuk.Enabled = false;
             }
+            //MessageBox.Show(FormSuratMasuk.status);
         }
 
         private void buttonKembaliLampiranSuratMasuk_Click(object sender, EventArgs e)
@@ -97,6 +138,15 @@ namespace Surat
                 {
                     buttonEditLampiranSuratMasuk.Enabled = true;
                 }
+            }
+        }
+
+        private void FormSuratMasukLampiran_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (FormSuratMasuk.status == "Edit")
+            {
+                dataGridViewLampiranSuratMasuk.Rows.Clear();
+                opened = true;
             }
         }
     }

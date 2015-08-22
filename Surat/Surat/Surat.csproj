@@ -56,7 +56,7 @@
     </Compile>
     <Compile Include="FormSuratMasukLampiran.Designer.cs">
       <DependentUpon>FormSuratMasukLampiran.cs</DependentUpon>
-	</Compile>
+    </Compile>
     <Compile Include="FormEditUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,7 +209,7 @@
     <EmbeddedResource Include="FormSuratMasuk.resx">
       <DependentUpon>FormSuratMasuk.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormTambahSuratMasuk.resx">
+    <EmbeddedResource Include="FormSuratMasukTambah.resx">
       <DependentUpon>FormSuratMasukTambah.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahUser.resx">

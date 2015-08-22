@@ -15,6 +15,7 @@ namespace Surat
     {
         private string query, strconn, kriteria;
         public static string nomor_surat;
+        public static string status;
 
         public FormSuratMasuk()
         {
@@ -118,7 +119,9 @@ namespace Surat
 
         private void buttonTambahSuratMasuk_Click(object sender, EventArgs e)
         {
-            FormTambahSuratMasuk form_tambah = new FormTambahSuratMasuk();
+            FormSuratMasukLampiran form_lampiran = new FormSuratMasukLampiran();
+            status = "Tambah";
+            FormSuratMasukTambah form_tambah = new FormSuratMasukTambah(this);
             form_tambah.ShowDialog();
         }
 
@@ -201,6 +204,14 @@ namespace Surat
             {
                 nomor_surat = row.Cells[0].Value.ToString();
             }
+        }
+
+        private void buttonEditSuratMasuk_Click(object sender, EventArgs e)
+        {
+            FormSuratMasukLampiran form_lampiran = new FormSuratMasukLampiran();
+            status = "Edit";
+            FormSuratMasukEdit form_edit = new FormSuratMasukEdit();
+            form_edit.ShowDialog();
         }
     }
 }
