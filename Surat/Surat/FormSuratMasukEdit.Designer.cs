@@ -98,6 +98,7 @@ namespace Surat
             this.buttonEditSuratMasuk.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonEditSuratMasuk.TabIndex = 38;
             this.buttonEditSuratMasuk.Text = "Edit";
+            this.buttonEditSuratMasuk.Click += new System.EventHandler(this.buttonEditSuratMasuk_Click);
             // 
             // buttonKembaliSuratMasuk
             // 
@@ -122,6 +123,7 @@ namespace Surat
             this.buttonGambarSuratMasuk.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonGambarSuratMasuk.TabIndex = 36;
             this.buttonGambarSuratMasuk.Text = "...";
+            this.buttonGambarSuratMasuk.Click += new System.EventHandler(this.buttonGambarSuratMasuk_Click);
             // 
             // labelGambarSuratMasuk
             // 
