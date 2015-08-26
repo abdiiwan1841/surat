@@ -55,5 +55,10 @@ namespace Surat
             FormSuratMasuk surat_masuk = new FormSuratMasuk();
             surat_masuk.Show();
         }
+
+        private void buttonX2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
