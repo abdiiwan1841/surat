@@ -28,9 +28,9 @@ namespace Surat
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonKembali = new DevComponents.DotNetBar.ButtonX();
             this.buttonEditSuratDisposisi = new DevComponents.DotNetBar.ButtonX();
             this.buttonHapusSuratDisposisi = new DevComponents.DotNetBar.ButtonX();
@@ -41,10 +41,11 @@ namespace Surat
             this.radioButtonPerihalSuratMasuk = new System.Windows.Forms.RadioButton();
             this.radioButtonAsalSurat = new System.Windows.Forms.RadioButton();
             this.radioButtonNomorSurat = new System.Windows.Forms.RadioButton();
-            this.dateTimeInputTanggalSurat = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.textBoxCari = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.dateTimeInputTanggalSurat = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.dataGridViewSuratDisposisi = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.buttonTambahSuratDisposisi = new DevComponents.DotNetBar.ButtonX();
+            this.buttonDetail = new DevComponents.DotNetBar.ButtonX();
             this.groupBoxCariSuratMasuk.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalSurat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSuratDisposisi)).BeginInit();
@@ -68,7 +69,7 @@ namespace Surat
             this.buttonEditSuratDisposisi.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonEditSuratDisposisi.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonEditSuratDisposisi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEditSuratDisposisi.Location = new System.Drawing.Point(833, 72);
+            this.buttonEditSuratDisposisi.Location = new System.Drawing.Point(833, 123);
             this.buttonEditSuratDisposisi.Name = "buttonEditSuratDisposisi";
             this.buttonEditSuratDisposisi.Size = new System.Drawing.Size(106, 45);
             this.buttonEditSuratDisposisi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -81,7 +82,7 @@ namespace Surat
             this.buttonHapusSuratDisposisi.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonHapusSuratDisposisi.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonHapusSuratDisposisi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonHapusSuratDisposisi.Location = new System.Drawing.Point(833, 123);
+            this.buttonHapusSuratDisposisi.Location = new System.Drawing.Point(833, 174);
             this.buttonHapusSuratDisposisi.Name = "buttonHapusSuratDisposisi";
             this.buttonHapusSuratDisposisi.Size = new System.Drawing.Size(106, 45);
             this.buttonHapusSuratDisposisi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -178,6 +179,19 @@ namespace Surat
             this.radioButtonNomorSurat.UseVisualStyleBackColor = true;
             this.radioButtonNomorSurat.CheckedChanged += new System.EventHandler(this.radioButtonNomorSurat_CheckedChanged);
             // 
+            // textBoxCari
+            // 
+            // 
+            // 
+            // 
+            this.textBoxCari.Border.Class = "TextBoxBorder";
+            this.textBoxCari.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.textBoxCari.Location = new System.Drawing.Point(16, 73);
+            this.textBoxCari.Name = "textBoxCari";
+            this.textBoxCari.Size = new System.Drawing.Size(762, 22);
+            this.textBoxCari.TabIndex = 4;
+            this.textBoxCari.TextChanged += new System.EventHandler(this.textBoxCari_TextChanged);
+            // 
             // dateTimeInputTanggalSurat
             // 
             // 
@@ -229,54 +243,41 @@ namespace Surat
             this.dateTimeInputTanggalSurat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.dateTimeInputTanggalSurat.TabIndex = 7;
             // 
-            // textBoxCari
-            // 
-            // 
-            // 
-            // 
-            this.textBoxCari.Border.Class = "TextBoxBorder";
-            this.textBoxCari.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxCari.Location = new System.Drawing.Point(16, 73);
-            this.textBoxCari.Name = "textBoxCari";
-            this.textBoxCari.Size = new System.Drawing.Size(762, 22);
-            this.textBoxCari.TabIndex = 4;
-            this.textBoxCari.TextChanged += new System.EventHandler(this.textBoxCari_TextChanged);
-            // 
             // dataGridViewSuratDisposisi
             // 
             this.dataGridViewSuratDisposisi.AllowUserToAddRows = false;
             this.dataGridViewSuratDisposisi.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSuratDisposisi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSuratDisposisi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewSuratDisposisi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewSuratDisposisi.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewSuratDisposisi.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewSuratDisposisi.EnableHeadersVisualStyles = false;
             this.dataGridViewSuratDisposisi.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewSuratDisposisi.Location = new System.Drawing.Point(12, 140);
             this.dataGridViewSuratDisposisi.MultiSelect = false;
             this.dataGridViewSuratDisposisi.Name = "dataGridViewSuratDisposisi";
             this.dataGridViewSuratDisposisi.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSuratDisposisi.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSuratDisposisi.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewSuratDisposisi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSuratDisposisi.Size = new System.Drawing.Size(801, 394);
             this.dataGridViewSuratDisposisi.TabIndex = 6;
@@ -295,9 +296,23 @@ namespace Surat
             this.buttonTambahSuratDisposisi.Text = "Tambah";
             this.buttonTambahSuratDisposisi.Click += new System.EventHandler(this.buttonTambahSuratDisposisi_Click);
             // 
+            // buttonDetail
+            // 
+            this.buttonDetail.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonDetail.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDetail.Location = new System.Drawing.Point(833, 72);
+            this.buttonDetail.Name = "buttonDetail";
+            this.buttonDetail.Size = new System.Drawing.Size(106, 45);
+            this.buttonDetail.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonDetail.TabIndex = 12;
+            this.buttonDetail.Text = "Detail";
+            this.buttonDetail.Click += new System.EventHandler(this.buttonDetail_Click);
+            // 
             // FormSuratDisposisi
             // 
             this.ClientSize = new System.Drawing.Size(951, 548);
+            this.Controls.Add(this.buttonDetail);
             this.Controls.Add(this.buttonTambahSuratDisposisi);
             this.Controls.Add(this.buttonKembali);
             this.Controls.Add(this.buttonEditSuratDisposisi);
@@ -337,5 +352,6 @@ namespace Surat
         private System.Windows.Forms.RadioButton radioButtonNomorAgenda;
         private System.Windows.Forms.RadioButton radioButtonTanggalSurat;
         private DevComponents.Editors.DateTimeAdv.DateTimeInput dateTimeInputTanggalSurat;
+        private DevComponents.DotNetBar.ButtonX buttonDetail;
     }
 }

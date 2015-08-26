@@ -52,6 +52,12 @@
     <Compile Include="FormSuratDisposisi.Designer.cs">
       <DependentUpon>FormSuratDisposisi.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSuratDisposisiDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSuratDisposisiDetail.Designer.cs">
+      <DependentUpon>FormSuratDisposisiDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSuratDisposisiEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSuratDisposisi.resx">
       <DependentUpon>FormSuratDisposisi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSuratDisposisiDetail.resx">
+      <DependentUpon>FormSuratDisposisiDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSuratDisposisiEdit.resx">
       <DependentUpon>FormSuratDisposisiEdit.cs</DependentUpon>

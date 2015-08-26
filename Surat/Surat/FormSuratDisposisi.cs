@@ -106,7 +106,7 @@ namespace Surat
 
         private void hapusSuratDisposisi(string nomor_surat)
         {
-            DialogResult result =  MessageBox.Show("Apakah Anda yakin ingin menghapus data", "Konfirmasi Penghapusan Data", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result =  MessageBox.Show("Apakah Anda yakin ingin menghapus data?", "Konfirmasi Penghapusan Data", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
                 Database db = new Database();
@@ -192,7 +192,8 @@ namespace Surat
 
         private void dateTimeInputTanggalSurat_MonthCalendar_DateChanged(object sender, EventArgs e)
         {
-            cari = dateTimeInputTanggalSurat.Value.Date.ToString("dd-MM-yyyy");
+            cari = dateTimeInputTanggalSurat.Value.Date.ToString("yyyy-MM-dd");
+            //MessageBox.Show(cari);
             getSuratDisposisi(cari);
         }
 
@@ -216,5 +217,10 @@ namespace Surat
             form_edit.ShowDialog();
         }
 
+        private void buttonDetail_Click(object sender, EventArgs e)
+        {
+            FormSuratDisposisiDetail form_detail = new FormSuratDisposisiDetail();
+            form_detail.ShowDialog();
+        }
     }
 }
