@@ -126,21 +126,25 @@ namespace Surat
             jabatan_tertanda = textBoxJabatanTertandaSuratMasuk.Text;
             tertanda = textBoxTertandaPengirimSuratMasuk.Text;
             distribusi_tanggal = dateTimeInputTanggalDistribusiSuratMasuk.Value.Date.ToString("dd-MM-yyyy");
-            lokasi_tujuan = "";
+            lokasi_tujuan = Application.StartupPath + "\\image_surat_masuk";
 
             Database db = new Database();
             strconn = db.getString();
             MySqlConnection conn = new MySqlConnection(strconn);
             conn.Open();
 
+            if (!Directory.Exists(lokasi_tujuan))
+            {
+                Directory.CreateDirectory(lokasi_tujuan);
+            }
             if (pictureBoxGambarSuratMasuk.Image != null)
             {
-                lokasi_tujuan = Application.StartupPath + "\\image_surat_masuk";
-                if (!Directory.Exists(lokasi_tujuan))
-                {
-                    Directory.CreateDirectory(lokasi_tujuan);
-                }
                 File.Copy(lokasi_gambar, lokasi_tujuan + "\\" + nama_gambar, true);
+            }
+            else
+            {
+                nama_gambar = "no_image.png";
+                File.Copy(Application.StartupPath + "\\no_image.png", lokasi_tujuan + "\\no_image.png", true);
             }
 
             try

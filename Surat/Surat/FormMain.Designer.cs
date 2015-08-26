@@ -35,6 +35,7 @@ namespace Surat
             this.buttonBidang = new DevComponents.DotNetBar.ButtonX();
             this.buttonLogout = new DevComponents.DotNetBar.ButtonX();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonSuratDisposisi = new DevComponents.DotNetBar.ButtonX();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +57,7 @@ namespace Surat
             this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonX2.Location = new System.Drawing.Point(12, 83);
+            this.buttonX2.Location = new System.Drawing.Point(12, 151);
             this.buttonX2.Name = "buttonX2";
             this.buttonX2.Size = new System.Drawing.Size(201, 54);
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -68,7 +69,7 @@ namespace Surat
             this.buttonKlasifikasiSurat.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonKlasifikasiSurat.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonKlasifikasiSurat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKlasifikasiSurat.Location = new System.Drawing.Point(12, 153);
+            this.buttonKlasifikasiSurat.Location = new System.Drawing.Point(12, 220);
             this.buttonKlasifikasiSurat.Name = "buttonKlasifikasiSurat";
             this.buttonKlasifikasiSurat.Size = new System.Drawing.Size(201, 54);
             this.buttonKlasifikasiSurat.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -81,7 +82,7 @@ namespace Surat
             this.ButtonManajemenUser.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.ButtonManajemenUser.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.ButtonManajemenUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonManajemenUser.Location = new System.Drawing.Point(370, 153);
+            this.ButtonManajemenUser.Location = new System.Drawing.Point(370, 220);
             this.ButtonManajemenUser.Name = "ButtonManajemenUser";
             this.ButtonManajemenUser.Size = new System.Drawing.Size(201, 54);
             this.ButtonManajemenUser.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -94,7 +95,7 @@ namespace Surat
             this.buttonBidang.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonBidang.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonBidang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBidang.Location = new System.Drawing.Point(12, 225);
+            this.buttonBidang.Location = new System.Drawing.Point(12, 290);
             this.buttonBidang.Name = "buttonBidang";
             this.buttonBidang.Size = new System.Drawing.Size(201, 54);
             this.buttonBidang.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -107,7 +108,7 @@ namespace Surat
             this.buttonLogout.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonLogout.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLogout.Location = new System.Drawing.Point(370, 225);
+            this.buttonLogout.Location = new System.Drawing.Point(370, 290);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(201, 54);
             this.buttonLogout.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -125,9 +126,23 @@ namespace Surat
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // buttonSuratDisposisi
+            // 
+            this.buttonSuratDisposisi.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonSuratDisposisi.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonSuratDisposisi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSuratDisposisi.Location = new System.Drawing.Point(12, 80);
+            this.buttonSuratDisposisi.Name = "buttonSuratDisposisi";
+            this.buttonSuratDisposisi.Size = new System.Drawing.Size(201, 54);
+            this.buttonSuratDisposisi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonSuratDisposisi.TabIndex = 7;
+            this.buttonSuratDisposisi.Text = "Surat Disposisi";
+            this.buttonSuratDisposisi.Click += new System.EventHandler(this.buttonSuratDisposisi_Click);
+            // 
             // FormMain
             // 
-            this.ClientSize = new System.Drawing.Size(583, 297);
+            this.ClientSize = new System.Drawing.Size(583, 358);
+            this.Controls.Add(this.buttonSuratDisposisi);
             this.Controls.Add(this.buttonLogout);
             this.Controls.Add(this.buttonBidang);
             this.Controls.Add(this.ButtonManajemenUser);
@@ -143,6 +158,7 @@ namespace Surat
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Utama";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
+            this.Load += new System.EventHandler(this.FormMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -157,5 +173,6 @@ namespace Surat
         private DevComponents.DotNetBar.ButtonX ButtonManajemenUser;
         private DevComponents.DotNetBar.ButtonX buttonBidang;
         private DevComponents.DotNetBar.ButtonX buttonLogout;
+        private DevComponents.DotNetBar.ButtonX buttonSuratDisposisi;
     }
 }

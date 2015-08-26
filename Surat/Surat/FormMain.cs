@@ -16,6 +16,8 @@ namespace Surat
             InitializeComponent();
         }
 
+        public static string id_user;
+
         private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -54,6 +56,18 @@ namespace Surat
             this.Hide();
             FormSuratMasuk surat_masuk = new FormSuratMasuk();
             surat_masuk.Show();
+        }
+
+        private void buttonSuratDisposisi_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormSuratDisposisi form_disposisi = new FormSuratDisposisi();
+            form_disposisi.Show();
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            id_user = FormLogin.id_user;
         }
     }
 }

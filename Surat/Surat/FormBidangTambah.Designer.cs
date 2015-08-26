@@ -82,7 +82,7 @@ namespace Surat
             this.textBoxBidangTambah.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxBidangTambah.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxBidangTambah.Location = new System.Drawing.Point(9, 47);
-            this.textBoxBidangTambah.MaxLength = 20;
+            this.textBoxBidangTambah.MaxLength = 50;
             this.textBoxBidangTambah.Name = "textBoxBidangTambah";
             this.textBoxBidangTambah.Size = new System.Drawing.Size(275, 26);
             this.textBoxBidangTambah.TabIndex = 4;

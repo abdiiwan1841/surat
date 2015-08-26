@@ -37,8 +37,8 @@ namespace Surat
             this.textBoxNomorSuratMasuk = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.groupBoxJenisSifatSuratMasuk = new System.Windows.Forms.GroupBox();
             this.comboBoxSifatSuratMasuk = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.comboItemSifatSuratMasukBiasa = new DevComponents.Editors.ComboItem();
-            this.comboItemSifatSuratMasukRahasia = new DevComponents.Editors.ComboItem();
+            this.comboItemBiasa = new DevComponents.Editors.ComboItem();
+            this.comboItemRahasia = new DevComponents.Editors.ComboItem();
             this.labelSifatSuratMasuk = new DevComponents.DotNetBar.LabelX();
             this.comboBoxJenisSuratMasuk = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelJenisSuratMasuk = new DevComponents.DotNetBar.LabelX();
@@ -75,6 +75,9 @@ namespace Surat
             this.buttonKembaliSuratMasuk = new DevComponents.DotNetBar.ButtonX();
             this.buttonTambahSuratMasuk = new DevComponents.DotNetBar.ButtonX();
             this.pictureBoxGambarSuratMasuk = new System.Windows.Forms.PictureBox();
+            this.comboItemSegera = new DevComponents.Editors.ComboItem();
+            this.comboItemPenting = new DevComponents.Editors.ComboItem();
+            this.comboItemLainLain = new DevComponents.Editors.ComboItem();
             this.groupBoxTanggalSuratMasuk.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalTerimaSuratMasuk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalSuratMasuk)).BeginInit();
@@ -277,25 +280,28 @@ namespace Surat
             this.comboBoxSifatSuratMasuk.FormattingEnabled = true;
             this.comboBoxSifatSuratMasuk.ItemHeight = 16;
             this.comboBoxSifatSuratMasuk.Items.AddRange(new object[] {
-            this.comboItemSifatSuratMasukBiasa,
-            this.comboItemSifatSuratMasukRahasia});
+            this.comboItemSegera,
+            this.comboItemRahasia,
+            this.comboItemPenting,
+            this.comboItemBiasa,
+            this.comboItemLainLain});
             this.comboBoxSifatSuratMasuk.Location = new System.Drawing.Point(120, 50);
             this.comboBoxSifatSuratMasuk.Name = "comboBoxSifatSuratMasuk";
             this.comboBoxSifatSuratMasuk.Size = new System.Drawing.Size(168, 22);
             this.comboBoxSifatSuratMasuk.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.comboBoxSifatSuratMasuk.TabIndex = 6;
             // 
-            // comboItemSifatSuratMasukBiasa
+            // comboItemBiasa
             // 
-            this.comboItemSifatSuratMasukBiasa.FontSize = 10F;
-            this.comboItemSifatSuratMasukBiasa.Text = "Biasa";
-            this.comboItemSifatSuratMasukBiasa.Value = "Biasa";
+            this.comboItemBiasa.FontSize = 10F;
+            this.comboItemBiasa.Text = "Biasa";
+            this.comboItemBiasa.Value = "Biasa";
             // 
-            // comboItemSifatSuratMasukRahasia
+            // comboItemRahasia
             // 
-            this.comboItemSifatSuratMasukRahasia.FontSize = 10F;
-            this.comboItemSifatSuratMasukRahasia.Text = "Rahasia";
-            this.comboItemSifatSuratMasukRahasia.Value = "Rahasia";
+            this.comboItemRahasia.FontSize = 10F;
+            this.comboItemRahasia.Text = "Rahasia";
+            this.comboItemRahasia.Value = "Rahasia";
             // 
             // labelSifatSuratMasuk
             // 
@@ -363,6 +369,7 @@ namespace Surat
             this.textBoxIsiSuratMasuk.MaxLength = 100;
             this.textBoxIsiSuratMasuk.Multiline = true;
             this.textBoxIsiSuratMasuk.Name = "textBoxIsiSuratMasuk";
+            this.textBoxIsiSuratMasuk.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxIsiSuratMasuk.Size = new System.Drawing.Size(223, 99);
             this.textBoxIsiSuratMasuk.TabIndex = 10;
             // 
@@ -391,6 +398,7 @@ namespace Surat
             this.textBoxKeteranganSuratMasuk.MaxLength = 50;
             this.textBoxKeteranganSuratMasuk.Multiline = true;
             this.textBoxKeteranganSuratMasuk.Name = "textBoxKeteranganSuratMasuk";
+            this.textBoxKeteranganSuratMasuk.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxKeteranganSuratMasuk.Size = new System.Drawing.Size(223, 48);
             this.textBoxKeteranganSuratMasuk.TabIndex = 8;
             // 
@@ -813,6 +821,18 @@ namespace Surat
             this.pictureBoxGambarSuratMasuk.TabIndex = 17;
             this.pictureBoxGambarSuratMasuk.TabStop = false;
             // 
+            // comboItemSegera
+            // 
+            this.comboItemSegera.Text = "Segera";
+            // 
+            // comboItemPenting
+            // 
+            this.comboItemPenting.Text = "Penting";
+            // 
+            // comboItemLainLain
+            // 
+            this.comboItemLainLain.Text = "Lain-Lain";
+            // 
             // FormSuratMasukTambah
             // 
             this.ClientSize = new System.Drawing.Size(1123, 553);
@@ -873,8 +893,8 @@ namespace Surat
         private DevComponents.DotNetBar.LabelX labelSifatSuratMasuk;
         private DevComponents.DotNetBar.Controls.ComboBoxEx comboBoxJenisSuratMasuk;
         private DevComponents.DotNetBar.Controls.ComboBoxEx comboBoxSifatSuratMasuk;
-        private DevComponents.Editors.ComboItem comboItemSifatSuratMasukBiasa;
-        private DevComponents.Editors.ComboItem comboItemSifatSuratMasukRahasia;
+        private DevComponents.Editors.ComboItem comboItemBiasa;
+        private DevComponents.Editors.ComboItem comboItemRahasia;
         private System.Windows.Forms.GroupBox groupBoxIsiSuratMasuk;
         private DevComponents.DotNetBar.LabelX labelPerihalSuratMasuk;
         private DevComponents.DotNetBar.LabelX labelKeteranganSuratMasuk;
@@ -908,6 +928,9 @@ namespace Surat
         private DevComponents.DotNetBar.ButtonX buttonGambarSuratMasuk;
         private DevComponents.DotNetBar.ButtonX buttonKembaliSuratMasuk;
         private DevComponents.DotNetBar.ButtonX buttonTambahSuratMasuk;
+        private DevComponents.Editors.ComboItem comboItemSegera;
+        private DevComponents.Editors.ComboItem comboItemPenting;
+        private DevComponents.Editors.ComboItem comboItemLainLain;
 
     }
 }
