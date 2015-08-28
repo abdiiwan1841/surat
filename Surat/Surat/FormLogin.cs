@@ -19,6 +19,8 @@ namespace Surat
             InitializeComponent();
         }
 
+        public static string id_user;
+
         private void cekLogin()
         {
             string username = textBoxUsername.Text;
@@ -48,6 +50,7 @@ namespace Surat
             }
             else
             {
+                id_user = reader[0].ToString();
                 this.Hide();
                 FormMain main = new FormMain();
                 main.Show();

@@ -28,7 +28,7 @@ namespace Surat
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonKembaliLampiranSuratMasuk = new DevComponents.DotNetBar.ButtonX();
             this.labelLampiranSuratMasuk = new DevComponents.DotNetBar.LabelX();
             this.buttonHapusLampiranSuratMasuk = new DevComponents.DotNetBar.ButtonX();
@@ -99,14 +99,14 @@ namespace Surat
             this.dataGridViewLampiranSuratMasuk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewLampiranSuratMasuk.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnNamaLampiranSuratMasuk});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewLampiranSuratMasuk.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewLampiranSuratMasuk.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewLampiranSuratMasuk.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewLampiranSuratMasuk.Location = new System.Drawing.Point(12, 68);
             this.dataGridViewLampiranSuratMasuk.Name = "dataGridViewLampiranSuratMasuk";
@@ -149,7 +149,6 @@ namespace Surat
             this.textBoxLampiranSuratMasuk.Name = "textBoxLampiranSuratMasuk";
             this.textBoxLampiranSuratMasuk.Size = new System.Drawing.Size(277, 26);
             this.textBoxLampiranSuratMasuk.TabIndex = 8;
-            this.textBoxLampiranSuratMasuk.TextChanged += new System.EventHandler(this.textBoxLampiranSuratMasuk_TextChanged);
             // 
             // FormSuratMasukLampiran
             // 
@@ -172,7 +171,7 @@ namespace Surat
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lampiran";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormSuratMasukLampiran_FormClosed);
-            this.Load += new System.EventHandler(this.FormSuratMasukLampiran_Load);
+            this.Load += new System.EventHandler(this.FormLampiranSuratMasuk_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLampiranSuratMasuk)).EndInit();
             this.ResumeLayout(false);
 

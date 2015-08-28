@@ -32,11 +32,11 @@ namespace Surat
             this.textBoxTembusanSuratMasuk = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.buttonTambahTembusanSuratMasuk = new DevComponents.DotNetBar.ButtonX();
             this.dataGridViewTembusanSuratMasuk = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.ColumnNamaTembusanSuratMasuk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonEditTembusanSuratMasuk = new DevComponents.DotNetBar.ButtonX();
             this.buttonHapusTembusanSuratMasuk = new DevComponents.DotNetBar.ButtonX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.buttonKembaliTembusanSuratMasuk = new DevComponents.DotNetBar.ButtonX();
+            this.ColumnNamaTembusanSuratMasuk = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTembusanSuratMasuk)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +53,6 @@ namespace Surat
             this.textBoxTembusanSuratMasuk.Name = "textBoxTembusanSuratMasuk";
             this.textBoxTembusanSuratMasuk.Size = new System.Drawing.Size(277, 26);
             this.textBoxTembusanSuratMasuk.TabIndex = 0;
-            this.textBoxTembusanSuratMasuk.TextChanged += new System.EventHandler(this.textBoxTembusanSuratMasuk_TextChanged);
             // 
             // buttonTambahTembusanSuratMasuk
             // 
@@ -85,19 +84,13 @@ namespace Surat
             this.dataGridViewTembusanSuratMasuk.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTembusanSuratMasuk.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewTembusanSuratMasuk.Location = new System.Drawing.Point(12, 68);
+            this.dataGridViewTembusanSuratMasuk.MultiSelect = false;
             this.dataGridViewTembusanSuratMasuk.Name = "dataGridViewTembusanSuratMasuk";
             this.dataGridViewTembusanSuratMasuk.ReadOnly = true;
             this.dataGridViewTembusanSuratMasuk.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewTembusanSuratMasuk.Size = new System.Drawing.Size(277, 219);
             this.dataGridViewTembusanSuratMasuk.TabIndex = 2;
             this.dataGridViewTembusanSuratMasuk.SelectionChanged += new System.EventHandler(this.dataGridViewTembusanSuratMasuk_SelectionChanged);
-            // 
-            // ColumnNamaTembusanSuratMasuk
-            // 
-            this.ColumnNamaTembusanSuratMasuk.HeaderText = "Tembusan";
-            this.ColumnNamaTembusanSuratMasuk.Name = "ColumnNamaTembusanSuratMasuk";
-            this.ColumnNamaTembusanSuratMasuk.ReadOnly = true;
-            this.ColumnNamaTembusanSuratMasuk.Width = 230;
             // 
             // buttonEditTembusanSuratMasuk
             // 
@@ -151,6 +144,14 @@ namespace Surat
             this.buttonKembaliTembusanSuratMasuk.Text = "Kembali";
             this.buttonKembaliTembusanSuratMasuk.Click += new System.EventHandler(this.buttonKembaliTembusanSuratMasuk_Click);
             // 
+            // ColumnNamaTembusanSuratMasuk
+            // 
+            this.ColumnNamaTembusanSuratMasuk.HeaderText = "Tembusan";
+            this.ColumnNamaTembusanSuratMasuk.Name = "ColumnNamaTembusanSuratMasuk";
+            this.ColumnNamaTembusanSuratMasuk.ReadOnly = true;
+            this.ColumnNamaTembusanSuratMasuk.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColumnNamaTembusanSuratMasuk.Width = 230;
+            // 
             // FormSuratMasukTembusan
             // 
             this.ClientSize = new System.Drawing.Size(381, 300);
@@ -183,10 +184,10 @@ namespace Surat
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxTembusanSuratMasuk;
         private DevComponents.DotNetBar.ButtonX buttonTambahTembusanSuratMasuk;
         private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewTembusanSuratMasuk;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNamaTembusanSuratMasuk;
         private DevComponents.DotNetBar.ButtonX buttonEditTembusanSuratMasuk;
         private DevComponents.DotNetBar.ButtonX buttonHapusTembusanSuratMasuk;
         private DevComponents.DotNetBar.LabelX labelX1;
         private DevComponents.DotNetBar.ButtonX buttonKembaliTembusanSuratMasuk;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNamaTembusanSuratMasuk;
     }
 }

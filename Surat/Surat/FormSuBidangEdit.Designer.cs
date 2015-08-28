@@ -82,6 +82,7 @@ namespace Surat
             this.textBoxEditSubBidang.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxEditSubBidang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEditSubBidang.Location = new System.Drawing.Point(9, 43);
+            this.textBoxEditSubBidang.MaxLength = 50;
             this.textBoxEditSubBidang.Name = "textBoxEditSubBidang";
             this.textBoxEditSubBidang.Size = new System.Drawing.Size(275, 26);
             this.textBoxEditSubBidang.TabIndex = 8;
