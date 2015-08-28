@@ -19,5 +19,15 @@ namespace Surat
 
             return strconn;
         }
+
+        public string getString2()
+        {
+            username = "root";
+            password = "";
+
+            string strconn = "server=localhost;User Id='root';password=''; Allow Zero Datetime=true ";
+
+            return strconn;
+        }
     }
 }

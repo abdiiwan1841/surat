@@ -51,7 +51,17 @@
     <Compile Include="FormSuratKeluarTambah.Designer.cs">
       <DependentUpon>FormSuratKeluarTambah.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="FormSuratKeluar.cs">
+=======
+    <Compile Include="FormSuratDisposisiDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSuratDisposisiDetail.Designer.cs">
+      <DependentUpon>FormSuratDisposisiDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSuratDisposisiEdit.cs">
+>>>>>>> 9336aa61759540f53e05c124ea6eca7fafd18ba9
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormSuratKeluar.Designer.cs">
@@ -194,8 +204,19 @@
     <EmbeddedResource Include="FormKlasifikasiSuratTambah.resx">
       <DependentUpon>FormKlasifikasiSuratTambah.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="FormSuratKeluar.resx">
       <DependentUpon>FormSuratKeluar.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="FormSuratDisposisi.resx">
+      <DependentUpon>FormSuratDisposisi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSuratDisposisiDetail.resx">
+      <DependentUpon>FormSuratDisposisiDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSuratDisposisiEdit.resx">
+      <DependentUpon>FormSuratDisposisiEdit.cs</DependentUpon>
+>>>>>>> 9336aa61759540f53e05c124ea6eca7fafd18ba9
     </EmbeddedResource>
     <EmbeddedResource Include="FormSuratKeluarTambah.resx">
       <DependentUpon>FormSuratKeluarTambah.cs</DependentUpon>
