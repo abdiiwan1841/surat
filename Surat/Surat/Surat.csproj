@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevComponents.DotNetBar2, Version=11.2.0.1, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.Instrumentation, Version=11.2.0.1, Culture=neutral, PublicKeyToken=bc4a9d761ea44ef0, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -45,15 +46,12 @@
   <ItemGroup>
     <Compile Include="BidangBagian.cs" />
     <Compile Include="Database.cs" />
-    <Compile Include="FormSuratKeluarTambah.cs">
+    <Compile Include="FormSuratDisposisi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSuratKeluarTambah.Designer.cs">
-      <DependentUpon>FormSuratKeluarTambah.cs</DependentUpon>
+    <Compile Include="FormSuratDisposisi.Designer.cs">
+      <DependentUpon>FormSuratDisposisi.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <Compile Include="FormSuratKeluar.cs">
-=======
     <Compile Include="FormSuratDisposisiDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,11 +59,46 @@
       <DependentUpon>FormSuratDisposisiDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSuratDisposisiEdit.cs">
->>>>>>> 9336aa61759540f53e05c124ea6eca7fafd18ba9
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSuratDisposisiEdit.Designer.cs">
+      <DependentUpon>FormSuratDisposisiEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSuratDisposisiTambah.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSuratDisposisiTambah.Designer.cs">
+      <DependentUpon>FormSuratDisposisiTambah.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSuratKeluar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormSuratKeluar.Designer.cs">
       <DependentUpon>FormSuratKeluar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSuratKeluarEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSuratKeluarEdit.Designer.cs">
+      <DependentUpon>FormSuratKeluarEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSuratKeluarLampiran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSuratKeluarLampiran.Designer.cs">
+      <DependentUpon>FormSuratKeluarLampiran.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSuratKeluarTambah.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSuratKeluarTambah.Designer.cs">
+      <DependentUpon>FormSuratKeluarTambah.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSuratKeluarTembusan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSuratKeluarTembusan.Designer.cs">
+      <DependentUpon>FormSuratKeluarTembusan.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSuratMasukEdit.cs">
       <SubType>Form</SubType>
@@ -204,10 +237,6 @@
     <EmbeddedResource Include="FormKlasifikasiSuratTambah.resx">
       <DependentUpon>FormKlasifikasiSuratTambah.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
-    <EmbeddedResource Include="FormSuratKeluar.resx">
-      <DependentUpon>FormSuratKeluar.cs</DependentUpon>
-=======
     <EmbeddedResource Include="FormSuratDisposisi.resx">
       <DependentUpon>FormSuratDisposisi.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,10 +245,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSuratDisposisiEdit.resx">
       <DependentUpon>FormSuratDisposisiEdit.cs</DependentUpon>
->>>>>>> 9336aa61759540f53e05c124ea6eca7fafd18ba9
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSuratDisposisiTambah.resx">
+      <DependentUpon>FormSuratDisposisiTambah.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSuratKeluar.resx">
+      <DependentUpon>FormSuratKeluar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSuratKeluarEdit.resx">
+      <DependentUpon>FormSuratKeluarEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSuratKeluarLampiran.resx">
+      <DependentUpon>FormSuratKeluarLampiran.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSuratKeluarTambah.resx">
       <DependentUpon>FormSuratKeluarTambah.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSuratKeluarTembusan.resx">
+      <DependentUpon>FormSuratKeluarTembusan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSuratMasukEdit.resx">
       <DependentUpon>FormSuratMasukEdit.cs</DependentUpon>

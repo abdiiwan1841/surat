@@ -37,8 +37,8 @@ namespace Surat
             this.radioButtonInstansiPengirim = new System.Windows.Forms.RadioButton();
             this.radioButtonNomorSuratMasuk = new System.Windows.Forms.RadioButton();
             this.buttonTambahSuratMasuk = new DevComponents.DotNetBar.ButtonX();
-            this.buttonHapusSuratMasuk = new DevComponents.DotNetBar.ButtonX();
-            this.buttonEditSuratMasuk = new DevComponents.DotNetBar.ButtonX();
+            this.buttonHapusSuratDisposisi = new DevComponents.DotNetBar.ButtonX();
+            this.buttonEditSuratDisposisi = new DevComponents.DotNetBar.ButtonX();
             this.buttonKembali = new DevComponents.DotNetBar.ButtonX();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSuratMasuk)).BeginInit();
             this.groupBoxCariSuratMasuk.SuspendLayout();
@@ -154,31 +154,31 @@ namespace Surat
             this.buttonTambahSuratMasuk.Text = "Tambah";
             this.buttonTambahSuratMasuk.Click += new System.EventHandler(this.buttonTambahSuratMasuk_Click);
             // 
-            // buttonHapusSuratMasuk
+            // buttonHapusSuratDisposisi
             // 
-            this.buttonHapusSuratMasuk.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonHapusSuratMasuk.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonHapusSuratMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonHapusSuratMasuk.Location = new System.Drawing.Point(833, 123);
-            this.buttonHapusSuratMasuk.Name = "buttonHapusSuratMasuk";
-            this.buttonHapusSuratMasuk.Size = new System.Drawing.Size(106, 45);
-            this.buttonHapusSuratMasuk.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonHapusSuratMasuk.TabIndex = 3;
-            this.buttonHapusSuratMasuk.Text = "Hapus";
-            this.buttonHapusSuratMasuk.Click += new System.EventHandler(this.buttonHapusSuratMasuk_Click);
+            this.buttonHapusSuratDisposisi.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonHapusSuratDisposisi.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonHapusSuratDisposisi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonHapusSuratDisposisi.Location = new System.Drawing.Point(833, 123);
+            this.buttonHapusSuratDisposisi.Name = "buttonHapusSuratDisposisi";
+            this.buttonHapusSuratDisposisi.Size = new System.Drawing.Size(106, 45);
+            this.buttonHapusSuratDisposisi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonHapusSuratDisposisi.TabIndex = 3;
+            this.buttonHapusSuratDisposisi.Text = "Hapus";
+            this.buttonHapusSuratDisposisi.Click += new System.EventHandler(this.buttonHapusSuratMasuk_Click);
             // 
-            // buttonEditSuratMasuk
+            // buttonEditSuratDisposisi
             // 
-            this.buttonEditSuratMasuk.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonEditSuratMasuk.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonEditSuratMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEditSuratMasuk.Location = new System.Drawing.Point(833, 72);
-            this.buttonEditSuratMasuk.Name = "buttonEditSuratMasuk";
-            this.buttonEditSuratMasuk.Size = new System.Drawing.Size(106, 45);
-            this.buttonEditSuratMasuk.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonEditSuratMasuk.TabIndex = 4;
-            this.buttonEditSuratMasuk.Text = "Edit";
-            this.buttonEditSuratMasuk.Click += new System.EventHandler(this.buttonEditSuratMasuk_Click);
+            this.buttonEditSuratDisposisi.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonEditSuratDisposisi.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonEditSuratDisposisi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEditSuratDisposisi.Location = new System.Drawing.Point(833, 72);
+            this.buttonEditSuratDisposisi.Name = "buttonEditSuratDisposisi";
+            this.buttonEditSuratDisposisi.Size = new System.Drawing.Size(106, 45);
+            this.buttonEditSuratDisposisi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonEditSuratDisposisi.TabIndex = 4;
+            this.buttonEditSuratDisposisi.Text = "Edit";
+            this.buttonEditSuratDisposisi.Click += new System.EventHandler(this.buttonEditSuratMasuk_Click);
             // 
             // buttonKembali
             // 
@@ -197,8 +197,8 @@ namespace Surat
             // 
             this.ClientSize = new System.Drawing.Size(951, 547);
             this.Controls.Add(this.buttonKembali);
-            this.Controls.Add(this.buttonEditSuratMasuk);
-            this.Controls.Add(this.buttonHapusSuratMasuk);
+            this.Controls.Add(this.buttonEditSuratDisposisi);
+            this.Controls.Add(this.buttonHapusSuratDisposisi);
             this.Controls.Add(this.buttonTambahSuratMasuk);
             this.Controls.Add(this.groupBoxCariSuratMasuk);
             this.Controls.Add(this.dataGridViewSuratMasuk);
@@ -228,8 +228,8 @@ namespace Surat
         private System.Windows.Forms.RadioButton radioButtonInstansiPengirim;
         private System.Windows.Forms.RadioButton radioButtonNomorSuratMasuk;
         private DevComponents.DotNetBar.ButtonX buttonTambahSuratMasuk;
-        private DevComponents.DotNetBar.ButtonX buttonHapusSuratMasuk;
-        private DevComponents.DotNetBar.ButtonX buttonEditSuratMasuk;
+        private DevComponents.DotNetBar.ButtonX buttonHapusSuratDisposisi;
+        private DevComponents.DotNetBar.ButtonX buttonEditSuratDisposisi;
         private DevComponents.DotNetBar.ButtonX buttonKembali;
     }
 }

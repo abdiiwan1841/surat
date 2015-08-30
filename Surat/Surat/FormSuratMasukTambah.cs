@@ -240,7 +240,7 @@ namespace Surat
             FormSuratMasukTembusan.list_tembusan.Clear();
         }
 
-        private void textBoxNomorSuratMasuk_TextChanged(object sender, EventArgs e)
+        private void textBoxTertandaPengirimSuratMasuk_TextChanged(object sender, EventArgs e)
         {
 
         }

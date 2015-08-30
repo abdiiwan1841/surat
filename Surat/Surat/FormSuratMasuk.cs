@@ -210,7 +210,7 @@ namespace Surat
         {
             FormSuratMasukLampiran form_lampiran = new FormSuratMasukLampiran();
             status = "Edit";
-            FormSuratMasukEdit form_edit = new FormSuratMasukEdit();
+            FormSuratMasukEdit form_edit = new FormSuratMasukEdit(this);
             form_edit.ShowDialog();
         }
     }

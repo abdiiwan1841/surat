@@ -58,11 +58,6 @@ namespace Surat
             surat_masuk.Show();
         }
 
-<<<<<<< HEAD
-        private void buttonX2_Click(object sender, EventArgs e)
-        {
-
-=======
         private void buttonSuratDisposisi_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -73,7 +68,12 @@ namespace Surat
         private void FormMain_Load(object sender, EventArgs e)
         {
             id_user = FormLogin.id_user;
->>>>>>> d532983644cae6c1ed7cdb67b885b1d480519a3e
+        }
+
+        private void buttonX2_Click(object sender, EventArgs e)
+        {
+            FormSuratKeluar keluar = new FormSuratKeluar();
+            keluar.Show();
         }
     }
 }
