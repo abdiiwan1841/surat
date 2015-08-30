@@ -18,13 +18,58 @@ namespace Surat
         private string nomor_surat, perihal, tanggal_surat, tanggal_terima, 
                         id_jenis, jenis_surat, sifat_surat, pengirim, alamat_pengirim, 
                         penerima, jabatan_tertanda, tertanda, distribusi_tanggal, 
-                        isi_singkat, keterangan, gambar_surat, lokasi_gambar, nama_gambar;
+                        isi_singkat, keterangan, gambar_surat, lokasi_gambar, nama_gambar, bidang;
         private readonly FormSuratMasuk frm1;
 
         public FormSuratMasukEdit(FormSuratMasuk frm)
         {
             InitializeComponent();
             frm1 = frm;
+        }
+
+        private void getDistribusi()
+        {
+            Database db = new Database();
+            strconn = db.getString();
+            MySqlConnection conn = new MySqlConnection(strconn);
+            conn.Open();
+            try
+            {
+                query = "SELECT nomor_surat_masuk, detail_bagian_bidang_surat_masuk.id_bagian_bidang, bagian_bidang.nama_bagian_bidang AS nama FROM detail_bagian_bidang_surat_masuk JOIN bagian_bidang USING(id_bagian_bidang) "+
+                        "WHERE  detail_bagian_bidang_surat_masuk.nomor_surat_masuk = @nomor_surat";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@nomor_surat", nomor_surat);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                
+                while (reader.Read())
+                {
+                    if (reader["nama"].ToString().Equals("Tata Usaha"))
+                    {
+                        checkBoxTataUsaha.Checked = true;
+                    }
+                    if (reader["nama"].ToString().Equals("Programa Siaran"))
+                    {
+                        checkBoxProgramaSiaran.Checked = true;
+                    }
+                    if (reader["nama"].ToString().Equals("Pemberitaan"))
+                    {
+                        checkBoxPemberitaan.Checked = true;
+                    }
+                    if (reader["nama"].ToString().Equals("Teknologi dan Media Baru"))
+                    {
+                        checkBoxTeknologi.Checked = true;
+                    }
+                    if (reader["nama"].ToString().Equals("Layanan dan Pengembangan"))
+                    {
+                        checkBoxLayanan.Checked = true;
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            conn.Close();
         }
 
         private void getAllJenisSurat()
@@ -164,6 +209,50 @@ namespace Surat
             return id_jenis;
         }
 
+        private void tambahDistribusi(string nomor_surat, string bidang)
+        {
+            Database db = new Database();
+            strconn = db.getString();
+            MySqlConnection conn = new MySqlConnection(strconn);
+            conn.Open();
+            try
+            {
+                query = "INSERT INTO detail_bagian_bidang_surat_masuk VALUES(@nomor_surat, " +
+                        "(SELECT id_bagian_bidang FROM bagian_bidang WHERE nama_bagian_bidang = @bagian_bidang))";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@nomor_surat", nomor_surat);
+                cmd.Parameters.AddWithValue("@bagian_bidang", bidang);
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            conn.Close();
+        }
+
+        private void hapusDistribusi(string nomor_surat, string bidang)
+        {
+            Database db = new Database();
+            strconn = db.getString();
+            MySqlConnection conn = new MySqlConnection(strconn);
+            conn.Open();
+            try
+            {
+                query = "DELETE FROM disposisi_bagian WHERE nomor_surat = @nomor_surat AND id_bagian_bidang = " +
+                        "(SELECT id_bagian_bidang FROM bagian_bidang WHERE nama_bagian_bidang = @bagian_bidang)";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@nomor_surat", nomor_surat);
+                cmd.Parameters.AddWithValue("@bagian_bidang", bidang);
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            conn.Close();
+        }
+
         private void editSuratMasuk()
         {
             string lokasi_tujuan;
@@ -250,6 +339,21 @@ namespace Surat
             getSuratMasuk();
             getJenisSurat(id_jenis);
             getSifatSurat(nomor_surat);
+
+            checkBoxTataUsaha.CheckedChanged -= checkBoxTataUsaha_CheckedChanged;
+            checkBoxLayanan.CheckedChanged -= checkBoxLayanan_CheckedChanged;
+            checkBoxPemberitaan.CheckedChanged -= checkBoxPemberitaan_CheckedChanged;
+            checkBoxProgramaSiaran.CheckedChanged -= checkBoxProgramaSiaran_CheckedChanged;
+            checkBoxTeknologi.CheckedChanged -= checkBoxTeknologi_CheckedChanged;
+
+            getDistribusi();
+
+            checkBoxTataUsaha.CheckedChanged += checkBoxTataUsaha_CheckedChanged;
+            checkBoxLayanan.CheckedChanged += checkBoxLayanan_CheckedChanged;
+            checkBoxPemberitaan.CheckedChanged += checkBoxPemberitaan_CheckedChanged;
+            checkBoxProgramaSiaran.CheckedChanged += checkBoxProgramaSiaran_CheckedChanged;
+            checkBoxTeknologi.CheckedChanged += checkBoxTeknologi_CheckedChanged;
+
         }
 
         private void buttonKembaliSuratMasuk_Click(object sender, EventArgs e)
@@ -294,6 +398,71 @@ namespace Surat
             else
             {
                 nama_gambar = gambar_surat;
+            }
+        }
+
+        private void checkBoxTataUsaha_CheckedChanged(object sender, EventArgs e)
+        {
+            bidang = "Tata Usaha";
+            if (checkBoxTataUsaha.Checked)
+            {
+                tambahDistribusi(nomor_surat, bidang);
+            }
+            else
+            {
+                hapusDistribusi(nomor_surat, bidang);
+            }
+        }
+
+        private void checkBoxProgramaSiaran_CheckedChanged(object sender, EventArgs e)
+        {
+            bidang = "Programa Siaran";
+            if (checkBoxProgramaSiaran.Checked)
+            {
+                tambahDistribusi(nomor_surat, bidang);
+            }
+            else
+            {
+                hapusDistribusi(nomor_surat, bidang);
+            }
+        }
+
+        private void checkBoxPemberitaan_CheckedChanged(object sender, EventArgs e)
+        {
+            bidang = "Pemberitaan";
+            if (checkBoxPemberitaan.Checked)
+            {
+                tambahDistribusi(nomor_surat, bidang);
+            }
+            else
+            {
+                hapusDistribusi(nomor_surat, bidang);
+            }
+        }
+
+        private void checkBoxTeknologi_CheckedChanged(object sender, EventArgs e)
+        {
+            bidang = "Teknologi dan Media Baru";
+            if (checkBoxTeknologi.Checked)
+            {
+                tambahDistribusi(nomor_surat, bidang);
+            }
+            else
+            {
+                hapusDistribusi(nomor_surat, bidang);
+            }
+        }
+
+        private void checkBoxLayanan_CheckedChanged(object sender, EventArgs e)
+        {
+            bidang = "Layanan dan Pengembangan";
+            if (checkBoxLayanan.Checked)
+            {
+                tambahDistribusi(nomor_surat, bidang);
+            }
+            else
+            {
+                hapusDistribusi(nomor_surat, bidang);
             }
         }
     }

@@ -19,6 +19,7 @@ namespace Surat
                         perihal_surat, keterangan_surat, isi_surat, nama_gambar, lokasi_gambar, pengirim,
                         alamat_pengirim, penerima, jabatan_tertanda, tertanda, distribusi_tanggal;
         private readonly FormSuratMasuk frm1;
+        private List<string> list_bagian = new List<string>();
 
         public FormSuratMasukTambah(FormSuratMasuk frm)
         {
@@ -107,6 +108,32 @@ namespace Surat
             }
             conn.Close();
             return id_jenis;
+        }
+
+        private void tambahBagianBidang()
+        {
+            Database db = new Database();
+            strconn = db.getString();
+            MySqlConnection conn = new MySqlConnection(strconn);
+            conn.Open();
+
+            try
+            {
+                foreach (var kabag in list_bagian)
+                {
+                    query = "INSERT INTO detail_bagian_bidang_surat_masuk VALUES(@nomor_surat, (SELECT id_bagian_bidang FROM bagian_bidang WHERE nama_bagian_bidang = @bagian))";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@nomor_surat", nomor_surat);
+                    cmd.Parameters.AddWithValue("@bagian", kabag);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+            conn.Close();
         }
 
         public void tambahSuratMasuk()
@@ -219,6 +246,10 @@ namespace Surat
             {
                 tambahTembusan();
             }
+            if (list_bagian.Count != 0)
+            {
+                tambahBagianBidang();
+            }
             MessageBox.Show("Data berhasil ditambah", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
             frm1.getAllSuratMasuk();
         }
@@ -238,6 +269,66 @@ namespace Surat
         {
             FormSuratMasukLampiran.list_lampiran.Clear();
             FormSuratMasukTembusan.list_tembusan.Clear();
+        }
+
+        private void checkBoxTataUsaha_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxTataUsaha.Checked)
+            {
+                list_bagian.Add("Tata Usaha");
+            }
+            else
+            {
+                list_bagian.Remove("Tata Usaha");
+            }
+        }
+
+        private void checkBoxProgramaSiaran_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxProgramaSiaran.Checked)
+            {
+                list_bagian.Add("Programa Siaran");
+            }
+            else
+            {
+                list_bagian.Remove("Programa Siaran");
+            }
+        }
+
+        private void checkBoxPemberitaan_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxPemberitaan.Checked)
+            {
+                list_bagian.Add("Pemberitaan");
+            }
+            else
+            {
+                list_bagian.Remove("Pemberitaan");
+            }
+        }
+
+        private void checkBoxTeknologi_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxTeknologi.Checked)
+            {
+                list_bagian.Add("Teknologi dan Media Baru");
+            }
+            else
+            {
+                list_bagian.Remove("Teknologi dan Media Baru");
+            }
+        }
+
+        private void checkBoxLayanan_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxLayanan.Checked)
+            {
+                list_bagian.Add("Layanan dan Pengembangan");
+            }
+            else
+            {
+                list_bagian.Remove("Layanan dan Pengembangan");
+            }
         }
     }
 }

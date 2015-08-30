@@ -157,24 +157,28 @@ namespace Surat
         {
             kriteria = "nomor_surat";
             textBoxCari.BringToFront();
+            getAllSuratDisposisi();
         }
 
         private void radioButtonNomorAgenda_CheckedChanged(object sender, EventArgs e)
         {
             kriteria = "nomor_agenda";
             textBoxCari.BringToFront();
+            getAllSuratDisposisi();
         }
 
         private void radioButtonAsalSurat_CheckedChanged(object sender, EventArgs e)
         {
             kriteria = "asal";
             textBoxCari.BringToFront();
+            getAllSuratDisposisi();
         }
 
         private void radioButtonPerihalSuratMasuk_CheckedChanged(object sender, EventArgs e)
         {
             kriteria = "perihal";
             textBoxCari.BringToFront();
+            getAllSuratDisposisi();
         }
 
         private void radioButtonTanggalSurat_CheckedChanged(object sender, EventArgs e)
@@ -182,6 +186,7 @@ namespace Surat
             kriteria = "tanggal_surat";
             textBoxCari.SendToBack();
             dataGridViewSuratDisposisi.BringToFront();
+            getAllSuratDisposisi();
         }
 
         private void textBoxCari_TextChanged(object sender, EventArgs e)

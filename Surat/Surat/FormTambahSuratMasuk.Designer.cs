@@ -37,8 +37,11 @@ namespace Surat
             this.textBoxNomorSuratMasuk = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.groupBoxJenisSifatSuratMasuk = new System.Windows.Forms.GroupBox();
             this.comboBoxSifatSuratMasuk = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.comboItemBiasa = new DevComponents.Editors.ComboItem();
+            this.comboItemSegera = new DevComponents.Editors.ComboItem();
             this.comboItemRahasia = new DevComponents.Editors.ComboItem();
+            this.comboItemPenting = new DevComponents.Editors.ComboItem();
+            this.comboItemBiasa = new DevComponents.Editors.ComboItem();
+            this.comboItemLainLain = new DevComponents.Editors.ComboItem();
             this.labelSifatSuratMasuk = new DevComponents.DotNetBar.LabelX();
             this.comboBoxJenisSuratMasuk = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelJenisSuratMasuk = new DevComponents.DotNetBar.LabelX();
@@ -62,7 +65,9 @@ namespace Surat
             this.textBoxPenerimaSuratMasuk = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelPenerimaSuratMasuk = new DevComponents.DotNetBar.LabelX();
             this.groupBoxDistribusiSuratMasuk = new System.Windows.Forms.GroupBox();
-            this.buttonBidangBagianDistribusiSuratMasuk = new DevComponents.DotNetBar.ButtonX();
+            this.checkBoxPemberitaan = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.checkBoxProgramaSiaran = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.checkBoxTataUsaha = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.labelDistribusiSuratMasuk = new DevComponents.DotNetBar.LabelX();
             this.dateTimeInputTanggalDistribusiSuratMasuk = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.labelTanggalDistribusiSuratMasuk = new DevComponents.DotNetBar.LabelX();
@@ -75,9 +80,8 @@ namespace Surat
             this.buttonKembaliSuratMasuk = new DevComponents.DotNetBar.ButtonX();
             this.buttonTambahSuratMasuk = new DevComponents.DotNetBar.ButtonX();
             this.pictureBoxGambarSuratMasuk = new System.Windows.Forms.PictureBox();
-            this.comboItemSegera = new DevComponents.Editors.ComboItem();
-            this.comboItemPenting = new DevComponents.Editors.ComboItem();
-            this.comboItemLainLain = new DevComponents.Editors.ComboItem();
+            this.checkBoxTeknologi = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.checkBoxLayanan = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.groupBoxTanggalSuratMasuk.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalTerimaSuratMasuk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalSuratMasuk)).BeginInit();
@@ -291,17 +295,29 @@ namespace Surat
             this.comboBoxSifatSuratMasuk.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.comboBoxSifatSuratMasuk.TabIndex = 6;
             // 
-            // comboItemBiasa
+            // comboItemSegera
             // 
-            this.comboItemBiasa.FontSize = 10F;
-            this.comboItemBiasa.Text = "Biasa";
-            this.comboItemBiasa.Value = "Biasa";
+            this.comboItemSegera.Text = "Segera";
             // 
             // comboItemRahasia
             // 
             this.comboItemRahasia.FontSize = 10F;
             this.comboItemRahasia.Text = "Rahasia";
             this.comboItemRahasia.Value = "Rahasia";
+            // 
+            // comboItemPenting
+            // 
+            this.comboItemPenting.Text = "Penting";
+            // 
+            // comboItemBiasa
+            // 
+            this.comboItemBiasa.FontSize = 10F;
+            this.comboItemBiasa.Text = "Biasa";
+            this.comboItemBiasa.Value = "Biasa";
+            // 
+            // comboItemLainLain
+            // 
+            this.comboItemLainLain.Text = "Lain-Lain";
             // 
             // labelSifatSuratMasuk
             // 
@@ -352,7 +368,7 @@ namespace Surat
             this.groupBoxIsiSuratMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxIsiSuratMasuk.Location = new System.Drawing.Point(12, 278);
             this.groupBoxIsiSuratMasuk.Name = "groupBoxIsiSuratMasuk";
-            this.groupBoxIsiSuratMasuk.Size = new System.Drawing.Size(354, 222);
+            this.groupBoxIsiSuratMasuk.Size = new System.Drawing.Size(354, 263);
             this.groupBoxIsiSuratMasuk.TabIndex = 4;
             this.groupBoxIsiSuratMasuk.TabStop = false;
             this.groupBoxIsiSuratMasuk.Text = "Isi Surat";
@@ -610,28 +626,63 @@ namespace Surat
             // 
             // groupBoxDistribusiSuratMasuk
             // 
-            this.groupBoxDistribusiSuratMasuk.Controls.Add(this.buttonBidangBagianDistribusiSuratMasuk);
+            this.groupBoxDistribusiSuratMasuk.Controls.Add(this.checkBoxLayanan);
+            this.groupBoxDistribusiSuratMasuk.Controls.Add(this.checkBoxTeknologi);
+            this.groupBoxDistribusiSuratMasuk.Controls.Add(this.checkBoxPemberitaan);
+            this.groupBoxDistribusiSuratMasuk.Controls.Add(this.checkBoxProgramaSiaran);
+            this.groupBoxDistribusiSuratMasuk.Controls.Add(this.checkBoxTataUsaha);
             this.groupBoxDistribusiSuratMasuk.Controls.Add(this.labelDistribusiSuratMasuk);
             this.groupBoxDistribusiSuratMasuk.Controls.Add(this.dateTimeInputTanggalDistribusiSuratMasuk);
             this.groupBoxDistribusiSuratMasuk.Controls.Add(this.labelTanggalDistribusiSuratMasuk);
             this.groupBoxDistribusiSuratMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxDistribusiSuratMasuk.Location = new System.Drawing.Point(382, 348);
             this.groupBoxDistribusiSuratMasuk.Name = "groupBoxDistribusiSuratMasuk";
-            this.groupBoxDistribusiSuratMasuk.Size = new System.Drawing.Size(376, 152);
+            this.groupBoxDistribusiSuratMasuk.Size = new System.Drawing.Size(376, 193);
             this.groupBoxDistribusiSuratMasuk.TabIndex = 7;
             this.groupBoxDistribusiSuratMasuk.TabStop = false;
             this.groupBoxDistribusiSuratMasuk.Text = "Distribusi Surat";
             // 
-            // buttonBidangBagianDistribusiSuratMasuk
+            // checkBoxPemberitaan
             // 
-            this.buttonBidangBagianDistribusiSuratMasuk.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonBidangBagianDistribusiSuratMasuk.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonBidangBagianDistribusiSuratMasuk.Location = new System.Drawing.Point(178, 50);
-            this.buttonBidangBagianDistribusiSuratMasuk.Name = "buttonBidangBagianDistribusiSuratMasuk";
-            this.buttonBidangBagianDistribusiSuratMasuk.Size = new System.Drawing.Size(62, 33);
-            this.buttonBidangBagianDistribusiSuratMasuk.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonBidangBagianDistribusiSuratMasuk.TabIndex = 13;
-            this.buttonBidangBagianDistribusiSuratMasuk.Text = "...";
+            // 
+            // 
+            // 
+            this.checkBoxPemberitaan.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.checkBoxPemberitaan.Location = new System.Drawing.Point(178, 102);
+            this.checkBoxPemberitaan.Name = "checkBoxPemberitaan";
+            this.checkBoxPemberitaan.Size = new System.Drawing.Size(178, 29);
+            this.checkBoxPemberitaan.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.checkBoxPemberitaan.TabIndex = 15;
+            this.checkBoxPemberitaan.Text = "Pemberitaan";
+            this.checkBoxPemberitaan.CheckedChanged += new System.EventHandler(this.checkBoxPemberitaan_CheckedChanged);
+            // 
+            // checkBoxProgramaSiaran
+            // 
+            // 
+            // 
+            // 
+            this.checkBoxProgramaSiaran.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.checkBoxProgramaSiaran.Location = new System.Drawing.Point(178, 76);
+            this.checkBoxProgramaSiaran.Name = "checkBoxProgramaSiaran";
+            this.checkBoxProgramaSiaran.Size = new System.Drawing.Size(178, 29);
+            this.checkBoxProgramaSiaran.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.checkBoxProgramaSiaran.TabIndex = 14;
+            this.checkBoxProgramaSiaran.Text = "Programa Siaran";
+            this.checkBoxProgramaSiaran.CheckedChanged += new System.EventHandler(this.checkBoxProgramaSiaran_CheckedChanged);
+            // 
+            // checkBoxTataUsaha
+            // 
+            // 
+            // 
+            // 
+            this.checkBoxTataUsaha.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.checkBoxTataUsaha.Location = new System.Drawing.Point(178, 50);
+            this.checkBoxTataUsaha.Name = "checkBoxTataUsaha";
+            this.checkBoxTataUsaha.Size = new System.Drawing.Size(178, 29);
+            this.checkBoxTataUsaha.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.checkBoxTataUsaha.TabIndex = 13;
+            this.checkBoxTataUsaha.Text = "Tata Usaha";
+            this.checkBoxTataUsaha.CheckedChanged += new System.EventHandler(this.checkBoxTataUsaha_CheckedChanged);
             // 
             // labelDistribusiSuratMasuk
             // 
@@ -821,21 +872,38 @@ namespace Surat
             this.pictureBoxGambarSuratMasuk.TabIndex = 17;
             this.pictureBoxGambarSuratMasuk.TabStop = false;
             // 
-            // comboItemSegera
+            // checkBoxTeknologi
             // 
-            this.comboItemSegera.Text = "Segera";
             // 
-            // comboItemPenting
             // 
-            this.comboItemPenting.Text = "Penting";
             // 
-            // comboItemLainLain
+            this.checkBoxTeknologi.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.checkBoxTeknologi.Location = new System.Drawing.Point(178, 129);
+            this.checkBoxTeknologi.Name = "checkBoxTeknologi";
+            this.checkBoxTeknologi.Size = new System.Drawing.Size(178, 29);
+            this.checkBoxTeknologi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.checkBoxTeknologi.TabIndex = 16;
+            this.checkBoxTeknologi.Text = "Teknologi dan Media Baru";
+            this.checkBoxTeknologi.CheckedChanged += new System.EventHandler(this.checkBoxTeknologi_CheckedChanged);
             // 
-            this.comboItemLainLain.Text = "Lain-Lain";
+            // checkBoxLayanan
+            // 
+            // 
+            // 
+            // 
+            this.checkBoxLayanan.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.checkBoxLayanan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxLayanan.Location = new System.Drawing.Point(178, 155);
+            this.checkBoxLayanan.Name = "checkBoxLayanan";
+            this.checkBoxLayanan.Size = new System.Drawing.Size(192, 29);
+            this.checkBoxLayanan.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.checkBoxLayanan.TabIndex = 17;
+            this.checkBoxLayanan.Text = "Layanan dan Pengembangan";
+            this.checkBoxLayanan.CheckedChanged += new System.EventHandler(this.checkBoxLayanan_CheckedChanged);
             // 
             // FormSuratMasukTambah
             // 
-            this.ClientSize = new System.Drawing.Size(1123, 553);
+            this.ClientSize = new System.Drawing.Size(1123, 556);
             this.Controls.Add(this.buttonTambahSuratMasuk);
             this.Controls.Add(this.buttonKembaliSuratMasuk);
             this.Controls.Add(this.buttonGambarSuratMasuk);
@@ -919,7 +987,6 @@ namespace Surat
         private System.Windows.Forms.GroupBox groupBoxDistribusiSuratMasuk;
         private DevComponents.DotNetBar.LabelX labelTembusanSuratMasuk;
         private DevComponents.DotNetBar.LabelX labelLampiranSuratMasuk;
-        private DevComponents.DotNetBar.ButtonX buttonBidangBagianDistribusiSuratMasuk;
         private DevComponents.DotNetBar.LabelX labelDistribusiSuratMasuk;
         private DevComponents.DotNetBar.ButtonX buttonLampiranSuratMasuk;
         private DevComponents.DotNetBar.ButtonX buttonTembusanSuratMasuk;
@@ -931,6 +998,11 @@ namespace Surat
         private DevComponents.Editors.ComboItem comboItemSegera;
         private DevComponents.Editors.ComboItem comboItemPenting;
         private DevComponents.Editors.ComboItem comboItemLainLain;
+        private DevComponents.DotNetBar.Controls.CheckBoxX checkBoxPemberitaan;
+        private DevComponents.DotNetBar.Controls.CheckBoxX checkBoxProgramaSiaran;
+        private DevComponents.DotNetBar.Controls.CheckBoxX checkBoxTataUsaha;
+        private DevComponents.DotNetBar.Controls.CheckBoxX checkBoxLayanan;
+        private DevComponents.DotNetBar.Controls.CheckBoxX checkBoxTeknologi;
 
     }
 }

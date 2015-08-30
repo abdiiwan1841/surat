@@ -308,7 +308,7 @@ namespace Surat
             checkBoxKabidLPU.CheckedChanged -= checkBoxKabidLPU_CheckedChanged;
             checkBoxKabidPemberitaan.CheckedChanged -= checkBoxKabidPemberitaan_CheckedChanged;
             checkBoxKabidProgramaSiaran.CheckedChanged -= checkBoxKabidProgramaSiaran_CheckedChanged;
-            checkBoxKabidTeknologi.CheckedChanged -= checkBoxKabidProgramaSiaran_CheckedChanged;
+            checkBoxKabidTeknologi.CheckedChanged -= checkBoxKabidTeknologi_CheckedChanged;
 
             getBidangDisposisi(nomor_surat);
 
@@ -316,7 +316,7 @@ namespace Surat
             checkBoxKabidLPU.CheckedChanged += checkBoxKabidLPU_CheckedChanged;
             checkBoxKabidPemberitaan.CheckedChanged += checkBoxKabidPemberitaan_CheckedChanged;
             checkBoxKabidProgramaSiaran.CheckedChanged += checkBoxKabidProgramaSiaran_CheckedChanged;
-            checkBoxKabidTeknologi.CheckedChanged += checkBoxKabidProgramaSiaran_CheckedChanged;
+            checkBoxKabidTeknologi.CheckedChanged += checkBoxKabidTeknologi_CheckedChanged;
         }
 
         private void buttonKembali_Click(object sender, EventArgs e)

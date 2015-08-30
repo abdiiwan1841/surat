@@ -106,6 +106,12 @@ namespace Surat
             else if (FormSuratMasuk.status == "Edit")
             {
                 getLampiran();
+            }
+            else if (FormSuratMasuk.status == "Detail")
+            {
+                this.Size = new System.Drawing.Size(305, 322);
+                textBoxLampiranSuratMasuk.ReadOnly = true;
+                getLampiran();
             } 
         }
 

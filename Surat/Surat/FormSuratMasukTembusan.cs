@@ -106,7 +106,13 @@ namespace Surat
             else if (FormSuratMasuk.status == "Edit")
             {
                 getTembusan();
-            } 
+            }
+            else if (FormSuratMasuk.status == "Detail")
+            {
+                this.Size = new System.Drawing.Size(305, 322);
+                textBoxTembusanSuratMasuk.ReadOnly = true;
+                getTembusan();
+            }
         }
 
         private void dataGridViewTembusanSuratMasuk_SelectionChanged(object sender, EventArgs e)

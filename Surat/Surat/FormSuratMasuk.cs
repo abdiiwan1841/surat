@@ -14,7 +14,7 @@ namespace Surat
     public partial class FormSuratMasuk : DevComponents.DotNetBar.OfficeForm
     {
         private string query, strconn, kriteria;
-        public static string nomor_surat;
+        public static string nomor_surat, cari;
         public static string status;
 
         public FormSuratMasuk()
@@ -58,7 +58,7 @@ namespace Surat
 
             try
             {
-                query = "SELECT nomor_surat_masuk, tanggal_surat, tanggal_terima, perihal, pengirim, sifat_surat, j.nama_jenis AS jenis_surat " +
+                query = "SELECT nomor_surat_masuk, DATE_FORMAT(tanggal_surat, '%d-%m-%Y'), DATE_FORMAT(tanggal_terima, '%d-%m-%Y'), perihal, pengirim, sifat_surat, j.nama_jenis AS jenis_surat " +
                                 "FROM surat_masuk JOIN jenis_surat AS j USING(id_jenis)";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -69,6 +69,30 @@ namespace Surat
                 MessageBox.Show(ex.ToString());
             }
     
+            conn.Close();
+        }
+
+        private void getSuratMasuk(string cari)
+        {
+            Database db = new Database();
+            strconn = db.getString();
+            MySqlConnection conn = new MySqlConnection(strconn);
+            conn.Open();
+
+            try
+            {
+                query = "SELECT nomor_surat_masuk, DATE_FORMAT(tanggal_surat, '%d-%m-%Y'), DATE_FORMAT(tanggal_terima, '%d-%m-%Y'), perihal, pengirim, sifat_surat, j.nama_jenis AS jenis_surat " +
+                                "FROM surat_masuk JOIN jenis_surat AS j USING(id_jenis) " +
+                                "WHERE " + kriteria + " LIKE '%" + cari + "%'";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                setDataTable(reader);
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
             conn.Close();
         }
 
@@ -117,6 +141,50 @@ namespace Surat
             conn.Close();
         }
 
+        private void deleteLampiranSuratMasuk()
+        {
+            Database db = new Database();
+            strconn = db.getString();
+            MySqlConnection conn = new MySqlConnection(strconn);
+            conn.Open();
+
+            try
+            {
+                string query = "DELETE FROM lampiran_surat_masuk WHERE nomor_surat_masuk = @nomor_surat";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@nomor_surat", nomor_surat);
+                //MessageBox.Show(query);
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            conn.Close();
+        }
+
+        private void deleteDistribusiSuratMasuk()
+        {
+            Database db = new Database();
+            strconn = db.getString();
+            MySqlConnection conn = new MySqlConnection(strconn);
+            conn.Open();
+
+            try
+            {
+                string query = "DELETE FROM detail_bagian_bidang_surat_masuk WHERE nomor_surat_masuk = @nomor_surat";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@nomor_surat", nomor_surat);
+                //MessageBox.Show(query);
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            conn.Close();
+        }
+
         private void buttonTambahSuratMasuk_Click(object sender, EventArgs e)
         {
             FormSuratMasukLampiran form_lampiran = new FormSuratMasukLampiran();
@@ -134,43 +202,28 @@ namespace Surat
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             kriteria = "nomor_surat_masuk";
+            textBoxCariSuratMasuk.BringToFront();
+            getAllSuratMasuk();
         }
 
         private void radioButtonPerihalSuratMasuk_CheckedChanged(object sender, EventArgs e)
         {
             kriteria = "perihal";
+            textBoxCariSuratMasuk.BringToFront();
+            getAllSuratMasuk();
         }
 
         private void radioButtonInstansiPengirim_CheckedChanged(object sender, EventArgs e)
         {
             kriteria = "pengirim";
+            textBoxCariSuratMasuk.BringToFront();
+            getAllSuratMasuk();
         }
 
         private void textBoxCariSuratMasuk_TextChanged(object sender, EventArgs e)
         {
-            string cari;
             cari = textBoxCariSuratMasuk.Text;
-
-            Database db = new Database();
-            strconn = db.getString();
-            MySqlConnection conn = new MySqlConnection(strconn);
-            conn.Open();
-
-            try
-            {
-                query = "SELECT nomor_surat_masuk, tanggal_surat, tanggal_terima, perihal, pengirim, sifat_surat, j.nama_jenis AS jenis_surat " +
-                                "FROM surat_masuk JOIN jenis_surat AS j USING(id_jenis) "+
-                                "WHERE "+kriteria+" LIKE '%"+cari+"%'";
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                setDataTable(reader);
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-
-            conn.Close();
+            getSuratMasuk(cari);
         }
 
         private void buttonKembali_Click(object sender, EventArgs e)
@@ -193,6 +246,8 @@ namespace Surat
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
                 deleteTembusanSuratMasuk();
+                deleteLampiranSuratMasuk();
+                deleteDistribusiSuratMasuk();
                 deleteSuratMasuk();
                 getAllSuratMasuk();
             }
@@ -212,6 +267,28 @@ namespace Surat
             status = "Edit";
             FormSuratMasukEdit form_edit = new FormSuratMasukEdit(this);
             form_edit.ShowDialog();
+        }
+
+        private void buttonDetail_Click(object sender, EventArgs e)
+        {
+            FormSuratMasukDetail form_detail = new FormSuratMasukDetail();
+            status = "Detail";
+            form_detail.ShowDialog();
+        }
+
+        private void radioButtonTanggalSurat_CheckedChanged(object sender, EventArgs e)
+        {
+            kriteria = "tanggal_surat";
+            textBoxCariSuratMasuk.SendToBack();
+            dateTimeInputTanggalSurat.BringToFront();
+            getAllSuratMasuk();
+        }
+
+        private void dateTimeInput1_MonthCalendar_DateChanged(object sender, EventArgs e)
+        {
+            cari = dateTimeInputTanggalSurat.Value.Date.ToString("yyyy-MM-dd");
+            //MessageBox.Show(cari);
+            getSuratMasuk(cari);
         }
     }
 }
