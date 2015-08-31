@@ -69,5 +69,11 @@ namespace Surat
         {
             id_user = FormLogin.id_user;
         }
+
+        private void buttonX2_Click(object sender, EventArgs e)
+        {
+            FormSuratKeluar keluar = new FormSuratKeluar();
+            keluar.Show();
+        }
     }
 }

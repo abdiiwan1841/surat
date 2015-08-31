@@ -81,6 +81,36 @@
     </Compile>
     <Compile Include="FormSuratMasukDetail.Designer.cs">
       <DependentUpon>FormSuratMasukDetail.cs</DependentUpon>
+	</Compile>
+    <Compile Include="FormSuratKeluar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSuratKeluar.Designer.cs">
+      <DependentUpon>FormSuratKeluar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSuratKeluarEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSuratKeluarEdit.Designer.cs">
+      <DependentUpon>FormSuratKeluarEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSuratKeluarLampiran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSuratKeluarLampiran.Designer.cs">
+      <DependentUpon>FormSuratKeluarLampiran.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSuratKeluarTambah.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSuratKeluarTambah.Designer.cs">
+      <DependentUpon>FormSuratKeluarTambah.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSuratKeluarTembusan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSuratKeluarTembusan.Designer.cs">
+      <DependentUpon>FormSuratKeluarTembusan.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSuratMasukEdit.cs">
       <SubType>Form</SubType>
@@ -236,6 +266,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSuratMasukDetail.resx">
       <DependentUpon>FormSuratMasukDetail.cs</DependentUpon>
+	</EmbeddedResource>
+    <EmbeddedResource Include="FormSuratKeluar.resx">
+      <DependentUpon>FormSuratKeluar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSuratKeluarEdit.resx">
+      <DependentUpon>FormSuratKeluarEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSuratKeluarLampiran.resx">
+      <DependentUpon>FormSuratKeluarLampiran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSuratKeluarTambah.resx">
+      <DependentUpon>FormSuratKeluarTambah.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSuratKeluarTembusan.resx">
+      <DependentUpon>FormSuratKeluarTembusan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSuratMasukEdit.resx">
       <DependentUpon>FormSuratMasukEdit.cs</DependentUpon>

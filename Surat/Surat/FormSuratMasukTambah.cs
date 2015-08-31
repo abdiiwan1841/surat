@@ -271,6 +271,7 @@ namespace Surat
             FormSuratMasukTembusan.list_tembusan.Clear();
         }
 
+<<<<<<< HEAD
         private void checkBoxTataUsaha_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxTataUsaha.Checked)
@@ -329,6 +330,11 @@ namespace Surat
             {
                 list_bagian.Remove("Layanan dan Pengembangan");
             }
+=======
+        private void textBoxTertandaPengirimSuratMasuk_TextChanged(object sender, EventArgs e)
+        {
+
+>>>>>>> 257c6d3423ab2bd9d881d5fb5eeb75128cf63e45
         }
     }
 }

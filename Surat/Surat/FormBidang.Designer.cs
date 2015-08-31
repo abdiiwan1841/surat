@@ -38,7 +38,6 @@ namespace Surat
             this.buttonBidangKembali = new DevComponents.DotNetBar.ButtonX();
             this.labelCariBidang = new DevComponents.DotNetBar.LabelX();
             this.textBoxCariBidang = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridViewBidang1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBidang1)).BeginInit();
             this.SuspendLayout();
@@ -136,13 +135,6 @@ namespace Surat
             this.textBoxCariBidang.TabIndex = 6;
             this.textBoxCariBidang.TextChanged += new System.EventHandler(this.textBoxCariBidang_TextChanged);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(213, 357);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 8;
-            // 
             // dataGridViewBidang1
             // 
             this.dataGridViewBidang1.AllowUserToAddRows = false;
@@ -186,7 +178,6 @@ namespace Surat
             // 
             this.ClientSize = new System.Drawing.Size(549, 386);
             this.Controls.Add(this.dataGridViewBidang1);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.labelCariBidang);
             this.Controls.Add(this.textBoxCariBidang);
             this.Controls.Add(this.buttonBidangKembali);
@@ -205,7 +196,6 @@ namespace Surat
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBidang1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -218,7 +208,6 @@ namespace Surat
         private DevComponents.DotNetBar.ButtonX buttonBidangKembali;
         private DevComponents.DotNetBar.LabelX labelCariBidang;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxCariBidang;
-        private System.Windows.Forms.TextBox textBox1;
         private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewBidang1;
     }
 }

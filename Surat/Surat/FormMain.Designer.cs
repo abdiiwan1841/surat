@@ -63,6 +63,7 @@ namespace Surat
             this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX2.TabIndex = 2;
             this.buttonX2.Text = "Surat Keluar";
+            this.buttonX2.Click += new System.EventHandler(this.buttonX2_Click);
             // 
             // buttonKlasifikasiSurat
             // 
