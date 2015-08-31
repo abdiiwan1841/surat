@@ -516,8 +516,7 @@ namespace Surat
             this.textBoxTertandaPengirimSuratMasuk.MaxLength = 50;
             this.textBoxTertandaPengirimSuratMasuk.Name = "textBoxTertandaPengirimSuratMasuk";
             this.textBoxTertandaPengirimSuratMasuk.Size = new System.Drawing.Size(211, 22);
-            this.textBoxTertandaPengirimSuratMasuk.TabIndex = 12;
-            this.textBoxTertandaPengirimSuratMasuk.TextChanged += new System.EventHandler(this.textBoxTertandaPengirimSuratMasuk_TextChanged);
+            this.textBoxTertandaPengirimSuratMasuk.TabIndex = 1;
             // 
             // labelTertandaPengirim
             // 
