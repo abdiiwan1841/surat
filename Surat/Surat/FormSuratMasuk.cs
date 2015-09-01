@@ -300,30 +300,72 @@ namespace Surat
                 foreach (DataTable dtSrc in p_dsSrc.Tables)    
                 {    
                     //Create the worksheet    
-                    ExcelWorksheet objWorksheet = objExcelPackage.Workbook.Worksheets.Add(dtSrc.TableName);    
+                    ExcelWorksheet objWorksheet = objExcelPackage.Workbook.Worksheets.Add(dtSrc.TableName);  
+  
                     //Load the datatable into the sheet, starting from cell A1. Print the column names on row 1    
                     objWorksheet.Cells["A1"].LoadFromDataTable(dtSrc, true, OfficeOpenXml.Table.TableStyles.Medium1);    
-                    objWorksheet.Cells.Style.Font.SetFromFont(new Font("Calibri", 11));    
-                    objWorksheet.Cells.AutoFitColumns();    
+                    objWorksheet.Cells.Style.Font.SetFromFont(new Font("Calibri", 11));
+                    objWorksheet.Cells.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                    objWorksheet.Cells.AutoFitColumns();   
+ 
                     //Format the header    
-                    using (ExcelRange objRange = objWorksheet.Cells["A1:R1"])    
+                    using (ExcelRange objRange = objWorksheet.Cells["A1:O1"])    
                     {    
-                        objRange.Style.Font.Bold = true;    
-                        objRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;    
-                        objRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;    
+                        objRange.Style.Font.Bold = true;       
                         objRange.Style.Fill.PatternType = ExcelFillStyle.Solid;    
                         objRange.Style.Fill.BackgroundColor.SetColor(Color.Gray);
-                        objWorksheet.Column(1).Width = 10;
-                        objWorksheet.Column(16).Width = 20;
-                        objWorksheet.Column(16).Style.WrapText = true;
-                        //objRange.Style.Border.Top.Color.SetColor(Color.Black);
-                        //objRange.Style.Border.Right.Color.SetColor(Color.Black);
-                        //objRange.Style.Border.Left.Color.SetColor(Color.Black);
+
+                        objWorksheet.Column(1).Width = 25;
+                        objWorksheet.Column(2).Width = 20;
+                        objWorksheet.Column(3).Width = 17;
+                        objWorksheet.Column(4).Width = 19;
+                        objWorksheet.Column(5).Width = 19;
+                        objWorksheet.Column(6).Width = 15;
+                        objWorksheet.Column(7).Width = 19;
+                        objWorksheet.Column(8).Width = 19;
+                        objWorksheet.Column(9).Width = 25;
+                        objWorksheet.Column(10).Width = 19;
+                        objWorksheet.Column(11).Width = 19;
+                        objWorksheet.Column(12).Width = 19;
+                        objWorksheet.Column(13).Width = 19;
+                        objWorksheet.Column(14).Width = 19;
+                        objWorksheet.Column(15).Width = 19;
+
+                        objWorksheet.Column(1).Style.WrapText = true;
+                        objWorksheet.Column(2).Style.WrapText = true;
+                        objWorksheet.Column(3).Style.WrapText = true;
+                        objWorksheet.Column(4).Style.WrapText = true;
+                        objWorksheet.Column(5).Style.WrapText = true;
+                        objWorksheet.Column(6).Style.WrapText = true;
+                        objWorksheet.Column(7).Style.WrapText = true;
+                        objWorksheet.Column(8).Style.WrapText = true;
+                        objWorksheet.Column(9).Style.WrapText = true;
+                        objWorksheet.Column(10).Style.WrapText = true;
+                        objWorksheet.Column(11).Style.WrapText = true;
+                        objWorksheet.Column(12).Style.WrapText = true;
+                        objWorksheet.Column(13).Style.WrapText = true;
+                        objWorksheet.Column(14).Style.WrapText = true;
+                        objWorksheet.Column(15).Style.WrapText = true;
+
+                        objWorksheet.Column(1).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        objWorksheet.Column(2).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        objWorksheet.Column(3).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        objWorksheet.Column(4).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        objWorksheet.Column(5).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        objWorksheet.Column(6).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        objWorksheet.Column(7).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        objWorksheet.Column(8).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        objWorksheet.Column(9).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        objWorksheet.Column(10).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        objWorksheet.Column(11).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        objWorksheet.Column(12).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        objWorksheet.Column(13).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        objWorksheet.Column(14).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        objWorksheet.Column(15).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
                     }
                     
                     //objWorksheet.Row(2).Style.Border.BorderAround(ExcelBorderStyle.Thin);
-                    //objWorksheet.Column(2).Style.Border.BorderAround(ExcelBorderStyle.Thin);
-                    //objWorksheet.Column(3).Style.Border.BorderAround(ExcelBorderStyle.Thin);
+                   
                 }    
     
                 //Write it back to the client    
@@ -352,14 +394,28 @@ namespace Surat
                 Database db = new Database();
                 strconn = db.getString();
                 MySqlConnection conn = new MySqlConnection(strconn);
-                query = "SELECT * FROM surat_masuk";
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                //cmd.ExecuteReader();
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                DataSet data = new DataSet();
-                adapter.Fill(data);
+                try
+                {
+                    query = "SELECT nomor_surat_masuk AS 'Nomor Surat', DATE_FORMAT(tanggal_surat, '%d-%m-%Y') AS 'Tanggal Surat', " +
+                                    "DATE_FORMAT(tanggal_terima, '%d-%m-%Y') AS 'Tanggal Terima', sifat_surat AS 'Sifat Surat', j.nama_jenis AS 'Jenis Surat', " +
+                                    "perihal AS 'Perihal', pengirim AS 'Pengirim', " +
+                                    "alamat_pengirim AS 'Alamat Pengirim', penerima AS 'Penerima Surat', tertanda AS 'Tertanda', " +
+                                    "jabatan_tertanda AS 'Jabatan Tertanda', isi_singkat AS 'Isi Surat', " +
+                                    "distribusi_tanggal AS 'Tanggal Distribusi', u.nama AS 'Penginput Data', " +
+                                    "DATE_FORMAT(tanggal_update, '%d-%m-%Y %H:%i:%s') AS 'Waktu Update Terakhir' " +
+                            "FROM surat_masuk JOIN jenis_surat AS j USING(id_jenis) JOIN user AS u USING(id_user)";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    //cmd.ExecuteReader();
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    DataSet data = new DataSet();
+                    adapter.Fill(data);
 
-                GenerateExcel2007(file, data);
+                    GenerateExcel2007(file, data);
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
            
         }

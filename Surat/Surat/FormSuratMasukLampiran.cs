@@ -24,6 +24,18 @@ namespace Surat
         private string strconn, query;
         //public static bool opened = false;
 
+        private bool cekValid()
+        {
+            bool error = false;
+            if (textBoxLampiranSuratMasuk.Text == "")
+            {
+                error = true;
+                MessageBox.Show("Lampiran belum diisi. Penyimpanan data dibatalkan.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBoxLampiranSuratMasuk.Focus();
+            }
+            return error;
+        }
+
         private void getLampiran()
         {
             dataGridViewLampiranSuratMasuk.Rows.Clear();
@@ -66,34 +78,41 @@ namespace Surat
 
         private void buttonTambahLampiranSuratMasuk_Click(object sender, EventArgs e)
         {
-            lampiran = textBoxLampiranSuratMasuk.Text;
-            if (FormSuratMasuk.status == "Tambah")
+            if (cekValid())
             {
-                dataGridViewLampiranSuratMasuk.Rows.Add(lampiran);
-                list_lampiran.Add(lampiran);
-                textBoxLampiranSuratMasuk.Clear();
-                textBoxLampiranSuratMasuk.Focus();
+                return;
             }
-            else if (FormSuratMasuk.status == "Edit")
+            else
             {
-                Database db = new Database();
-                strconn = db.getString();
-                MySqlConnection conn = new MySqlConnection(strconn);
-                conn.Open();
-                try
+                lampiran = textBoxLampiranSuratMasuk.Text;
+                if (FormSuratMasuk.status == "Tambah")
                 {
-                    query = "INSERT INTO lampiran_surat_masuk VALUES(NULL, @nama_lampiran, @nomor_surat)";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@nama_lampiran", lampiran);
-                    cmd.Parameters.AddWithValue("@nomor_surat", FormSuratMasuk.nomor_surat);
-                    cmd.ExecuteNonQuery();
+                    dataGridViewLampiranSuratMasuk.Rows.Add(lampiran);
+                    list_lampiran.Add(lampiran);
+                    textBoxLampiranSuratMasuk.Clear();
+                    textBoxLampiranSuratMasuk.Focus();
                 }
-                catch (MySqlException ex)
+                else if (FormSuratMasuk.status == "Edit")
                 {
-                    MessageBox.Show(ex.ToString());
+                    Database db = new Database();
+                    strconn = db.getString();
+                    MySqlConnection conn = new MySqlConnection(strconn);
+                    conn.Open();
+                    try
+                    {
+                        query = "INSERT INTO lampiran_surat_masuk VALUES(NULL, @nama_lampiran, @nomor_surat)";
+                        MySqlCommand cmd = new MySqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@nama_lampiran", lampiran);
+                        cmd.Parameters.AddWithValue("@nomor_surat", FormSuratMasuk.nomor_surat);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                    conn.Close();
+                    getLampiran();
                 }
-                conn.Close(); 
-                getLampiran();
             }
         }
 
@@ -126,37 +145,44 @@ namespace Surat
 
         private void buttonEditLampiranSuratMasuk_Click(object sender, EventArgs e)
         {
-            if (FormSuratMasuk.status == "Tambah")
+            if (cekValid())
             {
-                list_lampiran[index_lampiran] = textBoxLampiranSuratMasuk.Text;
-                tampil_lampiran();
+                return;
             }
-            else if (FormSuratMasuk.status == "Edit")
+            else
             {
-                Database db = new Database();
-                strconn = db.getString();
-                MySqlConnection conn = new MySqlConnection(strconn);
-                conn.Open();
-                foreach (DataGridViewRow row in dataGridViewLampiranSuratMasuk.SelectedRows)
+                if (FormSuratMasuk.status == "Tambah")
                 {
-                    lampiran_sebelumnya = row.Cells[0].Value.ToString();
+                    list_lampiran[index_lampiran] = textBoxLampiranSuratMasuk.Text;
+                    tampil_lampiran();
                 }
-                try
+                else if (FormSuratMasuk.status == "Edit")
                 {
-                    query = "UPDATE lampiran_surat_masuk SET nama_lampiran = @nama_lampiran " +
-                            "WHERE nomor_surat_masuk = @nomor_surat AND nama_lampiran = @lampiran_sebelumnya";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@nama_lampiran", textBoxLampiranSuratMasuk.Text);
-                    cmd.Parameters.AddWithValue("@lampiran_sebelumnya", lampiran_sebelumnya);
-                    cmd.Parameters.AddWithValue("@nomor_surat", FormSuratMasuk.nomor_surat);
-                    cmd.ExecuteNonQuery();
+                    Database db = new Database();
+                    strconn = db.getString();
+                    MySqlConnection conn = new MySqlConnection(strconn);
+                    conn.Open();
+                    foreach (DataGridViewRow row in dataGridViewLampiranSuratMasuk.SelectedRows)
+                    {
+                        lampiran_sebelumnya = row.Cells[0].Value.ToString();
+                    }
+                    try
+                    {
+                        query = "UPDATE lampiran_surat_masuk SET nama_lampiran = @nama_lampiran " +
+                                "WHERE nomor_surat_masuk = @nomor_surat AND nama_lampiran = @lampiran_sebelumnya";
+                        MySqlCommand cmd = new MySqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@nama_lampiran", textBoxLampiranSuratMasuk.Text);
+                        cmd.Parameters.AddWithValue("@lampiran_sebelumnya", lampiran_sebelumnya);
+                        cmd.Parameters.AddWithValue("@nomor_surat", FormSuratMasuk.nomor_surat);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                    conn.Close();
+                    getLampiran();
                 }
-                catch (MySqlException ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-                conn.Close();
-                getLampiran();
             }
         }
 

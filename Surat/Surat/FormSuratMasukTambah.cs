@@ -27,6 +27,18 @@ namespace Surat
             frm1 = frm;
         }
 
+        private bool cekValid()
+        {
+            bool error = false;
+            if (textBoxNomorSuratMasuk.Text == "")
+            {
+                error = true;
+                MessageBox.Show("Nomor surat belum diisi. Penyimpanan data dibatalkan.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBoxNomorSuratMasuk.Focus();
+            }
+            return error;
+        }
+
         private void tambahTembusan()
         {
             Database db = new Database();
@@ -182,7 +194,7 @@ namespace Surat
                         "VALUES(@nomor_surat, @perihal_surat, STR_TO_DATE(@tanggal_surat, '%d-%m-%Y'), "+
                                 "STR_TO_DATE(@tanggal_terima, '%d-%m-%Y'), @id_jenis, "+
                                 "@sifat_surat, @pengirim, @alamat_pengirim, @penerima, @jabatan_tertanda, @tertanda, "+
-                                "STR_TO_DATE(@distribusi_tanggal, '%d-%m-%Y'), @isi_singkat, @keterangan, @gambar_surat, CURDATE())";
+                                "STR_TO_DATE(@distribusi_tanggal, '%d-%m-%Y'), @isi_singkat, @keterangan, @gambar_surat, NOW())";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@nomor_surat", nomor_surat);
                 cmd.Parameters.AddWithValue("@sifat_surat", sifat_surat);
@@ -200,6 +212,7 @@ namespace Surat
                 cmd.Parameters.AddWithValue("@isi_singkat", isi_surat);
                 cmd.Parameters.AddWithValue("@keterangan", keterangan_surat);
                 cmd.ExecuteNonQuery();
+                MessageBox.Show("Data berhasil ditambah", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (MySqlException ex)
             {
@@ -237,20 +250,26 @@ namespace Surat
 
         private void buttonTambahSuratMasuk_Click(object sender, EventArgs e)
         {
-            tambahSuratMasuk();
-            if (FormSuratMasukLampiran.list_lampiran.Count != 0)
+            if (cekValid())
             {
-                tambahLampiran();
+                return;
             }
-            if (FormSuratMasukTembusan.list_tembusan.Count != 0)
+            else
             {
-                tambahTembusan();
+                tambahSuratMasuk();
+                if (FormSuratMasukLampiran.list_lampiran.Count != 0)
+                {
+                    tambahLampiran();
+                }
+                if (FormSuratMasukTembusan.list_tembusan.Count != 0)
+                {
+                    tambahTembusan();
+                }
+                if (list_bagian.Count != 0)
+                {
+                    tambahBagianBidang();
+                }
             }
-            if (list_bagian.Count != 0)
-            {
-                tambahBagianBidang();
-            }
-            MessageBox.Show("Data berhasil ditambah", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
             frm1.getAllSuratMasuk();
         }
 

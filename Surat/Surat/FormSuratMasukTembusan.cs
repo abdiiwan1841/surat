@@ -24,6 +24,18 @@ namespace Surat
             InitializeComponent();
         }
 
+        private bool cekValid()
+        {
+            bool error = false;
+            if (textBoxTembusanSuratMasuk.Text == "")
+            {
+                error = true;
+                MessageBox.Show("Tembusan belum diisi. Penyimpanan data dibatalkan.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBoxTembusanSuratMasuk.Focus();
+            }
+            return error;
+        }
+
         private void getTembusan()
         {
             dataGridViewTembusanSuratMasuk.Rows.Clear();
@@ -66,34 +78,41 @@ namespace Surat
 
         private void buttonTambahTembusanSuratMasuk_Click(object sender, EventArgs e)
         {
-            tembusan = textBoxTembusanSuratMasuk.Text;
-            if (FormSuratMasuk.status == "Tambah")
+            if (cekValid())
             {
-                dataGridViewTembusanSuratMasuk.Rows.Add(tembusan);
-                list_tembusan.Add(tembusan);
-                textBoxTembusanSuratMasuk.Clear();
-                textBoxTembusanSuratMasuk.Focus();
+                return;
             }
-            else if (FormSuratMasuk.status == "Edit")
+            else
             {
-                Database db = new Database();
-                strconn = db.getString();
-                MySqlConnection conn = new MySqlConnection(strconn);
-                conn.Open();
-                try
+                tembusan = textBoxTembusanSuratMasuk.Text;
+                if (FormSuratMasuk.status == "Tambah")
                 {
-                    query = "INSERT INTO tembusan_surat_masuk VALUES(NULL, @nama_tembusan, @nomor_surat)";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@nama_tembusan", tembusan);
-                    cmd.Parameters.AddWithValue("@nomor_surat", FormSuratMasuk.nomor_surat);
-                    cmd.ExecuteNonQuery();
+                    dataGridViewTembusanSuratMasuk.Rows.Add(tembusan);
+                    list_tembusan.Add(tembusan);
+                    textBoxTembusanSuratMasuk.Clear();
+                    textBoxTembusanSuratMasuk.Focus();
                 }
-                catch (MySqlException ex)
+                else if (FormSuratMasuk.status == "Edit")
                 {
-                    MessageBox.Show(ex.ToString());
+                    Database db = new Database();
+                    strconn = db.getString();
+                    MySqlConnection conn = new MySqlConnection(strconn);
+                    conn.Open();
+                    try
+                    {
+                        query = "INSERT INTO tembusan_surat_masuk VALUES(NULL, @nama_tembusan, @nomor_surat)";
+                        MySqlCommand cmd = new MySqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@nama_tembusan", tembusan);
+                        cmd.Parameters.AddWithValue("@nomor_surat", FormSuratMasuk.nomor_surat);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                    conn.Close();
+                    getTembusan();
                 }
-                conn.Close(); 
-                getTembusan();
             }
         }
 
@@ -126,37 +145,44 @@ namespace Surat
 
         private void buttonEditTembusanSuratMasuk_Click(object sender, EventArgs e)
         {
-            if (FormSuratMasuk.status == "Tambah")
+            if (cekValid())
             {
-                list_tembusan[index_tembusan] = textBoxTembusanSuratMasuk.Text;
-                tampil_tembusan();
+                return;
             }
-            else if (FormSuratMasuk.status == "Edit")
+            else
             {
-                Database db = new Database();
-                strconn = db.getString();
-                MySqlConnection conn = new MySqlConnection(strconn);
-                conn.Open();
-                foreach (DataGridViewRow row in dataGridViewTembusanSuratMasuk.SelectedRows)
+                if (FormSuratMasuk.status == "Tambah")
                 {
-                    tembusan_sebelumnya = row.Cells[0].Value.ToString();
+                    list_tembusan[index_tembusan] = textBoxTembusanSuratMasuk.Text;
+                    tampil_tembusan();
                 }
-                try
+                else if (FormSuratMasuk.status == "Edit")
                 {
-                    query = "UPDATE tembusan_surat_masuk SET nama_tembusan = @nama_tembusan "+
-                            "WHERE nomor_surat_masuk = @nomor_surat AND nama_tembusan = @tembusan_sebelumnya";
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@nama_tembusan", textBoxTembusanSuratMasuk.Text);
-                    cmd.Parameters.AddWithValue("@tembusan_sebelumnya", tembusan_sebelumnya);
-                    cmd.Parameters.AddWithValue("@nomor_surat", FormSuratMasuk.nomor_surat);
-                    cmd.ExecuteNonQuery();
+                    Database db = new Database();
+                    strconn = db.getString();
+                    MySqlConnection conn = new MySqlConnection(strconn);
+                    conn.Open();
+                    foreach (DataGridViewRow row in dataGridViewTembusanSuratMasuk.SelectedRows)
+                    {
+                        tembusan_sebelumnya = row.Cells[0].Value.ToString();
+                    }
+                    try
+                    {
+                        query = "UPDATE tembusan_surat_masuk SET nama_tembusan = @nama_tembusan " +
+                                "WHERE nomor_surat_masuk = @nomor_surat AND nama_tembusan = @tembusan_sebelumnya";
+                        MySqlCommand cmd = new MySqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@nama_tembusan", textBoxTembusanSuratMasuk.Text);
+                        cmd.Parameters.AddWithValue("@tembusan_sebelumnya", tembusan_sebelumnya);
+                        cmd.Parameters.AddWithValue("@nomor_surat", FormSuratMasuk.nomor_surat);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                    conn.Close();
+                    getTembusan();
                 }
-                catch (MySqlException ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-                conn.Close();
-                getTembusan();
             }
         }
 

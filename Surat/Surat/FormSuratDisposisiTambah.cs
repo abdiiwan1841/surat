@@ -34,6 +34,7 @@ namespace Surat
             {
                 error = true;
                 MessageBox.Show("Nomor surat belum diisi. Penyimpanan data dibatalkan.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBoxNomorSurat.Focus();
             }
             return error;
         }

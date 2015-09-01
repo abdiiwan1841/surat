@@ -27,6 +27,18 @@ namespace Surat
             frm1 = frm;
         }
 
+        private bool cekValid()
+        {
+            bool error = false;
+            if (textBoxNomorSuratMasuk.Text == "")
+            {
+                error = true;
+                MessageBox.Show("Nomor surat belum diisi. Penyimpanan data dibatalkan.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBoxNomorSuratMasuk.Focus();
+            }
+            return error;
+        }
+
         private void getDistribusi()
         {
             Database db = new Database();
@@ -381,7 +393,14 @@ namespace Surat
 
         private void buttonEditSuratMasuk_Click(object sender, EventArgs e)
         {
-            editSuratMasuk();
+            if (cekValid())
+            {
+                return;
+            }
+            else
+            {
+                editSuratMasuk();
+            }
             frm1.getAllSuratMasuk();
         }
 

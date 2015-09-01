@@ -101,7 +101,7 @@ namespace Surat
             this.buttonBidang.Size = new System.Drawing.Size(201, 54);
             this.buttonBidang.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonBidang.TabIndex = 5;
-            this.buttonBidang.Text = "Bidang && Sub Bidang";
+            this.buttonBidang.Text = "Bidang && Bagian";
             this.buttonBidang.Click += new System.EventHandler(this.buttonBidang_Click);
             // 
             // buttonLogout

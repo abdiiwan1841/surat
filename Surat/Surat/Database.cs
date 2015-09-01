@@ -12,9 +12,6 @@ namespace Surat
 
         public string getString()
         {
-            username = "root";
-            password = "";
-
             string strconn = "server=localhost;User Id='root';password='';database=db_surat; Allow Zero Datetime=true ";
 
             return strconn;
@@ -22,9 +19,6 @@ namespace Surat
 
         public string getString2()
         {
-            username = "root";
-            password = "";
-
             string strconn = "server=localhost;User Id='root';password=''; Allow Zero Datetime=true ";
 
             return strconn;
