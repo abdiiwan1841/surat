@@ -88,8 +88,8 @@ namespace Surat
                 MySqlCommand cmd18 = new MySqlCommand("CREATE TABLE `tembusan_surat_masuk` (`id_tembusan` int(11) NOT NULL AUTO_INCREMENT,`nama_tembusan` varchar(40) DEFAULT NULL,`nomor_surat_masuk` varchar(40) DEFAULT NULL,PRIMARY KEY (`id_tembusan`),KEY `tembusan_surat_masuk_ibfk_1` (`nomor_surat_masuk`),CONSTRAINT `tembusan_surat_masuk_ibfk_1` FOREIGN KEY (`nomor_surat_masuk`) REFERENCES `surat_masuk` (`nomor_surat_masuk`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB", connect);
                 MySqlCommand cmd19 = new MySqlCommand("insert  into `jenis_surat`(`id_jenis`,`nama_jenis`) values (1,'Surat Dinas'),(2,'Nota Dinas'),(3,'Surat Undangan')", connect);
                 MySqlCommand cmd20 = new MySqlCommand("insert  into `bagian_bidang`(`id_bagian_bidang`,`nama_bagian_bidang`) values (1,'Tata Usaha'),(2,'Programa Siaran'),(3,'Pemberitaan'),(4,'Teknologi dan Media Baru'),(5,'Layanan dan Pengembangan')", connect);
+                MySqlCommand cmd21 = new MySqlCommand("insert  into `user`(`username`,`password`, 'nama') values ('admin', 'admin', 'admin')", connect);
 
-                
                 cmd.ExecuteNonQuery();
                 cmd2.ExecuteNonQuery();
                 cmd3.ExecuteNonQuery();
@@ -110,6 +110,7 @@ namespace Surat
                 cmd18.ExecuteNonQuery();
                 cmd19.ExecuteNonQuery();
                 cmd20.ExecuteNonQuery();
+                cmd21.ExecuteNonQuery();
                 connect.Close();
             
                 cekLogin();

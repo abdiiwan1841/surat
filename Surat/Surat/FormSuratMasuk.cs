@@ -8,6 +8,10 @@ using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using OfficeOpenXml;
+using OfficeOpenXml.Drawing;
+using OfficeOpenXml.Style;
+using System.IO;
 
 namespace Surat
 {
@@ -44,9 +48,7 @@ namespace Surat
             strconn = db.getString();
             MySqlConnection conn = new MySqlConnection(strconn);
             conn.Open();
-            conn.Close();
-
-            
+            conn.Close();    
         }
 
         public void getAllSuratMasuk()
@@ -289,6 +291,77 @@ namespace Surat
             cari = dateTimeInputTanggalSurat.Value.Date.ToString("yyyy-MM-dd");
             //MessageBox.Show(cari);
             getSuratMasuk(cari);
+        }
+
+        public void GenerateExcel2007(string p_strPath, DataSet p_dsSrc)    
+        {    
+            using (ExcelPackage objExcelPackage = new ExcelPackage())    
+            {    
+                foreach (DataTable dtSrc in p_dsSrc.Tables)    
+                {    
+                    //Create the worksheet    
+                    ExcelWorksheet objWorksheet = objExcelPackage.Workbook.Worksheets.Add(dtSrc.TableName);    
+                    //Load the datatable into the sheet, starting from cell A1. Print the column names on row 1    
+                    objWorksheet.Cells["A1"].LoadFromDataTable(dtSrc, true, OfficeOpenXml.Table.TableStyles.Medium1);    
+                    objWorksheet.Cells.Style.Font.SetFromFont(new Font("Calibri", 11));    
+                    objWorksheet.Cells.AutoFitColumns();    
+                    //Format the header    
+                    using (ExcelRange objRange = objWorksheet.Cells["A1:R1"])    
+                    {    
+                        objRange.Style.Font.Bold = true;    
+                        objRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;    
+                        objRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;    
+                        objRange.Style.Fill.PatternType = ExcelFillStyle.Solid;    
+                        objRange.Style.Fill.BackgroundColor.SetColor(Color.Gray);
+                        objWorksheet.Column(1).Width = 10;
+                        objWorksheet.Column(16).Width = 20;
+                        objWorksheet.Column(16).Style.WrapText = true;
+                        //objRange.Style.Border.Top.Color.SetColor(Color.Black);
+                        //objRange.Style.Border.Right.Color.SetColor(Color.Black);
+                        //objRange.Style.Border.Left.Color.SetColor(Color.Black);
+                    }
+                    
+                    //objWorksheet.Row(2).Style.Border.BorderAround(ExcelBorderStyle.Thin);
+                    //objWorksheet.Column(2).Style.Border.BorderAround(ExcelBorderStyle.Thin);
+                    //objWorksheet.Column(3).Style.Border.BorderAround(ExcelBorderStyle.Thin);
+                }    
+    
+                //Write it back to the client    
+                if (File.Exists(p_strPath))    
+                File.Delete(p_strPath);    
+    
+                //Create excel file on physical disk    
+                FileStream objFileStrm = File.Create(p_strPath);    
+                objFileStrm.Close();    
+    
+                //Write content to excel file    
+                File.WriteAllBytes(p_strPath, objExcelPackage.GetAsByteArray());    
+            }    
+        }    
+
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "Excel 2007/2010 File|*.xlsx";
+
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+
+                string file = dialog.FileName;
+                //MessageBox.Show(dialog.FileName);
+                Database db = new Database();
+                strconn = db.getString();
+                MySqlConnection conn = new MySqlConnection(strconn);
+                query = "SELECT * FROM surat_masuk";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                //cmd.ExecuteReader();
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataSet data = new DataSet();
+                adapter.Fill(data);
+
+                GenerateExcel2007(file, data);
+            }
+           
         }
     }
 }
