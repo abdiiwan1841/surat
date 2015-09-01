@@ -52,24 +52,28 @@ namespace Surat
             this.groupBoxTanggalSuratKeluar = new System.Windows.Forms.GroupBox();
             this.labelTanggalSuratMasuk = new DevComponents.DotNetBar.LabelX();
             this.dateTimeInputTanggalSuratKeluar = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
-            this.groupBoxDistribusiSuratKeluar = new System.Windows.Forms.GroupBox();
-            this.buttonBidangBagianDistribusiSuratKeluar = new DevComponents.DotNetBar.ButtonX();
-            this.labelDistribusiSuratKeluar = new DevComponents.DotNetBar.LabelX();
-            this.dateTimeInputTanggalDistribusiSuratKeluar = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
-            this.labelTanggalDistribusiSuratKeluar = new DevComponents.DotNetBar.LabelX();
             this.groupBoxPengirimSuratKeluar = new System.Windows.Forms.GroupBox();
             this.labelJabatanTertanda = new DevComponents.DotNetBar.LabelX();
             this.textBoxJabatanTertandaSuratKeluar = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.textBoxTertandaPengirimSuratKeluar = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelTertandaPengirim = new DevComponents.DotNetBar.LabelX();
+            this.groupBoxDistribusiSuratMasuk = new System.Windows.Forms.GroupBox();
+            this.checkBoxLayanan = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.checkBoxTeknologi = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.checkBoxPemberitaan = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.checkBoxProgramaSiaran = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.checkBoxTataUsaha = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.labelDistribusiSuratMasuk = new DevComponents.DotNetBar.LabelX();
+            this.dateTimeInputTanggalDistribusiSuratKeluar = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
+            this.labelTanggalDistribusiSuratMasuk = new DevComponents.DotNetBar.LabelX();
             this.groupBoxPenerimaSuratKeluar.SuspendLayout();
             this.groupBoxIsiSuratKeluar.SuspendLayout();
             this.groupBoxJenisSifatSuratKeluar.SuspendLayout();
             this.groupBoxTanggalSuratKeluar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalSuratKeluar)).BeginInit();
-            this.groupBoxDistribusiSuratKeluar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalDistribusiSuratKeluar)).BeginInit();
             this.groupBoxPengirimSuratKeluar.SuspendLayout();
+            this.groupBoxDistribusiSuratMasuk.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalDistribusiSuratKeluar)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonTambahSuratKeluar
@@ -426,108 +430,6 @@ namespace Surat
             this.dateTimeInputTanggalSuratKeluar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.dateTimeInputTanggalSuratKeluar.TabIndex = 0;
             // 
-            // groupBoxDistribusiSuratKeluar
-            // 
-            this.groupBoxDistribusiSuratKeluar.Controls.Add(this.buttonBidangBagianDistribusiSuratKeluar);
-            this.groupBoxDistribusiSuratKeluar.Controls.Add(this.labelDistribusiSuratKeluar);
-            this.groupBoxDistribusiSuratKeluar.Controls.Add(this.dateTimeInputTanggalDistribusiSuratKeluar);
-            this.groupBoxDistribusiSuratKeluar.Controls.Add(this.labelTanggalDistribusiSuratKeluar);
-            this.groupBoxDistribusiSuratKeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxDistribusiSuratKeluar.Location = new System.Drawing.Point(378, 117);
-            this.groupBoxDistribusiSuratKeluar.Name = "groupBoxDistribusiSuratKeluar";
-            this.groupBoxDistribusiSuratKeluar.Size = new System.Drawing.Size(376, 114);
-            this.groupBoxDistribusiSuratKeluar.TabIndex = 39;
-            this.groupBoxDistribusiSuratKeluar.TabStop = false;
-            this.groupBoxDistribusiSuratKeluar.Text = "Distribusi Surat";
-            // 
-            // buttonBidangBagianDistribusiSuratKeluar
-            // 
-            this.buttonBidangBagianDistribusiSuratKeluar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonBidangBagianDistribusiSuratKeluar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonBidangBagianDistribusiSuratKeluar.Location = new System.Drawing.Point(178, 50);
-            this.buttonBidangBagianDistribusiSuratKeluar.Name = "buttonBidangBagianDistribusiSuratKeluar";
-            this.buttonBidangBagianDistribusiSuratKeluar.Size = new System.Drawing.Size(62, 33);
-            this.buttonBidangBagianDistribusiSuratKeluar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.buttonBidangBagianDistribusiSuratKeluar.TabIndex = 13;
-            this.buttonBidangBagianDistribusiSuratKeluar.Text = "...";
-            // 
-            // labelDistribusiSuratKeluar
-            // 
-            // 
-            // 
-            // 
-            this.labelDistribusiSuratKeluar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelDistribusiSuratKeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDistribusiSuratKeluar.Location = new System.Drawing.Point(15, 50);
-            this.labelDistribusiSuratKeluar.Name = "labelDistribusiSuratKeluar";
-            this.labelDistribusiSuratKeluar.Size = new System.Drawing.Size(157, 23);
-            this.labelDistribusiSuratKeluar.TabIndex = 12;
-            this.labelDistribusiSuratKeluar.Text = "Bidang/Bagian Distribusi:";
-            // 
-            // dateTimeInputTanggalDistribusiSuratKeluar
-            // 
-            // 
-            // 
-            // 
-            this.dateTimeInputTanggalDistribusiSuratKeluar.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.dateTimeInputTanggalDistribusiSuratKeluar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.dateTimeInputTanggalDistribusiSuratKeluar.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
-            this.dateTimeInputTanggalDistribusiSuratKeluar.ButtonDropDown.Visible = true;
-            this.dateTimeInputTanggalDistribusiSuratKeluar.CustomFormat = "dd-MM-yyyy";
-            this.dateTimeInputTanggalDistribusiSuratKeluar.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
-            this.dateTimeInputTanggalDistribusiSuratKeluar.IsPopupCalendarOpen = false;
-            this.dateTimeInputTanggalDistribusiSuratKeluar.Location = new System.Drawing.Point(178, 22);
-            // 
-            // 
-            // 
-            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.AnnuallyMarkedDates = new System.DateTime[0];
-            // 
-            // 
-            // 
-            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
-            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.ClearButtonVisible = true;
-            // 
-            // 
-            // 
-            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
-            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
-            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
-            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
-            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.DisplayMonth = new System.DateTime(2015, 8, 1, 0, 0, 0, 0);
-            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
-            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.MarkedDates = new System.DateTime[0];
-            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.MonthlyMarkedDates = new System.DateTime[0];
-            // 
-            // 
-            // 
-            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
-            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.TodayButtonVisible = true;
-            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
-            this.dateTimeInputTanggalDistribusiSuratKeluar.Name = "dateTimeInputTanggalDistribusiSuratKeluar";
-            this.dateTimeInputTanggalDistribusiSuratKeluar.Size = new System.Drawing.Size(178, 22);
-            this.dateTimeInputTanggalDistribusiSuratKeluar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.dateTimeInputTanggalDistribusiSuratKeluar.TabIndex = 11;
-            // 
-            // labelTanggalDistribusiSuratKeluar
-            // 
-            // 
-            // 
-            // 
-            this.labelTanggalDistribusiSuratKeluar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelTanggalDistribusiSuratKeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTanggalDistribusiSuratKeluar.Location = new System.Drawing.Point(15, 21);
-            this.labelTanggalDistribusiSuratKeluar.Name = "labelTanggalDistribusiSuratKeluar";
-            this.labelTanggalDistribusiSuratKeluar.Size = new System.Drawing.Size(124, 23);
-            this.labelTanggalDistribusiSuratKeluar.TabIndex = 4;
-            this.labelTanggalDistribusiSuratKeluar.Text = "Tanggal Distribusi:";
-            // 
             // groupBoxPengirimSuratKeluar
             // 
             this.groupBoxPengirimSuratKeluar.Controls.Add(this.labelJabatanTertanda);
@@ -535,7 +437,7 @@ namespace Surat
             this.groupBoxPengirimSuratKeluar.Controls.Add(this.textBoxTertandaPengirimSuratKeluar);
             this.groupBoxPengirimSuratKeluar.Controls.Add(this.labelTertandaPengirim);
             this.groupBoxPengirimSuratKeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxPengirimSuratKeluar.Location = new System.Drawing.Point(378, 248);
+            this.groupBoxPengirimSuratKeluar.Location = new System.Drawing.Point(378, 132);
             this.groupBoxPengirimSuratKeluar.Name = "groupBoxPengirimSuratKeluar";
             this.groupBoxPengirimSuratKeluar.Size = new System.Drawing.Size(376, 99);
             this.groupBoxPengirimSuratKeluar.TabIndex = 40;
@@ -596,11 +498,177 @@ namespace Surat
             this.labelTertandaPengirim.TabIndex = 11;
             this.labelTertandaPengirim.Text = "Tertanda Pengirim : ";
             // 
+            // groupBoxDistribusiSuratMasuk
+            // 
+            this.groupBoxDistribusiSuratMasuk.Controls.Add(this.checkBoxLayanan);
+            this.groupBoxDistribusiSuratMasuk.Controls.Add(this.checkBoxTeknologi);
+            this.groupBoxDistribusiSuratMasuk.Controls.Add(this.checkBoxPemberitaan);
+            this.groupBoxDistribusiSuratMasuk.Controls.Add(this.checkBoxProgramaSiaran);
+            this.groupBoxDistribusiSuratMasuk.Controls.Add(this.checkBoxTataUsaha);
+            this.groupBoxDistribusiSuratMasuk.Controls.Add(this.labelDistribusiSuratMasuk);
+            this.groupBoxDistribusiSuratMasuk.Controls.Add(this.dateTimeInputTanggalDistribusiSuratKeluar);
+            this.groupBoxDistribusiSuratMasuk.Controls.Add(this.labelTanggalDistribusiSuratMasuk);
+            this.groupBoxDistribusiSuratMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxDistribusiSuratMasuk.Location = new System.Drawing.Point(378, 248);
+            this.groupBoxDistribusiSuratMasuk.Name = "groupBoxDistribusiSuratMasuk";
+            this.groupBoxDistribusiSuratMasuk.Size = new System.Drawing.Size(376, 222);
+            this.groupBoxDistribusiSuratMasuk.TabIndex = 41;
+            this.groupBoxDistribusiSuratMasuk.TabStop = false;
+            this.groupBoxDistribusiSuratMasuk.Text = "Distribusi Surat";
+            // 
+            // checkBoxLayanan
+            // 
+            // 
+            // 
+            // 
+            this.checkBoxLayanan.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.checkBoxLayanan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxLayanan.Location = new System.Drawing.Point(178, 155);
+            this.checkBoxLayanan.Name = "checkBoxLayanan";
+            this.checkBoxLayanan.Size = new System.Drawing.Size(192, 29);
+            this.checkBoxLayanan.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.checkBoxLayanan.TabIndex = 17;
+            this.checkBoxLayanan.Text = "Layanan dan Pengembangan";
+            this.checkBoxLayanan.CheckedChanged += new System.EventHandler(this.checkBoxLayanan_CheckedChanged);
+            // 
+            // checkBoxTeknologi
+            // 
+            // 
+            // 
+            // 
+            this.checkBoxTeknologi.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.checkBoxTeknologi.Location = new System.Drawing.Point(178, 129);
+            this.checkBoxTeknologi.Name = "checkBoxTeknologi";
+            this.checkBoxTeknologi.Size = new System.Drawing.Size(178, 29);
+            this.checkBoxTeknologi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.checkBoxTeknologi.TabIndex = 16;
+            this.checkBoxTeknologi.Text = "Teknologi dan Media Baru";
+            this.checkBoxTeknologi.CheckedChanged += new System.EventHandler(this.checkBoxTeknologi_CheckedChanged);
+            // 
+            // checkBoxPemberitaan
+            // 
+            // 
+            // 
+            // 
+            this.checkBoxPemberitaan.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.checkBoxPemberitaan.Location = new System.Drawing.Point(178, 102);
+            this.checkBoxPemberitaan.Name = "checkBoxPemberitaan";
+            this.checkBoxPemberitaan.Size = new System.Drawing.Size(178, 29);
+            this.checkBoxPemberitaan.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.checkBoxPemberitaan.TabIndex = 15;
+            this.checkBoxPemberitaan.Text = "Pemberitaan";
+            this.checkBoxPemberitaan.CheckedChanged += new System.EventHandler(this.checkBoxPemberitaan_CheckedChanged);
+            // 
+            // checkBoxProgramaSiaran
+            // 
+            // 
+            // 
+            // 
+            this.checkBoxProgramaSiaran.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.checkBoxProgramaSiaran.Location = new System.Drawing.Point(178, 76);
+            this.checkBoxProgramaSiaran.Name = "checkBoxProgramaSiaran";
+            this.checkBoxProgramaSiaran.Size = new System.Drawing.Size(178, 29);
+            this.checkBoxProgramaSiaran.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.checkBoxProgramaSiaran.TabIndex = 14;
+            this.checkBoxProgramaSiaran.Text = "Programa Siaran";
+            this.checkBoxProgramaSiaran.CheckedChanged += new System.EventHandler(this.checkBoxProgramaSiaran_CheckedChanged);
+            // 
+            // checkBoxTataUsaha
+            // 
+            // 
+            // 
+            // 
+            this.checkBoxTataUsaha.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.checkBoxTataUsaha.Location = new System.Drawing.Point(178, 50);
+            this.checkBoxTataUsaha.Name = "checkBoxTataUsaha";
+            this.checkBoxTataUsaha.Size = new System.Drawing.Size(178, 29);
+            this.checkBoxTataUsaha.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.checkBoxTataUsaha.TabIndex = 13;
+            this.checkBoxTataUsaha.Text = "Tata Usaha";
+            this.checkBoxTataUsaha.CheckedChanged += new System.EventHandler(this.checkBoxTataUsaha_CheckedChanged);
+            // 
+            // labelDistribusiSuratMasuk
+            // 
+            // 
+            // 
+            // 
+            this.labelDistribusiSuratMasuk.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelDistribusiSuratMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDistribusiSuratMasuk.Location = new System.Drawing.Point(15, 50);
+            this.labelDistribusiSuratMasuk.Name = "labelDistribusiSuratMasuk";
+            this.labelDistribusiSuratMasuk.Size = new System.Drawing.Size(157, 23);
+            this.labelDistribusiSuratMasuk.TabIndex = 12;
+            this.labelDistribusiSuratMasuk.Text = "Bidang/Bagian Distribusi:";
+            // 
+            // dateTimeInputTanggalDistribusiSuratKeluar
+            // 
+            // 
+            // 
+            // 
+            this.dateTimeInputTanggalDistribusiSuratKeluar.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.dateTimeInputTanggalDistribusiSuratKeluar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.dateTimeInputTanggalDistribusiSuratKeluar.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
+            this.dateTimeInputTanggalDistribusiSuratKeluar.ButtonDropDown.Visible = true;
+            this.dateTimeInputTanggalDistribusiSuratKeluar.CustomFormat = "dd-MM-yyyy";
+            this.dateTimeInputTanggalDistribusiSuratKeluar.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
+            this.dateTimeInputTanggalDistribusiSuratKeluar.IsPopupCalendarOpen = false;
+            this.dateTimeInputTanggalDistribusiSuratKeluar.Location = new System.Drawing.Point(178, 22);
+            // 
+            // 
+            // 
+            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.AnnuallyMarkedDates = new System.DateTime[0];
+            // 
+            // 
+            // 
+            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
+            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.ClearButtonVisible = true;
+            // 
+            // 
+            // 
+            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
+            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
+            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
+            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
+            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.DisplayMonth = new System.DateTime(2015, 8, 1, 0, 0, 0, 0);
+            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
+            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.MarkedDates = new System.DateTime[0];
+            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.MonthlyMarkedDates = new System.DateTime[0];
+            // 
+            // 
+            // 
+            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
+            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.TodayButtonVisible = true;
+            this.dateTimeInputTanggalDistribusiSuratKeluar.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
+            this.dateTimeInputTanggalDistribusiSuratKeluar.Name = "dateTimeInputTanggalDistribusiSuratKeluar";
+            this.dateTimeInputTanggalDistribusiSuratKeluar.Size = new System.Drawing.Size(178, 22);
+            this.dateTimeInputTanggalDistribusiSuratKeluar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.dateTimeInputTanggalDistribusiSuratKeluar.TabIndex = 11;
+            // 
+            // labelTanggalDistribusiSuratMasuk
+            // 
+            // 
+            // 
+            // 
+            this.labelTanggalDistribusiSuratMasuk.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelTanggalDistribusiSuratMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTanggalDistribusiSuratMasuk.Location = new System.Drawing.Point(15, 21);
+            this.labelTanggalDistribusiSuratMasuk.Name = "labelTanggalDistribusiSuratMasuk";
+            this.labelTanggalDistribusiSuratMasuk.Size = new System.Drawing.Size(124, 23);
+            this.labelTanggalDistribusiSuratMasuk.TabIndex = 4;
+            this.labelTanggalDistribusiSuratMasuk.Text = "Tanggal Distribusi:";
+            // 
             // FormSuratKeluarTambah
             // 
-            this.ClientSize = new System.Drawing.Size(771, 547);
+            this.ClientSize = new System.Drawing.Size(767, 547);
+            this.Controls.Add(this.groupBoxDistribusiSuratMasuk);
             this.Controls.Add(this.groupBoxPengirimSuratKeluar);
-            this.Controls.Add(this.groupBoxDistribusiSuratKeluar);
             this.Controls.Add(this.buttonTambahSuratKeluar);
             this.Controls.Add(this.buttonKembaliSuratMasuk);
             this.Controls.Add(this.buttonTembusanSuratKeluar);
@@ -614,6 +682,7 @@ namespace Surat
             this.Controls.Add(this.labelNomorSuratMasuk);
             this.Controls.Add(this.groupBoxTanggalSuratKeluar);
             this.DoubleBuffered = true;
+            this.EnableGlass = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "FormSuratKeluarTambah";
@@ -625,9 +694,9 @@ namespace Surat
             this.groupBoxJenisSifatSuratKeluar.ResumeLayout(false);
             this.groupBoxTanggalSuratKeluar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalSuratKeluar)).EndInit();
-            this.groupBoxDistribusiSuratKeluar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalDistribusiSuratKeluar)).EndInit();
             this.groupBoxPengirimSuratKeluar.ResumeLayout(false);
+            this.groupBoxDistribusiSuratMasuk.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalDistribusiSuratKeluar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -658,15 +727,19 @@ namespace Surat
         private System.Windows.Forms.GroupBox groupBoxTanggalSuratKeluar;
         private DevComponents.DotNetBar.LabelX labelTanggalSuratMasuk;
         private DevComponents.Editors.DateTimeAdv.DateTimeInput dateTimeInputTanggalSuratKeluar;
-        private System.Windows.Forms.GroupBox groupBoxDistribusiSuratKeluar;
-        private DevComponents.DotNetBar.ButtonX buttonBidangBagianDistribusiSuratKeluar;
-        private DevComponents.DotNetBar.LabelX labelDistribusiSuratKeluar;
-        private DevComponents.Editors.DateTimeAdv.DateTimeInput dateTimeInputTanggalDistribusiSuratKeluar;
-        private DevComponents.DotNetBar.LabelX labelTanggalDistribusiSuratKeluar;
         private System.Windows.Forms.GroupBox groupBoxPengirimSuratKeluar;
         private DevComponents.DotNetBar.LabelX labelJabatanTertanda;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxJabatanTertandaSuratKeluar;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxTertandaPengirimSuratKeluar;
         private DevComponents.DotNetBar.LabelX labelTertandaPengirim;
+        private System.Windows.Forms.GroupBox groupBoxDistribusiSuratMasuk;
+        private DevComponents.DotNetBar.Controls.CheckBoxX checkBoxLayanan;
+        private DevComponents.DotNetBar.Controls.CheckBoxX checkBoxTeknologi;
+        private DevComponents.DotNetBar.Controls.CheckBoxX checkBoxPemberitaan;
+        private DevComponents.DotNetBar.Controls.CheckBoxX checkBoxProgramaSiaran;
+        private DevComponents.DotNetBar.Controls.CheckBoxX checkBoxTataUsaha;
+        private DevComponents.DotNetBar.LabelX labelDistribusiSuratMasuk;
+        private DevComponents.Editors.DateTimeAdv.DateTimeInput dateTimeInputTanggalDistribusiSuratKeluar;
+        private DevComponents.DotNetBar.LabelX labelTanggalDistribusiSuratMasuk;
     }
 }

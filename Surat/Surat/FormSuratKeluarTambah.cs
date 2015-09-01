@@ -17,7 +17,8 @@ namespace Surat
         private string strconn, query;
         private string nomor_surat, tgl_surat, jenis_surat,
                         perihal_surat, keterangan_surat, isi_surat,
-                        tertanda_pengirim,jabatan_tertanda,penerima;
+                        tertanda_pengirim, jabatan_tertanda, penerima, distribusi_tanggal;
+        private List<string> list_bagian = new List<string>();
         private readonly FormSuratKeluar frm1;
 
         public FormSuratKeluarTambah(FormSuratKeluar frm)
@@ -121,7 +122,7 @@ namespace Surat
             penerima = textBoxPenerimaSuratKeluar.Text;
             jabatan_tertanda = textBoxJabatanTertandaSuratKeluar.Text;
             tertanda_pengirim = textBoxTertandaPengirimSuratKeluar.Text;
-
+            distribusi_tanggal = dateTimeInputTanggalDistribusiSuratKeluar.Value.Date.ToString("dd-MM-yyyy");
             //distribusi_tanggal = dateTimeInputTanggalDistribusiSuratKeluar.Value.Date.ToString("dd-MM-yyyy");
             lokasi_tujuan = Application.StartupPath + "\\image_surat_keluar";
 
@@ -138,11 +139,11 @@ namespace Surat
             {
                 query = "INSERT INTO surat_keluar(nomor_surat_keluar, perihal, tanggal_surat, id_jenis, " +
                                                 "penerima, jabatan_tertanda, tertanda, " +
-                                                "isi_singkat, keterangan, tanggal_update) " +
+                                                "distribusi_tanggal,isi_singkat, keterangan, tanggal_update) " +
                         "VALUES(@nomor_surat, @perihal_surat, STR_TO_DATE(@tanggal_surat, '%d-%m-%Y'), " +
                                 "@id_jenis, " +
                                 "@penerima, @jabatan_tertanda, @tertanda_pengirim, " +
-                                "@isi_singkat, @keterangan,CURDATE())";
+                                "STR_TO_DATE(@distribusi_tanggal, '%d-%m-%Y'),@isi_singkat, @keterangan,CURDATE())";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@nomor_surat", nomor_surat);
                 cmd.Parameters.AddWithValue("@id_jenis", getIdJenisSurat(jenis_surat));
@@ -151,6 +152,7 @@ namespace Surat
                 cmd.Parameters.AddWithValue("@penerima", penerima);
                 cmd.Parameters.AddWithValue("@jabatan_tertanda", jabatan_tertanda);
                 cmd.Parameters.AddWithValue("@tertanda_pengirim", tertanda_pengirim);
+                cmd.Parameters.AddWithValue("@distribusi_tanggal", distribusi_tanggal);
                 cmd.Parameters.AddWithValue("@isi_singkat", isi_surat);
                 cmd.Parameters.AddWithValue("@keterangan", keterangan_surat);
                 cmd.ExecuteNonQuery();
@@ -326,6 +328,10 @@ namespace Surat
             {
                 tambahTembusan();
             }
+            if (list_bagian.Count != 0)
+            {
+                tambahBagianBidang();
+            }
             MessageBox.Show("Data berhasil ditambah", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
             frm1.getAllSuratKeluar();
         }
@@ -334,5 +340,109 @@ namespace Surat
         {
             this.Close();
         }
+
+        private void labelTanggalDistribusiSuratKeluar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelDistribusiSuratKeluar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimeInputTanggalDistribusiSuratKeluarClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBoxTataUsaha_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxTataUsaha.Checked)
+            {
+                list_bagian.Add("Tata Usaha");
+            }
+            else
+            {
+                list_bagian.Remove("Tata Usaha");
+            }
+        }
+
+        private void checkBoxProgramaSiaran_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxProgramaSiaran.Checked)
+            {
+                list_bagian.Add("Programa Siaran");
+            }
+            else
+            {
+                list_bagian.Remove("Programa Siaran");
+            }
+        }
+
+        private void checkBoxPemberitaan_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxPemberitaan.Checked)
+            {
+                list_bagian.Add("Pemberitaan");
+            }
+            else
+            {
+                list_bagian.Remove("Pemberitaan");
+            }
+        }
+
+        private void checkBoxTeknologi_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (checkBoxTeknologi.Checked)
+            {
+                list_bagian.Add("Teknologi dan Media Baru");
+            }
+            else
+            {
+                list_bagian.Remove("Teknologi dan Media Baru");
+            }
+        }
+
+        private void checkBoxLayanan_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (checkBoxLayanan.Checked)
+            {
+                list_bagian.Add("Layanan dan Pengembangan");
+            }
+            else
+            {
+                list_bagian.Remove("Layanan dan Pengembangan");
+            }
+        }
+
+        private void tambahBagianBidang()
+        {
+            Database db = new Database();
+            strconn = db.getString();
+            MySqlConnection conn = new MySqlConnection(strconn);
+            conn.Open();
+
+            try
+            {
+                foreach (var kabag in list_bagian)
+                {
+                    query = "INSERT INTO detail_bagian_bidang_surat_keluar VALUES(@nomor_surat, (SELECT id_bagian_bidang FROM bagian_bidang WHERE nama_bagian_bidang = @bagian))";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@nomor_surat", nomor_surat);
+                    cmd.Parameters.AddWithValue("@bagian", kabag);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+            conn.Close();
+        }
+
     }
 }

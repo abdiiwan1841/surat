@@ -72,8 +72,9 @@ namespace Surat
 
         private void buttonX2_Click(object sender, EventArgs e)
         {
+            this.Hide();
             FormSuratKeluar keluar = new FormSuratKeluar();
-            keluar.Show();
+            keluar.Show();   
         }
     }
 }
