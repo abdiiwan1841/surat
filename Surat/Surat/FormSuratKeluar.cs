@@ -13,7 +13,7 @@ namespace Surat
 {
     public partial class FormSuratKeluar : DevComponents.DotNetBar.OfficeForm
     {
-        private string query, strconn, kriteria;
+        private string query, strconn, kriteria, cari;
         public static string nomor_surat;
         public static string status;
 
@@ -135,11 +135,15 @@ namespace Surat
 
         private void radioButtonNomorSuratKeluar_CheckedChanged(object sender, EventArgs e)
         {
+            dateTimeInputSuratKeluar.SendToBack();
+            textBoxCariSuratKeluar.BringToFront();
             kriteria = "nomor_surat_keluar";
         }
 
         private void radioButtonPerihalSuratKeluar_CheckedChanged(object sender, EventArgs e)
         {
+            dateTimeInputSuratKeluar.SendToBack();
+            textBoxCariSuratKeluar.BringToFront();
             kriteria = "perihal";
         }
 
@@ -209,6 +213,51 @@ namespace Surat
             status = "Edit";
             FormSuratKeluarEdit form_edit = new FormSuratKeluarEdit(this);
             form_edit.ShowDialog();
+        }
+
+        private void radioButtonTanggal_CheckedChanged(object sender, EventArgs e)
+        {
+            kriteria = "tanggal_surat";
+            textBoxCariSuratKeluar.SendToBack();
+            dateTimeInputSuratKeluar.BringToFront();
+            getAllSuratKeluar();
+        }
+
+        private void getSuratKeluar(string cari)
+        {
+            Database db = new Database();
+            strconn = db.getString();
+            MySqlConnection conn = new MySqlConnection(strconn);
+            conn.Open();
+
+            try
+            {
+                query = "SELECT nomor_surat_keluar, DATE_FORMAT(tanggal_surat, '%d-%m-%Y'), perihal,j.nama_jenis AS jenis_surat " +
+                                "FROM surat_keluar JOIN jenis_surat AS j USING(id_jenis) " +
+                                "WHERE " + kriteria + " LIKE '%" + cari + "%'";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                setDataTable(reader);
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+            conn.Close();
+        }
+
+        private void dateTimeInputSuratKeluar_MonthCalendar_DateChanged(object sender, EventArgs e)
+        {
+            cari = dateTimeInputSuratKeluar.Value.Date.ToString("yyyy-MM-dd");
+            //MessageBox.Show(cari);
+            getSuratKeluar(cari);
+        }
+
+        private void buttondetailsuratkeluar_Click(object sender, EventArgs e)
+        {
+            FormDetailSuratKeluar detail = new FormDetailSuratKeluar();
+            detail.Show();
         }
 
         //private void radioButtonInstansiPengirim_CheckedChanged(object sender, EventArgs e)

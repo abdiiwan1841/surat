@@ -31,7 +31,7 @@ namespace Surat
             conn.Open();
             try
             {
-                query = "SELECT * FROM lampiran_surat_Keluar WHERE nomor_surat_Keluar = @nomor_surat";
+                query = "SELECT * FROM lampiran_surat_keluar WHERE nomor_surat_keluar = @nomor_surat";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@nomor_surat", FormSuratKeluar.nomor_surat);
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -77,7 +77,7 @@ namespace Surat
         private void buttonTambahLampiranSuratKeluar_Click(object sender, EventArgs e)
         {
             lampiran = textBoxLampiranSuratKeluar.Text;
-            if (FormSuratMasuk.status == "Tambah")
+            if (FormSuratKeluar.status == "Tambah")
             {
                 dataGridViewLampiranSuratKeluar.Rows.Add(lampiran);
                 list_lampiran.Add(lampiran);
@@ -188,6 +188,11 @@ namespace Surat
             {
                 dataGridViewLampiranSuratKeluar.Rows.Clear();
             }
+        }
+
+        private void dataGridViewLampiranSuratKeluar_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

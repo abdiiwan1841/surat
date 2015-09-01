@@ -57,10 +57,16 @@ namespace Surat
             this.textBoxJabatanTertandaSuratMasuk = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.textBoxTertandaPengirimSuratMasuk = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelTertandaPengirim = new DevComponents.DotNetBar.LabelX();
+            this.textBoxAlamatPengirimSuratMasuk = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelAlamatPengirimSuratMasuk = new DevComponents.DotNetBar.LabelX();
+            this.textBoxInstansiPengirimSuratMasuk = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelInstansiPengirimSuratMasuk = new DevComponents.DotNetBar.LabelX();
             this.groupBoxPenerimaSuratMasuk = new System.Windows.Forms.GroupBox();
             this.textBoxPenerimaSuratMasuk = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelPenerimaSuratMasuk = new DevComponents.DotNetBar.LabelX();
             this.groupBoxDistribusiSuratMasuk = new System.Windows.Forms.GroupBox();
+            this.checkBoxLayanan = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.checkBoxTeknologi = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.checkBoxPemberitaan = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.checkBoxProgramaSiaran = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.checkBoxTataUsaha = new DevComponents.DotNetBar.Controls.CheckBoxX();
@@ -76,13 +82,6 @@ namespace Surat
             this.buttonKembaliSuratMasuk = new DevComponents.DotNetBar.ButtonX();
             this.buttonTambahSuratMasuk = new DevComponents.DotNetBar.ButtonX();
             this.pictureBoxGambarSuratMasuk = new System.Windows.Forms.PictureBox();
-            this.checkBoxTeknologi = new DevComponents.DotNetBar.Controls.CheckBoxX();
-            this.checkBoxLayanan = new DevComponents.DotNetBar.Controls.CheckBoxX();
-            this.labelAlamatPengirimSuratMasuk = new DevComponents.DotNetBar.LabelX();
-            this.labelInstansiPengirimSuratMasuk = new DevComponents.DotNetBar.LabelX();
-            this.textBoxInstansiPengirimSuratMasuk = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.textBoxAlamatPengirimSuratMasuk = new DevComponents.DotNetBar.Controls.TextBoxX();
-//            this.groupBoxTanggalSuratMasuk = new System.Windows.Forms.GroupBox();
             this.groupBoxTanggalSuratMasuk.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalTerimaSuratMasuk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalSuratMasuk)).BeginInit();
@@ -95,7 +94,7 @@ namespace Surat
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGambarSuratMasuk)).BeginInit();
             this.SuspendLayout();
             // 
-            //groupBoxTanggalSuratMasuk
+            // groupBoxTanggalSuratMasuk
             // 
             this.groupBoxTanggalSuratMasuk.Controls.Add(this.labelTanggalTerimaSuratMasuk);
             this.groupBoxTanggalSuratMasuk.Controls.Add(this.dateTimeInputTanggalTerimaSuratMasuk);
@@ -531,6 +530,61 @@ namespace Surat
             this.labelTertandaPengirim.TabIndex = 11;
             this.labelTertandaPengirim.Text = "Tertanda Pengirim : ";
             // 
+            // textBoxAlamatPengirimSuratMasuk
+            // 
+            // 
+            // 
+            // 
+            this.textBoxAlamatPengirimSuratMasuk.Border.Class = "TextBoxBorder";
+            this.textBoxAlamatPengirimSuratMasuk.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.textBoxAlamatPengirimSuratMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAlamatPengirimSuratMasuk.Location = new System.Drawing.Point(145, 51);
+            this.textBoxAlamatPengirimSuratMasuk.MaxLength = 100;
+            this.textBoxAlamatPengirimSuratMasuk.Multiline = true;
+            this.textBoxAlamatPengirimSuratMasuk.Name = "textBoxAlamatPengirimSuratMasuk";
+            this.textBoxAlamatPengirimSuratMasuk.Size = new System.Drawing.Size(211, 62);
+            this.textBoxAlamatPengirimSuratMasuk.TabIndex = 10;
+            // 
+            // labelAlamatPengirimSuratMasuk
+            // 
+            // 
+            // 
+            // 
+            this.labelAlamatPengirimSuratMasuk.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelAlamatPengirimSuratMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAlamatPengirimSuratMasuk.Location = new System.Drawing.Point(18, 48);
+            this.labelAlamatPengirimSuratMasuk.Name = "labelAlamatPengirimSuratMasuk";
+            this.labelAlamatPengirimSuratMasuk.Size = new System.Drawing.Size(121, 23);
+            this.labelAlamatPengirimSuratMasuk.TabIndex = 9;
+            this.labelAlamatPengirimSuratMasuk.Text = "Alamat Pengirim : ";
+            // 
+            // textBoxInstansiPengirimSuratMasuk
+            // 
+            // 
+            // 
+            // 
+            this.textBoxInstansiPengirimSuratMasuk.Border.Class = "TextBoxBorder";
+            this.textBoxInstansiPengirimSuratMasuk.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.textBoxInstansiPengirimSuratMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxInstansiPengirimSuratMasuk.Location = new System.Drawing.Point(145, 22);
+            this.textBoxInstansiPengirimSuratMasuk.MaxLength = 50;
+            this.textBoxInstansiPengirimSuratMasuk.Name = "textBoxInstansiPengirimSuratMasuk";
+            this.textBoxInstansiPengirimSuratMasuk.Size = new System.Drawing.Size(211, 22);
+            this.textBoxInstansiPengirimSuratMasuk.TabIndex = 8;
+            // 
+            // labelInstansiPengirimSuratMasuk
+            // 
+            // 
+            // 
+            // 
+            this.labelInstansiPengirimSuratMasuk.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelInstansiPengirimSuratMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInstansiPengirimSuratMasuk.Location = new System.Drawing.Point(18, 21);
+            this.labelInstansiPengirimSuratMasuk.Name = "labelInstansiPengirimSuratMasuk";
+            this.labelInstansiPengirimSuratMasuk.Size = new System.Drawing.Size(121, 23);
+            this.labelInstansiPengirimSuratMasuk.TabIndex = 3;
+            this.labelInstansiPengirimSuratMasuk.Text = "Instansi Pengirim : ";
+            // 
             // groupBoxPenerimaSuratMasuk
             // 
             this.groupBoxPenerimaSuratMasuk.Controls.Add(this.textBoxPenerimaSuratMasuk);
@@ -587,6 +641,35 @@ namespace Surat
             this.groupBoxDistribusiSuratMasuk.TabIndex = 7;
             this.groupBoxDistribusiSuratMasuk.TabStop = false;
             this.groupBoxDistribusiSuratMasuk.Text = "Distribusi Surat";
+            // 
+            // checkBoxLayanan
+            // 
+            // 
+            // 
+            // 
+            this.checkBoxLayanan.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.checkBoxLayanan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxLayanan.Location = new System.Drawing.Point(178, 155);
+            this.checkBoxLayanan.Name = "checkBoxLayanan";
+            this.checkBoxLayanan.Size = new System.Drawing.Size(192, 29);
+            this.checkBoxLayanan.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.checkBoxLayanan.TabIndex = 17;
+            this.checkBoxLayanan.Text = "Layanan dan Pengembangan";
+            this.checkBoxLayanan.CheckedChanged += new System.EventHandler(this.checkBoxLayanan_CheckedChanged);
+            // 
+            // checkBoxTeknologi
+            // 
+            // 
+            // 
+            // 
+            this.checkBoxTeknologi.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.checkBoxTeknologi.Location = new System.Drawing.Point(178, 129);
+            this.checkBoxTeknologi.Name = "checkBoxTeknologi";
+            this.checkBoxTeknologi.Size = new System.Drawing.Size(178, 29);
+            this.checkBoxTeknologi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.checkBoxTeknologi.TabIndex = 16;
+            this.checkBoxTeknologi.Text = "Teknologi dan Media Baru";
+            this.checkBoxTeknologi.CheckedChanged += new System.EventHandler(this.checkBoxTeknologi_CheckedChanged);
             // 
             // checkBoxPemberitaan
             // 
@@ -817,85 +900,6 @@ namespace Surat
             this.pictureBoxGambarSuratMasuk.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxGambarSuratMasuk.TabIndex = 17;
             this.pictureBoxGambarSuratMasuk.TabStop = false;
-            // 
-            // checkBoxTeknologi
-            // labelAlamatPengirimSuratMasuk
-            // 
-            // 
-            // 
-            // 
-            this.checkBoxTeknologi.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.checkBoxTeknologi.Location = new System.Drawing.Point(178, 129);
-            this.checkBoxTeknologi.Name = "checkBoxTeknologi";
-            this.checkBoxTeknologi.Size = new System.Drawing.Size(178, 29);
-            this.checkBoxTeknologi.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.checkBoxTeknologi.TabIndex = 16;
-            this.checkBoxTeknologi.Text = "Teknologi dan Media Baru";
-            this.checkBoxTeknologi.CheckedChanged += new System.EventHandler(this.checkBoxTeknologi_CheckedChanged);
-            // 
-            // checkBoxLayanan
-            // 
-            // 
-            // 
-            // 
-            this.checkBoxLayanan.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.checkBoxLayanan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxLayanan.Location = new System.Drawing.Point(178, 155);
-            this.checkBoxLayanan.Name = "checkBoxLayanan";
-            this.checkBoxLayanan.Size = new System.Drawing.Size(192, 29);
-            this.checkBoxLayanan.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.checkBoxLayanan.TabIndex = 17;
-            this.checkBoxLayanan.Text = "Layanan dan Pengembangan";
-            this.checkBoxLayanan.CheckedChanged += new System.EventHandler(this.checkBoxLayanan_CheckedChanged);
-            this.labelAlamatPengirimSuratMasuk.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelAlamatPengirimSuratMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAlamatPengirimSuratMasuk.Location = new System.Drawing.Point(18, 48);
-            this.labelAlamatPengirimSuratMasuk.Name = "labelAlamatPengirimSuratMasuk";
-            this.labelAlamatPengirimSuratMasuk.Size = new System.Drawing.Size(121, 23);
-            this.labelAlamatPengirimSuratMasuk.TabIndex = 9;
-            this.labelAlamatPengirimSuratMasuk.Text = "Alamat Pengirim : ";
-            // 
-            // labelInstansiPengirimSuratMasuk
-            // 
-            // 
-            // 
-            // 
-            this.labelInstansiPengirimSuratMasuk.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelInstansiPengirimSuratMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInstansiPengirimSuratMasuk.Location = new System.Drawing.Point(18, 21);
-            this.labelInstansiPengirimSuratMasuk.Name = "labelInstansiPengirimSuratMasuk";
-            this.labelInstansiPengirimSuratMasuk.Size = new System.Drawing.Size(121, 23);
-            this.labelInstansiPengirimSuratMasuk.TabIndex = 3;
-            this.labelInstansiPengirimSuratMasuk.Text = "Instansi Pengirim : ";
-            // 
-            // textBoxInstansiPengirimSuratMasuk
-            // 
-            // 
-            // 
-            // 
-            this.textBoxInstansiPengirimSuratMasuk.Border.Class = "TextBoxBorder";
-            this.textBoxInstansiPengirimSuratMasuk.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxInstansiPengirimSuratMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxInstansiPengirimSuratMasuk.Location = new System.Drawing.Point(145, 22);
-            this.textBoxInstansiPengirimSuratMasuk.MaxLength = 50;
-            this.textBoxInstansiPengirimSuratMasuk.Name = "textBoxInstansiPengirimSuratMasuk";
-            this.textBoxInstansiPengirimSuratMasuk.Size = new System.Drawing.Size(211, 22);
-            this.textBoxInstansiPengirimSuratMasuk.TabIndex = 8;
-            // 
-            // textBoxAlamatPengirimSuratMasuk
-            // 
-            // 
-            // 
-            // 
-            this.textBoxAlamatPengirimSuratMasuk.Border.Class = "TextBoxBorder";
-            this.textBoxAlamatPengirimSuratMasuk.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxAlamatPengirimSuratMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAlamatPengirimSuratMasuk.Location = new System.Drawing.Point(145, 51);
-            this.textBoxAlamatPengirimSuratMasuk.MaxLength = 100;
-            this.textBoxAlamatPengirimSuratMasuk.Multiline = true;
-            this.textBoxAlamatPengirimSuratMasuk.Name = "textBoxAlamatPengirimSuratMasuk";
-            this.textBoxAlamatPengirimSuratMasuk.Size = new System.Drawing.Size(211, 62);
-            this.textBoxAlamatPengirimSuratMasuk.TabIndex = 10;
             // 
             // FormSuratMasukTambah
             // 
