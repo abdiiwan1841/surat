@@ -34,8 +34,9 @@ namespace Surat
             this.ButtonManajemenUser = new DevComponents.DotNetBar.ButtonX();
             this.buttonBidang = new DevComponents.DotNetBar.ButtonX();
             this.buttonLogout = new DevComponents.DotNetBar.ButtonX();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonSuratDisposisi = new DevComponents.DotNetBar.ButtonX();
+            this.buttonBackup = new DevComponents.DotNetBar.ButtonX();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,16 +118,6 @@ namespace Surat
             this.buttonLogout.Text = "Logout";
             this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Surat.Properties.Resources.RRI;
-            this.pictureBox1.Location = new System.Drawing.Point(382, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(189, 103);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // buttonSuratDisposisi
             // 
             this.buttonSuratDisposisi.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -140,9 +131,33 @@ namespace Surat
             this.buttonSuratDisposisi.Text = "Surat Disposisi";
             this.buttonSuratDisposisi.Click += new System.EventHandler(this.buttonSuratDisposisi_Click);
             // 
+            // buttonBackup
+            // 
+            this.buttonBackup.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonBackup.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonBackup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBackup.Location = new System.Drawing.Point(415, 183);
+            this.buttonBackup.Name = "buttonBackup";
+            this.buttonBackup.Size = new System.Drawing.Size(156, 31);
+            this.buttonBackup.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonBackup.TabIndex = 8;
+            this.buttonBackup.Text = "Backup/Restore";
+            this.buttonBackup.Click += new System.EventHandler(this.buttonBackup_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Surat.Properties.Resources.RRI;
+            this.pictureBox1.Location = new System.Drawing.Point(382, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(189, 103);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormMain
             // 
             this.ClientSize = new System.Drawing.Size(583, 358);
+            this.Controls.Add(this.buttonBackup);
             this.Controls.Add(this.buttonSuratDisposisi);
             this.Controls.Add(this.buttonLogout);
             this.Controls.Add(this.buttonBidang);
@@ -175,5 +190,6 @@ namespace Surat
         private DevComponents.DotNetBar.ButtonX buttonBidang;
         private DevComponents.DotNetBar.ButtonX buttonLogout;
         private DevComponents.DotNetBar.ButtonX buttonSuratDisposisi;
+        private DevComponents.DotNetBar.ButtonX buttonBackup;
     }
 }
