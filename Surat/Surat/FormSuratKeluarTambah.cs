@@ -139,11 +139,11 @@ namespace Surat
             {
                 query = "INSERT INTO surat_keluar(nomor_surat_keluar, perihal, tanggal_surat, id_jenis, " +
                                                 "penerima, jabatan_tertanda, tertanda, " +
-                                                "distribusi_tanggal,isi_singkat, keterangan, tanggal_update) " +
+                                                "distribusi_tanggal,isi_singkat, keterangan, id_user, tanggal_update) " +
                         "VALUES(@nomor_surat, @perihal_surat, STR_TO_DATE(@tanggal_surat, '%d-%m-%Y'), " +
                                 "@id_jenis, " +
                                 "@penerima, @jabatan_tertanda, @tertanda_pengirim, " +
-                                "STR_TO_DATE(@distribusi_tanggal, '%d-%m-%Y'),@isi_singkat, @keterangan,CURDATE())";
+                                "STR_TO_DATE(@distribusi_tanggal, '%d-%m-%Y'),@isi_singkat, @keterangan,Now())";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@nomor_surat", nomor_surat);
                 cmd.Parameters.AddWithValue("@id_jenis", getIdJenisSurat(jenis_surat));
