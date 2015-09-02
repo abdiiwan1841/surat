@@ -76,5 +76,12 @@ namespace Surat
             FormSuratKeluar keluar = new FormSuratKeluar();
             keluar.Show();   
         }
+
+        private void buttonBackup_Click(object sender, EventArgs e)
+        {
+            FormBackup backup = new FormBackup();
+            backup.Show();
+            this.Hide();
+        }
     }
 }

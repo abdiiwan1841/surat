@@ -28,20 +28,21 @@ namespace Surat
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBoxCariSuratKeluar = new System.Windows.Forms.GroupBox();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.radioButtonPerihalSuratKeluar = new System.Windows.Forms.RadioButton();
             this.radioButtonTanggal = new System.Windows.Forms.RadioButton();
             this.radioButtonNomorSuratKeluar = new System.Windows.Forms.RadioButton();
-            this.dateTimeInputSuratKeluar = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.textBoxCariSuratKeluar = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.dateTimeInputSuratKeluar = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.buttonKembali = new DevComponents.DotNetBar.ButtonX();
             this.buttonEditSuratKeluar = new DevComponents.DotNetBar.ButtonX();
             this.buttonHapusSuratKeluar = new DevComponents.DotNetBar.ButtonX();
             this.buttonTambahSuratKeluar = new DevComponents.DotNetBar.ButtonX();
             this.dataGridViewSuratKeluar = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.buttondetailsuratkeluar = new DevComponents.DotNetBar.ButtonX();
+            this.buttonsimpansuratkeluar = new DevComponents.DotNetBar.ButtonX();
             this.groupBoxCariSuratKeluar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputSuratKeluar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSuratKeluar)).BeginInit();
@@ -110,6 +111,19 @@ namespace Surat
             this.radioButtonNomorSuratKeluar.UseVisualStyleBackColor = true;
             this.radioButtonNomorSuratKeluar.CheckedChanged += new System.EventHandler(this.radioButtonNomorSuratKeluar_CheckedChanged);
             // 
+            // textBoxCariSuratKeluar
+            // 
+            // 
+            // 
+            // 
+            this.textBoxCariSuratKeluar.Border.Class = "TextBoxBorder";
+            this.textBoxCariSuratKeluar.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.textBoxCariSuratKeluar.Location = new System.Drawing.Point(16, 73);
+            this.textBoxCariSuratKeluar.Name = "textBoxCariSuratKeluar";
+            this.textBoxCariSuratKeluar.Size = new System.Drawing.Size(762, 22);
+            this.textBoxCariSuratKeluar.TabIndex = 4;
+            this.textBoxCariSuratKeluar.TextChanged += new System.EventHandler(this.textBoxCariSuratKeluar_TextChanged);
+            // 
             // dateTimeInputSuratKeluar
             // 
             // 
@@ -159,19 +173,6 @@ namespace Surat
             this.dateTimeInputSuratKeluar.Size = new System.Drawing.Size(761, 22);
             this.dateTimeInputSuratKeluar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.dateTimeInputSuratKeluar.TabIndex = 5;
-            // 
-            // textBoxCariSuratKeluar
-            // 
-            // 
-            // 
-            // 
-            this.textBoxCariSuratKeluar.Border.Class = "TextBoxBorder";
-            this.textBoxCariSuratKeluar.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.textBoxCariSuratKeluar.Location = new System.Drawing.Point(16, 73);
-            this.textBoxCariSuratKeluar.Name = "textBoxCariSuratKeluar";
-            this.textBoxCariSuratKeluar.Size = new System.Drawing.Size(762, 22);
-            this.textBoxCariSuratKeluar.TabIndex = 4;
-            this.textBoxCariSuratKeluar.TextChanged += new System.EventHandler(this.textBoxCariSuratKeluar_TextChanged);
             // 
             // buttonKembali
             // 
@@ -230,14 +231,14 @@ namespace Surat
             this.dataGridViewSuratKeluar.AllowUserToAddRows = false;
             this.dataGridViewSuratKeluar.AllowUserToDeleteRows = false;
             this.dataGridViewSuratKeluar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewSuratKeluar.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewSuratKeluar.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewSuratKeluar.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewSuratKeluar.Location = new System.Drawing.Point(9, 133);
             this.dataGridViewSuratKeluar.Name = "dataGridViewSuratKeluar";
@@ -261,9 +262,23 @@ namespace Surat
             this.buttondetailsuratkeluar.Text = "Detail";
             this.buttondetailsuratkeluar.Click += new System.EventHandler(this.buttondetailsuratkeluar_Click);
             // 
+            // buttonsimpansuratkeluar
+            // 
+            this.buttonsimpansuratkeluar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonsimpansuratkeluar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonsimpansuratkeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonsimpansuratkeluar.Location = new System.Drawing.Point(830, 218);
+            this.buttonsimpansuratkeluar.Name = "buttonsimpansuratkeluar";
+            this.buttonsimpansuratkeluar.Size = new System.Drawing.Size(106, 45);
+            this.buttonsimpansuratkeluar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonsimpansuratkeluar.TabIndex = 12;
+            this.buttonsimpansuratkeluar.Text = "Simpan ke\r\nFile Excel";
+            this.buttonsimpansuratkeluar.Click += new System.EventHandler(this.buttonsimpansuratkeluar_Click);
+            // 
             // FormSuratKeluar
             // 
             this.ClientSize = new System.Drawing.Size(945, 541);
+            this.Controls.Add(this.buttonsimpansuratkeluar);
             this.Controls.Add(this.buttondetailsuratkeluar);
             this.Controls.Add(this.buttonKembali);
             this.Controls.Add(this.buttonEditSuratKeluar);
@@ -277,6 +292,7 @@ namespace Surat
             this.MaximizeBox = false;
             this.Name = "FormSuratKeluar";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Surat Keluar";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormSuratKeluar_FormClosed);
             this.Load += new System.EventHandler(this.FormSuratKeluar_Load);
@@ -303,5 +319,6 @@ namespace Surat
         private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewSuratKeluar;
         private DevComponents.DotNetBar.ButtonX buttondetailsuratkeluar;
         private DevComponents.Editors.DateTimeAdv.DateTimeInput dateTimeInputSuratKeluar;
+        private DevComponents.DotNetBar.ButtonX buttonsimpansuratkeluar;
     }
 }

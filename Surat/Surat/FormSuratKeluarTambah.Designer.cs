@@ -687,6 +687,7 @@ namespace Surat
             this.MaximizeBox = false;
             this.Name = "FormSuratKeluarTambah";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tambah Surat Keluar";
             this.Load += new System.EventHandler(this.FormSuratKeluarTambah_Load);
             this.groupBoxPenerimaSuratKeluar.ResumeLayout(false);

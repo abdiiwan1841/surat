@@ -12,14 +12,14 @@ namespace Surat
 
         public string getString()
         {
-            string strconn = "server=localhost;User Id='root';password='';database=db_surat; Allow Zero Datetime=true ";
+            string strconn = "server=localhost;User Id='root';password='admin';database=db_surat; Allow Zero Datetime=true ";
 
             return strconn;
         }
 
         public string getString2()
         {
-            string strconn = "server=localhost;User Id='root';password=''; Allow Zero Datetime=true ";
+            string strconn = "server=localhost;User Id='root';password='admin'; Allow Zero Datetime=true ";
 
             return strconn;
         }

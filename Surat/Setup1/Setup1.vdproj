@@ -16,24 +16,36 @@
         "Entry"
         {
         "MsmKey" = "8:_2A1878833454C661A4FAADDEC1D6C879"
-        "OwnerKey" = "8:_EFCE0EE69E884377897B9239E6C36BF2"
+        "OwnerKey" = "8:_DBA386F1003E41D4B1E8374881827ABA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_438776958513E5E5335643C6939A6607"
-        "OwnerKey" = "8:_EFCE0EE69E884377897B9239E6C36BF2"
+        "OwnerKey" = "8:_DBA386F1003E41D4B1E8374881827ABA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_465CCBDAC8ED5A57E8542AA5B3166969"
+        "OwnerKey" = "8:_DBA386F1003E41D4B1E8374881827ABA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_B70BC96C20D3603F5684CF46FE022B91"
-        "OwnerKey" = "8:_EFCE0EE69E884377897B9239E6C36BF2"
+        "OwnerKey" = "8:_DBA386F1003E41D4B1E8374881827ABA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_EFCE0EE69E884377897B9239E6C36BF2"
+        "MsmKey" = "8:_B725B2F6674E4FAA987E43CA1ECA5B10"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DBA386F1003E41D4B1E8374881827ABA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -46,7 +58,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_EFCE0EE69E884377897B9239E6C36BF2"
+        "OwnerKey" = "8:_DBA386F1003E41D4B1E8374881827ABA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_465CCBDAC8ED5A57E8542AA5B3166969"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -79,6 +97,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -95,6 +121,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -186,6 +220,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_465CCBDAC8ED5A57E8542AA5B3166969"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:EPPlus, Version=4.0.4.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_465CCBDAC8ED5A57E8542AA5B3166969"
+                    {
+                    "Name" = "8:EPPlus.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:EPPlus.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_245B2942629B4A90A81FE2E1137CD9AB"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B70BC96C20D3603F5684CF46FE022B91"
             {
             "AssemblyRegister" = "3:1"
@@ -215,6 +280,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B725B2F6674E4FAA987E43CA1ECA5B10"
+            {
+            "SourcePath" = "8:C:\\Users\\Altoyir\\Downloads\\defult_text.ico"
+            "TargetName" = "8:defult_text.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_245B2942629B4A90A81FE2E1137CD9AB"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
         }
@@ -807,9 +892,9 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_EFCE0EE69E884377897B9239E6C36BF2"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_DBA386F1003E41D4B1E8374881827ABA"
             {
-            "SourcePath" = "8:..\\Surat\\obj\\x86\\Release\\Surat.exe"
+            "SourcePath" = "8:..\\Surat\\obj\\x86\\Debug\\Surat.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_245B2942629B4A90A81FE2E1137CD9AB"
