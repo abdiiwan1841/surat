@@ -153,7 +153,11 @@ namespace Surat
             string lokasi_tujuan;
             nomor_surat = textBoxNomorSuratMasuk.Text;
             tgl_surat = dateTimeInputTanggalSuratMasuk.Value.Date.ToString("dd-MM-yyyy");
+            if (tgl_surat == "01-01-0001")
+                tgl_surat = "00-00-0000";
             tgl_terima = dateTimeInputTanggalTerimaSuratMasuk.Value.Date.ToString("dd-MM-yyyy");
+            if (tgl_terima == "01-01-0001")
+                tgl_terima = "00-00-0000";
             jenis_surat = comboBoxJenisSuratMasuk.Text;
             sifat_surat = comboBoxSifatSuratMasuk.Text;
             perihal_surat = textBoxPerihalSuratMasuk.Text;
@@ -165,6 +169,8 @@ namespace Surat
             jabatan_tertanda = textBoxJabatanTertandaSuratMasuk.Text;
             tertanda = textBoxTertandaPengirimSuratMasuk.Text;
             distribusi_tanggal = dateTimeInputTanggalDistribusiSuratMasuk.Value.Date.ToString("dd-MM-yyyy");
+            if (distribusi_tanggal == "01-01-0001")
+                distribusi_tanggal = "00-00-0000";
             lokasi_tujuan = Application.StartupPath + "\\image_surat_masuk";
 
             Database db = new Database();
@@ -190,11 +196,11 @@ namespace Surat
             {
                 query = "INSERT INTO surat_masuk(nomor_surat_masuk, perihal, tanggal_surat, tanggal_terima, id_jenis, "+
                                                 "sifat_surat, pengirim, alamat_pengirim, penerima, jabatan_tertanda, tertanda, "+
-                                                "distribusi_tanggal, isi_singkat, keterangan, gambar_surat, tanggal_update) "+
+                                                "distribusi_tanggal, isi_singkat, keterangan, gambar_surat, id_user, tanggal_update) "+
                         "VALUES(@nomor_surat, @perihal_surat, STR_TO_DATE(@tanggal_surat, '%d-%m-%Y'), "+
                                 "STR_TO_DATE(@tanggal_terima, '%d-%m-%Y'), @id_jenis, "+
                                 "@sifat_surat, @pengirim, @alamat_pengirim, @penerima, @jabatan_tertanda, @tertanda, "+
-                                "STR_TO_DATE(@distribusi_tanggal, '%d-%m-%Y'), @isi_singkat, @keterangan, @gambar_surat, NOW())";
+                                "STR_TO_DATE(@distribusi_tanggal, '%d-%m-%Y'), @isi_singkat, @keterangan, @gambar_surat, @id_user, NOW())";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@nomor_surat", nomor_surat);
                 cmd.Parameters.AddWithValue("@sifat_surat", sifat_surat);
@@ -211,12 +217,21 @@ namespace Surat
                 cmd.Parameters.AddWithValue("@distribusi_tanggal", distribusi_tanggal);
                 cmd.Parameters.AddWithValue("@isi_singkat", isi_surat);
                 cmd.Parameters.AddWithValue("@keterangan", keterangan_surat);
+                cmd.Parameters.AddWithValue("@id_user", FormMain.id_user);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Data berhasil ditambah", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+    
             catch (MySqlException ex)
             {
-                MessageBox.Show(ex.ToString());
+                if (ex.Number == 1062)
+                {
+                    MessageBox.Show("Nomor surat yang dimaksud telah ada dalam database. Silahkan ubah nomor surat yang ingin dimasukkan.", "Duplicate Entry", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
 
             conn.Close();
@@ -256,6 +271,7 @@ namespace Surat
             }
             else
             {
+                //MessageBox.Show(tgl_surat);
                 tambahSuratMasuk();
                 if (FormSuratMasukLampiran.list_lampiran.Count != 0)
                 {

@@ -141,6 +141,7 @@ namespace Surat
             this.textBoxKeterangan.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxKeterangan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKeterangan.Location = new System.Drawing.Point(164, 397);
+            this.textBoxKeterangan.MaxLength = 300;
             this.textBoxKeterangan.Multiline = true;
             this.textBoxKeterangan.Name = "textBoxKeterangan";
             this.textBoxKeterangan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -156,6 +157,7 @@ namespace Surat
             this.textBoxIsiSurat.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxIsiSurat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxIsiSurat.Location = new System.Drawing.Point(164, 263);
+            this.textBoxIsiSurat.MaxLength = 300;
             this.textBoxIsiSurat.Multiline = true;
             this.textBoxIsiSurat.Name = "textBoxIsiSurat";
             this.textBoxIsiSurat.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -173,7 +175,7 @@ namespace Surat
             this.labelIsiSurat.Name = "labelIsiSurat";
             this.labelIsiSurat.Size = new System.Drawing.Size(124, 23);
             this.labelIsiSurat.TabIndex = 31;
-            this.labelIsiSurat.Text = "Isi Surat :";
+            this.labelIsiSurat.Text = "Isi Perintah :";
             // 
             // textBoxPerihal
             // 
@@ -184,6 +186,7 @@ namespace Surat
             this.textBoxPerihal.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxPerihal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPerihal.Location = new System.Drawing.Point(164, 113);
+            this.textBoxPerihal.MaxLength = 50;
             this.textBoxPerihal.Name = "textBoxPerihal";
             this.textBoxPerihal.Size = new System.Drawing.Size(232, 22);
             this.textBoxPerihal.TabIndex = 30;
@@ -403,6 +406,7 @@ namespace Surat
             this.textBoxAsalSurat.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxAsalSurat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxAsalSurat.Location = new System.Drawing.Point(164, 81);
+            this.textBoxAsalSurat.MaxLength = 60;
             this.textBoxAsalSurat.Name = "textBoxAsalSurat";
             this.textBoxAsalSurat.Size = new System.Drawing.Size(232, 22);
             this.textBoxAsalSurat.TabIndex = 26;
@@ -480,6 +484,7 @@ namespace Surat
             this.textBoxNomorAgenda.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxNomorAgenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNomorAgenda.Location = new System.Drawing.Point(164, 49);
+            this.textBoxNomorAgenda.MaxLength = 60;
             this.textBoxNomorAgenda.Name = "textBoxNomorAgenda";
             this.textBoxNomorAgenda.Size = new System.Drawing.Size(232, 22);
             this.textBoxNomorAgenda.TabIndex = 20;
@@ -506,6 +511,7 @@ namespace Surat
             this.textBoxNomorSurat.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxNomorSurat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNomorSurat.Location = new System.Drawing.Point(164, 20);
+            this.textBoxNomorSurat.MaxLength = 60;
             this.textBoxNomorSurat.Name = "textBoxNomorSurat";
             this.textBoxNomorSurat.Size = new System.Drawing.Size(232, 22);
             this.textBoxNomorSurat.TabIndex = 16;

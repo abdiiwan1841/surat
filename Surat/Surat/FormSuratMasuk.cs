@@ -294,91 +294,92 @@ namespace Surat
         }
 
         public void GenerateExcel2007(string p_strPath, DataSet p_dsSrc)    
-        {    
-            using (ExcelPackage objExcelPackage = new ExcelPackage())    
-            {    
-                foreach (DataTable dtSrc in p_dsSrc.Tables)    
-                {    
-                    //Create the worksheet    
-                    ExcelWorksheet objWorksheet = objExcelPackage.Workbook.Worksheets.Add(dtSrc.TableName);  
-  
-                    //Load the datatable into the sheet, starting from cell A1. Print the column names on row 1    
-                    objWorksheet.Cells["A1"].LoadFromDataTable(dtSrc, true, OfficeOpenXml.Table.TableStyles.Medium1);    
-                    objWorksheet.Cells.Style.Font.SetFromFont(new Font("Calibri", 11));
-                    objWorksheet.Cells.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                    objWorksheet.Cells.AutoFitColumns();   
- 
-                    //Format the header    
-                    using (ExcelRange objRange = objWorksheet.Cells["A1:O1"])    
-                    {    
-                        objRange.Style.Font.Bold = true;       
-                        objRange.Style.Fill.PatternType = ExcelFillStyle.Solid;    
-                        objRange.Style.Fill.BackgroundColor.SetColor(Color.Gray);
+        {
+            try
+            {
+                using (ExcelPackage objExcelPackage = new ExcelPackage())
+                {
+                    foreach (DataTable dtSrc in p_dsSrc.Tables)
+                    {
+                        //Create the worksheet    
+                        ExcelWorksheet objWorksheet = objExcelPackage.Workbook.Worksheets.Add(dtSrc.TableName);
 
-                        objWorksheet.Column(1).Width = 25;
-                        objWorksheet.Column(2).Width = 20;
-                        objWorksheet.Column(3).Width = 17;
-                        objWorksheet.Column(4).Width = 19;
-                        objWorksheet.Column(5).Width = 19;
-                        objWorksheet.Column(6).Width = 15;
-                        objWorksheet.Column(7).Width = 19;
-                        objWorksheet.Column(8).Width = 19;
-                        objWorksheet.Column(9).Width = 25;
-                        objWorksheet.Column(10).Width = 19;
-                        objWorksheet.Column(11).Width = 19;
-                        objWorksheet.Column(12).Width = 19;
-                        objWorksheet.Column(13).Width = 19;
-                        objWorksheet.Column(14).Width = 19;
-                        objWorksheet.Column(15).Width = 19;
+                        //Load the datatable into the sheet, starting from cell A1. Print the column names on row 1    
+                        objWorksheet.Cells["A1"].LoadFromDataTable(dtSrc, true, OfficeOpenXml.Table.TableStyles.Medium1);
+                        objWorksheet.Cells.Style.Font.SetFromFont(new Font("Calibri", 11));
+                        objWorksheet.Cells.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                        objWorksheet.Cells.AutoFitColumns();
 
-                        objWorksheet.Column(1).Style.WrapText = true;
-                        objWorksheet.Column(2).Style.WrapText = true;
-                        objWorksheet.Column(3).Style.WrapText = true;
-                        objWorksheet.Column(4).Style.WrapText = true;
-                        objWorksheet.Column(5).Style.WrapText = true;
-                        objWorksheet.Column(6).Style.WrapText = true;
-                        objWorksheet.Column(7).Style.WrapText = true;
-                        objWorksheet.Column(8).Style.WrapText = true;
-                        objWorksheet.Column(9).Style.WrapText = true;
-                        objWorksheet.Column(10).Style.WrapText = true;
-                        objWorksheet.Column(11).Style.WrapText = true;
-                        objWorksheet.Column(12).Style.WrapText = true;
-                        objWorksheet.Column(13).Style.WrapText = true;
-                        objWorksheet.Column(14).Style.WrapText = true;
-                        objWorksheet.Column(15).Style.WrapText = true;
+                        //Format the header    
+                        using (ExcelRange objRange = objWorksheet.Cells["A1:N1"])
+                        {
+                            objRange.Style.Font.Bold = true;
+                            objRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                            objRange.Style.Fill.BackgroundColor.SetColor(Color.Gray);
 
-                        objWorksheet.Column(1).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                        objWorksheet.Column(2).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                        objWorksheet.Column(3).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                        objWorksheet.Column(4).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                        objWorksheet.Column(5).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                        objWorksheet.Column(6).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                        objWorksheet.Column(7).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                        objWorksheet.Column(8).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                        objWorksheet.Column(9).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                        objWorksheet.Column(10).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                        objWorksheet.Column(11).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                        objWorksheet.Column(12).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                        objWorksheet.Column(13).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                        objWorksheet.Column(14).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                        objWorksheet.Column(15).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                            objWorksheet.Column(1).Width = 25;
+                            objWorksheet.Column(2).Width = 20;
+                            objWorksheet.Column(3).Width = 17;
+                            objWorksheet.Column(4).Width = 19;
+                            objWorksheet.Column(5).Width = 19;
+                            objWorksheet.Column(6).Width = 15;
+                            objWorksheet.Column(7).Width = 19;
+                            objWorksheet.Column(8).Width = 19;
+                            objWorksheet.Column(9).Width = 25;
+                            objWorksheet.Column(10).Width = 19;
+                            objWorksheet.Column(11).Width = 19;
+                            objWorksheet.Column(12).Width = 19;
+                            objWorksheet.Column(13).Width = 19;
+                            objWorksheet.Column(14).Width = 19;
+
+                            objWorksheet.Column(1).Style.WrapText = true;
+                            objWorksheet.Column(2).Style.WrapText = true;
+                            objWorksheet.Column(3).Style.WrapText = true;
+                            objWorksheet.Column(4).Style.WrapText = true;
+                            objWorksheet.Column(5).Style.WrapText = true;
+                            objWorksheet.Column(6).Style.WrapText = true;
+                            objWorksheet.Column(7).Style.WrapText = true;
+                            objWorksheet.Column(8).Style.WrapText = true;
+                            objWorksheet.Column(9).Style.WrapText = true;
+                            objWorksheet.Column(10).Style.WrapText = true;
+                            objWorksheet.Column(11).Style.WrapText = true;
+                            objWorksheet.Column(12).Style.WrapText = true;
+                            objWorksheet.Column(13).Style.WrapText = true;
+                            objWorksheet.Column(14).Style.WrapText = true;
+
+                            objWorksheet.Column(1).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                            objWorksheet.Column(2).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                            objWorksheet.Column(3).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                            objWorksheet.Column(4).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                            objWorksheet.Column(5).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                            objWorksheet.Column(6).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                            objWorksheet.Column(7).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                            objWorksheet.Column(8).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                            objWorksheet.Column(9).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                            objWorksheet.Column(10).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                            objWorksheet.Column(11).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                            objWorksheet.Column(12).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                            objWorksheet.Column(13).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                            objWorksheet.Column(14).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        }
                     }
-                    
-                    //objWorksheet.Row(2).Style.Border.BorderAround(ExcelBorderStyle.Thin);
-                   
-                }    
-    
-                //Write it back to the client    
-                if (File.Exists(p_strPath))    
-                File.Delete(p_strPath);    
-    
-                //Create excel file on physical disk    
-                FileStream objFileStrm = File.Create(p_strPath);    
-                objFileStrm.Close();    
-    
-                //Write content to excel file    
-                File.WriteAllBytes(p_strPath, objExcelPackage.GetAsByteArray());    
-            }    
+
+                    //Write it back to the client    
+                    if (File.Exists(p_strPath))
+                        File.Delete(p_strPath);
+
+                    //Create excel file on physical disk    
+                    FileStream objFileStrm = File.Create(p_strPath);
+                    objFileStrm.Close();
+
+                    //Write content to excel file    
+                    File.WriteAllBytes(p_strPath, objExcelPackage.GetAsByteArray());
+                }
+            }
+            catch (IOException)
+            {
+                MessageBox.Show("File telah dibuka oleh aplikasi lain. Tutup terlebih dahulu sebelum menyimpan.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }    
 
         private void buttonX1_Click(object sender, EventArgs e)
@@ -401,9 +402,9 @@ namespace Surat
                                     "perihal AS 'Perihal', pengirim AS 'Pengirim', " +
                                     "alamat_pengirim AS 'Alamat Pengirim', penerima AS 'Penerima Surat', tertanda AS 'Tertanda', " +
                                     "jabatan_tertanda AS 'Jabatan Tertanda', isi_singkat AS 'Isi Surat', " +
-                                    "distribusi_tanggal AS 'Tanggal Distribusi', u.nama AS 'Penginput Data', " +
+                                    "distribusi_tanggal AS 'Tanggal Distribusi', " +
                                     "DATE_FORMAT(tanggal_update, '%d-%m-%Y %H:%i:%s') AS 'Waktu Update Terakhir' " +
-                            "FROM surat_masuk JOIN jenis_surat AS j USING(id_jenis) JOIN user AS u USING(id_user)";
+                            "FROM surat_masuk JOIN jenis_surat AS j USING(id_jenis)";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     //cmd.ExecuteReader();
                     MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);

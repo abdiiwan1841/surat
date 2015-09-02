@@ -258,7 +258,7 @@ namespace Surat
             this.textBoxNomorSuratMasuk.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxNomorSuratMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNomorSuratMasuk.Location = new System.Drawing.Point(93, 16);
-            this.textBoxNomorSuratMasuk.MaxLength = 40;
+            this.textBoxNomorSuratMasuk.MaxLength = 60;
             this.textBoxNomorSuratMasuk.Name = "textBoxNomorSuratMasuk";
             this.textBoxNomorSuratMasuk.Size = new System.Drawing.Size(273, 22);
             this.textBoxNomorSuratMasuk.TabIndex = 2;
@@ -382,7 +382,7 @@ namespace Surat
             this.textBoxIsiSuratMasuk.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxIsiSuratMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxIsiSuratMasuk.Location = new System.Drawing.Point(120, 105);
-            this.textBoxIsiSuratMasuk.MaxLength = 100;
+            this.textBoxIsiSuratMasuk.MaxLength = 300;
             this.textBoxIsiSuratMasuk.Multiline = true;
             this.textBoxIsiSuratMasuk.Name = "textBoxIsiSuratMasuk";
             this.textBoxIsiSuratMasuk.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -411,7 +411,7 @@ namespace Surat
             this.textBoxKeteranganSuratMasuk.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxKeteranganSuratMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKeteranganSuratMasuk.Location = new System.Drawing.Point(120, 51);
-            this.textBoxKeteranganSuratMasuk.MaxLength = 50;
+            this.textBoxKeteranganSuratMasuk.MaxLength = 100;
             this.textBoxKeteranganSuratMasuk.Multiline = true;
             this.textBoxKeteranganSuratMasuk.Name = "textBoxKeteranganSuratMasuk";
             this.textBoxKeteranganSuratMasuk.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -427,7 +427,7 @@ namespace Surat
             this.textBoxPerihalSuratMasuk.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxPerihalSuratMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPerihalSuratMasuk.Location = new System.Drawing.Point(120, 22);
-            this.textBoxPerihalSuratMasuk.MaxLength = 40;
+            this.textBoxPerihalSuratMasuk.MaxLength = 100;
             this.textBoxPerihalSuratMasuk.Name = "textBoxPerihalSuratMasuk";
             this.textBoxPerihalSuratMasuk.Size = new System.Drawing.Size(223, 22);
             this.textBoxPerihalSuratMasuk.TabIndex = 7;
@@ -539,7 +539,7 @@ namespace Surat
             this.textBoxAlamatPengirimSuratMasuk.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxAlamatPengirimSuratMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxAlamatPengirimSuratMasuk.Location = new System.Drawing.Point(145, 51);
-            this.textBoxAlamatPengirimSuratMasuk.MaxLength = 100;
+            this.textBoxAlamatPengirimSuratMasuk.MaxLength = 200;
             this.textBoxAlamatPengirimSuratMasuk.Multiline = true;
             this.textBoxAlamatPengirimSuratMasuk.Name = "textBoxAlamatPengirimSuratMasuk";
             this.textBoxAlamatPengirimSuratMasuk.Size = new System.Drawing.Size(211, 62);

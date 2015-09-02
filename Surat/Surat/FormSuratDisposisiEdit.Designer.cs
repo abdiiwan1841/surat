@@ -31,6 +31,7 @@ namespace Surat
             this.buttonEdit = new DevComponents.DotNetBar.ButtonX();
             this.buttonKembali = new DevComponents.DotNetBar.ButtonX();
             this.groupBoxGambarSurat = new System.Windows.Forms.GroupBox();
+            this.pictureBoxGambarSurat = new System.Windows.Forms.PictureBox();
             this.buttonGambarSurat = new DevComponents.DotNetBar.ButtonX();
             this.labelGambarSurat = new DevComponents.DotNetBar.LabelX();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -80,15 +81,14 @@ namespace Surat
             this.labelNomorAgenda = new DevComponents.DotNetBar.LabelX();
             this.textBoxNomorSurat = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelNomorSurat = new DevComponents.DotNetBar.LabelX();
-            this.pictureBoxGambarSurat = new System.Windows.Forms.PictureBox();
             this.groupBoxGambarSurat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGambarSurat)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBoxDisposisi.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalSurat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalDiterima)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputDiteruskan)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGambarSurat)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonEdit
@@ -129,6 +129,16 @@ namespace Surat
             this.groupBoxGambarSurat.TabIndex = 27;
             this.groupBoxGambarSurat.TabStop = false;
             this.groupBoxGambarSurat.Text = "Gambar Scan Surat";
+            // 
+            // pictureBoxGambarSurat
+            // 
+            this.pictureBoxGambarSurat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxGambarSurat.Location = new System.Drawing.Point(17, 67);
+            this.pictureBoxGambarSurat.Name = "pictureBoxGambarSurat";
+            this.pictureBoxGambarSurat.Size = new System.Drawing.Size(403, 453);
+            this.pictureBoxGambarSurat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxGambarSurat.TabIndex = 2;
+            this.pictureBoxGambarSurat.TabStop = false;
             // 
             // buttonGambarSurat
             // 
@@ -523,6 +533,7 @@ namespace Surat
             this.textBoxKeterangan.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxKeterangan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKeterangan.Location = new System.Drawing.Point(164, 397);
+            this.textBoxKeterangan.MaxLength = 300;
             this.textBoxKeterangan.Multiline = true;
             this.textBoxKeterangan.Name = "textBoxKeterangan";
             this.textBoxKeterangan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -538,6 +549,7 @@ namespace Surat
             this.textBoxIsiSurat.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxIsiSurat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxIsiSurat.Location = new System.Drawing.Point(164, 263);
+            this.textBoxIsiSurat.MaxLength = 300;
             this.textBoxIsiSurat.Multiline = true;
             this.textBoxIsiSurat.Name = "textBoxIsiSurat";
             this.textBoxIsiSurat.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -566,6 +578,7 @@ namespace Surat
             this.textBoxPerihal.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxPerihal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPerihal.Location = new System.Drawing.Point(164, 113);
+            this.textBoxPerihal.MaxLength = 50;
             this.textBoxPerihal.Name = "textBoxPerihal";
             this.textBoxPerihal.Size = new System.Drawing.Size(232, 22);
             this.textBoxPerihal.TabIndex = 30;
@@ -785,6 +798,7 @@ namespace Surat
             this.textBoxAsalSurat.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxAsalSurat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxAsalSurat.Location = new System.Drawing.Point(164, 81);
+            this.textBoxAsalSurat.MaxLength = 60;
             this.textBoxAsalSurat.Name = "textBoxAsalSurat";
             this.textBoxAsalSurat.Size = new System.Drawing.Size(232, 22);
             this.textBoxAsalSurat.TabIndex = 26;
@@ -862,6 +876,7 @@ namespace Surat
             this.textBoxNomorAgenda.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxNomorAgenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNomorAgenda.Location = new System.Drawing.Point(164, 49);
+            this.textBoxNomorAgenda.MaxLength = 60;
             this.textBoxNomorAgenda.Name = "textBoxNomorAgenda";
             this.textBoxNomorAgenda.Size = new System.Drawing.Size(232, 22);
             this.textBoxNomorAgenda.TabIndex = 20;
@@ -888,6 +903,7 @@ namespace Surat
             this.textBoxNomorSurat.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxNomorSurat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNomorSurat.Location = new System.Drawing.Point(164, 20);
+            this.textBoxNomorSurat.MaxLength = 60;
             this.textBoxNomorSurat.Name = "textBoxNomorSurat";
             this.textBoxNomorSurat.Size = new System.Drawing.Size(232, 22);
             this.textBoxNomorSurat.TabIndex = 16;
@@ -904,16 +920,6 @@ namespace Surat
             this.labelNomorSurat.Size = new System.Drawing.Size(94, 23);
             this.labelNomorSurat.TabIndex = 15;
             this.labelNomorSurat.Text = "Nomor Surat :";
-            // 
-            // pictureBoxGambarSurat
-            // 
-            this.pictureBoxGambarSurat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxGambarSurat.Location = new System.Drawing.Point(17, 67);
-            this.pictureBoxGambarSurat.Name = "pictureBoxGambarSurat";
-            this.pictureBoxGambarSurat.Size = new System.Drawing.Size(403, 453);
-            this.pictureBoxGambarSurat.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxGambarSurat.TabIndex = 2;
-            this.pictureBoxGambarSurat.TabStop = false;
             // 
             // FormSuratDisposisiEdit
             // 
@@ -936,13 +942,13 @@ namespace Surat
             this.Text = "Edit Surat Disposisi";
             this.Load += new System.EventHandler(this.FormSuratDisposisiEdit_Load);
             this.groupBoxGambarSurat.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGambarSurat)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBoxDisposisi.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalSurat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalDiterima)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputDiteruskan)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGambarSurat)).EndInit();
             this.ResumeLayout(false);
 
         }

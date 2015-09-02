@@ -270,7 +270,15 @@ namespace Surat
             string lokasi_tujuan;
             nomor_surat = textBoxNomorSuratMasuk.Text;
             tanggal_surat = dateTimeInputTanggalSuratMasuk.Value.Date.ToString("dd-MM-yyyy");
+            if (tanggal_surat == "01-01-0001")
+            {
+                tanggal_surat = "00-00-0000";
+            }
             tanggal_terima = dateTimeInputTanggalTerimaSuratMasuk.Value.Date.ToString("dd-MM-yyyy");
+            if (tanggal_terima == "01-01-0001")
+            {
+                tanggal_terima = "00-00-0000";
+            }
             jenis_surat = comboBoxJenisSuratMasuk.Text;
             sifat_surat = comboBoxSifatSuratMasuk.Text;
             perihal = textBoxPerihalSuratMasuk.Text;
@@ -282,6 +290,10 @@ namespace Surat
             jabatan_tertanda = textBoxJabatanTertandaSuratMasuk.Text;
             tertanda = textBoxTertandaPengirimSuratMasuk.Text;
             distribusi_tanggal = dateTimeInputTanggalDistribusiSuratMasuk.Value.Date.ToString("dd-MM-yyyy");
+            if (distribusi_tanggal == "01-01-0001")
+            {
+                distribusi_tanggal = "00-00-0000";
+            }
             lokasi_tujuan = "";
 
             Database db = new Database();
@@ -313,7 +325,7 @@ namespace Surat
                                                 "jabatan_tertanda = @jabatan_tertanda, tertanda = @tertanda, " +
                                                 "distribusi_tanggal = STR_TO_DATE(@distribusi_tanggal, '%d-%m-%Y'), " +
                                                 "isi_singkat = @isi_singkat, keterangan = @keterangan, " +
-                                                "gambar_surat = @gambar_surat, tanggal_update = CURDATE() " +
+                                                "gambar_surat = @gambar_surat, id_user = @id_user, tanggal_update = NOW() " +
                         "WHERE nomor_surat_masuk = @nomor_surat_sebelumnya";
                // MessageBox.Show(nama_gambar);
                 MySqlCommand cmd = new MySqlCommand(query, conn);
@@ -333,6 +345,7 @@ namespace Surat
                 cmd.Parameters.AddWithValue("@isi_singkat", isi_singkat);
                 cmd.Parameters.AddWithValue("@keterangan", keterangan);
                 cmd.Parameters.AddWithValue("@nomor_surat_sebelumnya", FormSuratMasuk.nomor_surat);
+                cmd.Parameters.AddWithValue("@id_user", FormMain.id_user);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Edit Surat Masuk berhasil", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
