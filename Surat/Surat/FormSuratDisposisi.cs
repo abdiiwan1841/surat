@@ -76,7 +76,7 @@ namespace Surat
             {
                 query = "SELECT nomor_surat, nomor_agenda, DATE_FORMAT(tanggal_surat, '%d-%m-%Y'), DATE_FORMAT(tanggal_terima, '%d-%m-%Y'), "+
                         "DATE_FORMAT(tanggal_diteruskan, '%d-%m-%Y'), asal, sifat, perihal " +
-                        "FROM surat_disposisi";
+                        "FROM surat_disposisi ORDER BY tanggal_surat ASC";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader reader =  cmd.ExecuteReader();
                 setDataTable(reader);

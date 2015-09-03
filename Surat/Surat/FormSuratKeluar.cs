@@ -60,7 +60,7 @@ namespace Surat
             try
             {
                 query = "SELECT nomor_surat_Keluar, tanggal_surat,perihal, j.nama_jenis AS jenis_surat " +
-                                "FROM surat_Keluar JOIN jenis_surat AS j USING(id_jenis)";
+                                "FROM surat_Keluar JOIN jenis_surat AS j USING(id_jenis) ORDER BY tanggal_surat ASC";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 setDataTable(reader);

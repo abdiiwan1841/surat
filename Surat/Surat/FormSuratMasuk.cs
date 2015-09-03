@@ -61,7 +61,7 @@ namespace Surat
             try
             {
                 query = "SELECT nomor_surat_masuk, DATE_FORMAT(tanggal_surat, '%d-%m-%Y'), DATE_FORMAT(tanggal_terima, '%d-%m-%Y'), perihal, pengirim, sifat_surat, j.nama_jenis AS jenis_surat " +
-                                "FROM surat_masuk JOIN jenis_surat AS j USING(id_jenis)";
+                                "FROM surat_masuk JOIN jenis_surat AS j USING(id_jenis) ORDER BY tanggal_terima ASC";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 setDataTable(reader);

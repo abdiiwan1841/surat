@@ -29,17 +29,21 @@ namespace Surat
         private void InitializeComponent()
         {
             this.groupbackup = new System.Windows.Forms.GroupBox();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonRestore = new DevComponents.DotNetBar.ButtonX();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
+            this.labelX2 = new DevComponents.DotNetBar.LabelX();
+            this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             this.groupbackup.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupbackup
             // 
+            this.groupbackup.Controls.Add(this.labelX1);
             this.groupbackup.Controls.Add(this.buttonX1);
             this.groupbackup.Location = new System.Drawing.Point(-1, 12);
             this.groupbackup.Name = "groupbackup";
@@ -63,6 +67,7 @@ namespace Surat
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.labelX2);
             this.groupBox1.Controls.Add(this.buttonRestore);
             this.groupBox1.Location = new System.Drawing.Point(-1, 112);
             this.groupBox1.Name = "groupBox1";
@@ -88,15 +93,58 @@ namespace Surat
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // labelX1
+            // 
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX1.Location = new System.Drawing.Point(13, 19);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(313, 58);
+            this.labelX1.TabIndex = 3;
+            this.labelX1.Text = "Fitur ini akan menyimpan data \r\nkedalam file khusus yang dapat dipindahkan \r\nke k" +
+    "omputer lain";
+            // 
+            // labelX2
+            // 
+            // 
+            // 
+            // 
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX2.Location = new System.Drawing.Point(13, 19);
+            this.labelX2.Name = "labelX2";
+            this.labelX2.Size = new System.Drawing.Size(313, 58);
+            this.labelX2.TabIndex = 4;
+            this.labelX2.Text = "Fitur ini akan mengolah data hasil backup \r\nuntuk dimasukkan kembali kedalam prog" +
+    "ram";
+            // 
+            // buttonX2
+            // 
+            this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX2.Location = new System.Drawing.Point(342, 211);
+            this.buttonX2.Name = "buttonX2";
+            this.buttonX2.Size = new System.Drawing.Size(116, 28);
+            this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX2.TabIndex = 4;
+            this.buttonX2.Text = "Kembali";
+            this.buttonX2.Click += new System.EventHandler(this.buttonX2_Click_1);
+            // 
             // FormBackup
             // 
             this.ClientSize = new System.Drawing.Size(459, 262);
+            this.Controls.Add(this.buttonX2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupbackup);
             this.DoubleBuffered = true;
             this.EnableGlass = false;
             this.MaximizeBox = false;
             this.Name = "FormBackup";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormBackup";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormBackup_FormClosed);
             this.groupbackup.ResumeLayout(false);
@@ -113,6 +161,9 @@ namespace Surat
         private System.Windows.Forms.GroupBox groupBox1;
         private DevComponents.DotNetBar.ButtonX buttonRestore;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private DevComponents.DotNetBar.LabelX labelX1;
+        private DevComponents.DotNetBar.LabelX labelX2;
+        private DevComponents.DotNetBar.ButtonX buttonX2;
 
     }
 }
