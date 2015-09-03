@@ -263,7 +263,7 @@ namespace Surat
         {
             foreach (DataGridViewRow row in dataGridViewSuratMasuk.SelectedRows)
             {
-                nomor_surat = row.Cells[0].Value.ToString();
+                nomor_surat = row.Cells[1].Value.ToString();
             }
         }
 
@@ -423,6 +423,12 @@ namespace Surat
                 }
             }
            
+        }
+
+        private void buttonX1_Click_1(object sender, EventArgs e)
+        {
+            FormRekapSuratMasuk rekap = new FormRekapSuratMasuk();
+            rekap.ShowDialog();
         }
     }
 }
