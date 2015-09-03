@@ -184,65 +184,69 @@ namespace Surat
             Database db = new Database();
             strconn = db.getString();
             MySqlConnection conn = new MySqlConnection(strconn);
-            conn.Open();
+            using (conn)
+            {
+                conn.Open();
 
-            if (!Directory.Exists(lokasi_tujuan))
-            {
-                Directory.CreateDirectory(lokasi_tujuan);
-            }
-            if (pictureBoxGambarSuratMasuk.Image != null)
-            {
-                File.Copy(lokasi_gambar, lokasi_tujuan + "\\" + nama_gambar, true);
-            }
-            else
-            {
-                nama_gambar = "no_image.png";
-                File.Copy(Application.StartupPath + "\\no_image.png", lokasi_tujuan + "\\no_image.png", true);
-            }
-
-            try
-            {
-                query = "INSERT INTO surat_masuk(nomor_surat_masuk, perihal, tanggal_surat, tanggal_terima, id_jenis, "+
-                                                "sifat_surat, pengirim, alamat_pengirim, penerima, jabatan_tertanda, tertanda, "+
-                                                "distribusi_tanggal, isi_singkat, keterangan, gambar_surat, id_user, tanggal_update) "+
-                        "VALUES(@nomor_surat, @perihal_surat, STR_TO_DATE(@tanggal_surat, '%d-%m-%Y'), "+
-                                "STR_TO_DATE(@tanggal_terima, '%d-%m-%Y'), @id_jenis, "+
-                                "@sifat_surat, @pengirim, @alamat_pengirim, @penerima, @jabatan_tertanda, @tertanda, "+
-                                "STR_TO_DATE(@distribusi_tanggal, '%d-%m-%Y'), @isi_singkat, @keterangan, @gambar_surat, @id_user, NOW())";
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@nomor_surat", nomor_surat);
-                cmd.Parameters.AddWithValue("@sifat_surat", sifat_surat);
-                cmd.Parameters.AddWithValue("@id_jenis", getIdJenisSurat(jenis_surat));
-                cmd.Parameters.AddWithValue("@gambar_surat", nama_gambar);
-                cmd.Parameters.AddWithValue("@perihal_surat", perihal_surat);
-                cmd.Parameters.AddWithValue("@tanggal_surat", tgl_surat);
-                cmd.Parameters.AddWithValue("@tanggal_terima", tgl_terima);
-                cmd.Parameters.AddWithValue("@pengirim", pengirim);
-                cmd.Parameters.AddWithValue("@alamat_pengirim", alamat_pengirim);
-                cmd.Parameters.AddWithValue("@penerima", penerima);
-                cmd.Parameters.AddWithValue("@jabatan_tertanda", jabatan_tertanda);
-                cmd.Parameters.AddWithValue("@tertanda", tertanda);
-                cmd.Parameters.AddWithValue("@distribusi_tanggal", distribusi_tanggal);
-                cmd.Parameters.AddWithValue("@isi_singkat", isi_surat);
-                cmd.Parameters.AddWithValue("@keterangan", keterangan_surat);
-                cmd.Parameters.AddWithValue("@id_user", FormMain.id_user);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Data berhasil ditambah", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-    
-            catch (MySqlException ex)
-            {
-                if (ex.Number == 1062)
+                if (!Directory.Exists(lokasi_tujuan))
                 {
-                    MessageBox.Show("Nomor surat yang dimaksud telah ada dalam database. Silahkan ubah nomor surat yang ingin dimasukkan.", "Duplicate Entry", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Directory.CreateDirectory(lokasi_tujuan);
+                }
+                if (pictureBoxGambarSuratMasuk.Image != null)
+                {
+                    File.Copy(lokasi_gambar, lokasi_tujuan + "\\" + nama_gambar, true);
                 }
                 else
                 {
-                    MessageBox.Show(ex.ToString());
+                    nama_gambar = "no_image.png";
+                    if(!File.Exists(lokasi_tujuan + "\\no_image.png"))
+                        File.Copy(Application.StartupPath + "\\no_image.png", lokasi_tujuan + "\\no_image.png", true);
                 }
-            }
 
-            conn.Close();
+                try
+                {
+                    query = "INSERT INTO surat_masuk(nomor_surat_masuk, perihal, tanggal_surat, tanggal_terima, id_jenis, " +
+                                                    "sifat_surat, pengirim, alamat_pengirim, penerima, jabatan_tertanda, tertanda, " +
+                                                    "distribusi_tanggal, isi_singkat, keterangan, gambar_surat, id_user, tanggal_update) " +
+                            "VALUES(@nomor_surat, @perihal_surat, STR_TO_DATE(@tanggal_surat, '%d-%m-%Y'), " +
+                                    "STR_TO_DATE(@tanggal_terima, '%d-%m-%Y'), @id_jenis, " +
+                                    "@sifat_surat, @pengirim, @alamat_pengirim, @penerima, @jabatan_tertanda, @tertanda, " +
+                                    "STR_TO_DATE(@distribusi_tanggal, '%d-%m-%Y'), @isi_singkat, @keterangan, @gambar_surat, @id_user, NOW())";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@nomor_surat", nomor_surat);
+                    cmd.Parameters.AddWithValue("@sifat_surat", sifat_surat);
+                    cmd.Parameters.AddWithValue("@id_jenis", getIdJenisSurat(jenis_surat));
+                    cmd.Parameters.AddWithValue("@gambar_surat", nama_gambar);
+                    cmd.Parameters.AddWithValue("@perihal_surat", perihal_surat);
+                    cmd.Parameters.AddWithValue("@tanggal_surat", tgl_surat);
+                    cmd.Parameters.AddWithValue("@tanggal_terima", tgl_terima);
+                    cmd.Parameters.AddWithValue("@pengirim", pengirim);
+                    cmd.Parameters.AddWithValue("@alamat_pengirim", alamat_pengirim);
+                    cmd.Parameters.AddWithValue("@penerima", penerima);
+                    cmd.Parameters.AddWithValue("@jabatan_tertanda", jabatan_tertanda);
+                    cmd.Parameters.AddWithValue("@tertanda", tertanda);
+                    cmd.Parameters.AddWithValue("@distribusi_tanggal", distribusi_tanggal);
+                    cmd.Parameters.AddWithValue("@isi_singkat", isi_surat);
+                    cmd.Parameters.AddWithValue("@keterangan", keterangan_surat);
+                    cmd.Parameters.AddWithValue("@id_user", FormMain.id_user);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Data berhasil ditambah", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                catch (MySqlException ex)
+                {
+                    if (ex.Number == 1062)
+                    {
+                        MessageBox.Show("Nomor surat yang dimaksud telah ada dalam database. Silahkan ubah nomor surat yang ingin dimasukkan.", "Duplicate Entry", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                }
+
+                conn.Close();
+            }
         }
 
         private void FormTambahSuratMasuk_Load(object sender, EventArgs e)
@@ -313,6 +317,7 @@ namespace Surat
         {
             FormSuratMasukLampiran.list_lampiran.Clear();
             FormSuratMasukTembusan.list_tembusan.Clear();
+            this.Dispose();
         }
 
         private void checkBoxTataUsaha_CheckedChanged(object sender, EventArgs e)

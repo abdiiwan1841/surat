@@ -37,6 +37,7 @@ namespace Surat
 
             dataGridViewSuratKeluar.ClearSelection();
             dataGridViewSuratKeluar.DataSource = jenis_surat;
+            labelJumlahSurat.Text = "Jumlah Surat Keluar : "+dataGridViewSuratKeluar.RowCount.ToString();
         }
 
         public void getSuratID()
@@ -356,7 +357,7 @@ namespace Surat
                                     "jabatan_tertanda AS 'Jabatan Tertanda', isi_singkat AS 'Isi Surat', " +
                                     "distribusi_tanggal AS 'Tanggal Distribusi'," +
                                     "DATE_FORMAT(tanggal_update, '%d-%m-%Y %H:%i:%s') AS 'Waktu Update Terakhir' " +
-                            "FROM surat_keluar JOIN jenis_surat AS j USING(id_jenis)";
+                            "FROM surat_keluar JOIN jenis_surat AS j USING(id_jenis) ORDER BY tanggal_surat ASC";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     //cmd.ExecuteReader();
                     MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);

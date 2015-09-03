@@ -287,62 +287,65 @@ namespace Surat
             Database db = new Database();
             strconn = db.getString();
             MySqlConnection conn = new MySqlConnection(strconn);
-            conn.Open();
-
-            if (pictureBoxGambarSuratMasuk.Image != null)
+            using (conn)
             {
-                lokasi_tujuan = Application.StartupPath + "\\image_surat_masuk";
-                if (!Directory.Exists(lokasi_tujuan))
+                conn.Open();
+
+                if (pictureBoxGambarSuratMasuk.Image != null)
                 {
-                    Directory.CreateDirectory(lokasi_tujuan);
+                    lokasi_tujuan = Application.StartupPath + "\\image_surat_masuk";
+                    if (!Directory.Exists(lokasi_tujuan))
+                    {
+                        Directory.CreateDirectory(lokasi_tujuan);
+                    }
+                    if (!File.Exists(Application.StartupPath + "\\image_surat_masuk\\" + gambar_surat))
+                    {
+                        File.Copy(lokasi_gambar, lokasi_tujuan + "\\" + nama_gambar, true);
+                    }
                 }
-                if (!File.Exists(Application.StartupPath + "\\image_surat_masuk\\" + gambar_surat))
+
+                try
                 {
-                    File.Copy(lokasi_gambar, lokasi_tujuan + "\\" + nama_gambar, true);
+                    query = "UPDATE surat_masuk SET nomor_surat_masuk = @nomor_surat, perihal = @perihal_surat, " +
+                                                    "tanggal_surat = STR_TO_DATE(@tanggal_surat, '%d-%m-%Y'), " +
+                                                    "tanggal_terima = STR_TO_DATE(@tanggal_terima, '%d-%m-%Y'), " +
+                                                    "id_jenis = @id_jenis, " +
+                                                    "sifat_surat = @sifat_surat, pengirim = @pengirim, " +
+                                                    "alamat_pengirim = @alamat_pengirim, penerima = @penerima, " +
+                                                    "jabatan_tertanda = @jabatan_tertanda, tertanda = @tertanda, " +
+                                                    "distribusi_tanggal = STR_TO_DATE(@distribusi_tanggal, '%d-%m-%Y'), " +
+                                                    "isi_singkat = @isi_singkat, keterangan = @keterangan, " +
+                                                    "gambar_surat = @gambar_surat, id_user = @id_user, tanggal_update = NOW() " +
+                            "WHERE nomor_surat_masuk = @nomor_surat_sebelumnya";
+                    // MessageBox.Show(nama_gambar);
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@nomor_surat", nomor_surat);
+                    cmd.Parameters.AddWithValue("@sifat_surat", sifat_surat);
+                    cmd.Parameters.AddWithValue("@id_jenis", getIdJenisSurat(jenis_surat));
+                    cmd.Parameters.AddWithValue("@gambar_surat", nama_gambar);
+                    cmd.Parameters.AddWithValue("@perihal_surat", perihal);
+                    cmd.Parameters.AddWithValue("@tanggal_surat", tanggal_surat);
+                    cmd.Parameters.AddWithValue("@tanggal_terima", tanggal_terima);
+                    cmd.Parameters.AddWithValue("@pengirim", pengirim);
+                    cmd.Parameters.AddWithValue("@alamat_pengirim", alamat_pengirim);
+                    cmd.Parameters.AddWithValue("@penerima", penerima);
+                    cmd.Parameters.AddWithValue("@jabatan_tertanda", jabatan_tertanda);
+                    cmd.Parameters.AddWithValue("@tertanda", tertanda);
+                    cmd.Parameters.AddWithValue("@distribusi_tanggal", distribusi_tanggal);
+                    cmd.Parameters.AddWithValue("@isi_singkat", isi_singkat);
+                    cmd.Parameters.AddWithValue("@keterangan", keterangan);
+                    cmd.Parameters.AddWithValue("@nomor_surat_sebelumnya", FormSuratMasuk.nomor_surat);
+                    cmd.Parameters.AddWithValue("@id_user", FormMain.id_user);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Edit Surat Masuk berhasil", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-            }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
 
-            try
-            {
-                query = "UPDATE surat_masuk SET nomor_surat_masuk = @nomor_surat, perihal = @perihal_surat, " +
-                                                "tanggal_surat = STR_TO_DATE(@tanggal_surat, '%d-%m-%Y'), " +
-                                                "tanggal_terima = STR_TO_DATE(@tanggal_terima, '%d-%m-%Y'), " +
-                                                "id_jenis = @id_jenis, " +
-                                                "sifat_surat = @sifat_surat, pengirim = @pengirim, " +
-                                                "alamat_pengirim = @alamat_pengirim, penerima = @penerima, " +
-                                                "jabatan_tertanda = @jabatan_tertanda, tertanda = @tertanda, " +
-                                                "distribusi_tanggal = STR_TO_DATE(@distribusi_tanggal, '%d-%m-%Y'), " +
-                                                "isi_singkat = @isi_singkat, keterangan = @keterangan, " +
-                                                "gambar_surat = @gambar_surat, id_user = @id_user, tanggal_update = NOW() " +
-                        "WHERE nomor_surat_masuk = @nomor_surat_sebelumnya";
-               // MessageBox.Show(nama_gambar);
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@nomor_surat", nomor_surat);
-                cmd.Parameters.AddWithValue("@sifat_surat", sifat_surat);
-                cmd.Parameters.AddWithValue("@id_jenis", getIdJenisSurat(jenis_surat));
-                cmd.Parameters.AddWithValue("@gambar_surat", nama_gambar);
-                cmd.Parameters.AddWithValue("@perihal_surat", perihal);
-                cmd.Parameters.AddWithValue("@tanggal_surat", tanggal_surat);
-                cmd.Parameters.AddWithValue("@tanggal_terima", tanggal_terima);
-                cmd.Parameters.AddWithValue("@pengirim", pengirim);
-                cmd.Parameters.AddWithValue("@alamat_pengirim", alamat_pengirim);
-                cmd.Parameters.AddWithValue("@penerima", penerima);
-                cmd.Parameters.AddWithValue("@jabatan_tertanda", jabatan_tertanda);
-                cmd.Parameters.AddWithValue("@tertanda", tertanda);
-                cmd.Parameters.AddWithValue("@distribusi_tanggal", distribusi_tanggal);
-                cmd.Parameters.AddWithValue("@isi_singkat", isi_singkat);
-                cmd.Parameters.AddWithValue("@keterangan", keterangan);
-                cmd.Parameters.AddWithValue("@nomor_surat_sebelumnya", FormSuratMasuk.nomor_surat);
-                cmd.Parameters.AddWithValue("@id_user", FormMain.id_user);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Edit Surat Masuk berhasil", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                conn.Close();
             }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-
-            conn.Close();
         }
 
         private void FormSuratMasukEdit_Load(object sender, EventArgs e)
@@ -384,6 +387,7 @@ namespace Surat
         {
             FormSuratMasukLampiran.list_lampiran.Clear();
             FormSuratMasukTembusan.list_tembusan.Clear();
+            this.Dispose();
         }
 
         private void buttonTembusanSuratMasuk_Click(object sender, EventArgs e)

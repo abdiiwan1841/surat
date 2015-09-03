@@ -41,6 +41,7 @@ namespace Surat
             disposisi.Columns[7].ColumnName = "Perihal";
             //dataGridViewSuratDisposisi.ClearSelection();
             dataGridViewSuratDisposisi.DataSource = disposisi;
+            labelJumlahSurat.Text = "Jumlah Surat Disposisi : " + dataGridViewSuratDisposisi.RowCount.ToString();
         }
 
         private void getSuratDisposisi(string cari)
@@ -333,7 +334,7 @@ namespace Surat
                                     "disposisi_lain AS 'Diteruskan', " +
                                     "u.nama AS 'Penginput Data', " +
                                     "DATE_FORMAT(tanggal_update, '%d-%m-%Y %H:%i:%s') AS 'Waktu Update Terakhir' " +
-                            "FROM surat_disposisi JOIN user AS u USING(id_user)";
+                            "FROM surat_disposisi JOIN user AS u USING(id_user) ORDER BY tanggal_surat ASC";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     //cmd.ExecuteReader();
                     MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);

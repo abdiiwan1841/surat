@@ -168,7 +168,8 @@ namespace Surat
             else
             {
                 nama_gambar = "no_image.png";
-                File.Copy(Application.StartupPath + "\\no_image.png", lokasi_tujuan + "\\no_image.png", true);
+                if(!File.Exists(lokasi_tujuan + "\\no_image.png"))
+                    File.Copy(Application.StartupPath + "\\no_image.png", lokasi_tujuan + "\\no_image.png", true);
             }
             try
             {

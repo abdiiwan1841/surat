@@ -43,6 +43,7 @@ namespace Surat
             this.dataGridViewSuratKeluar = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.buttondetailsuratkeluar = new DevComponents.DotNetBar.ButtonX();
             this.buttonsimpansuratkeluar = new DevComponents.DotNetBar.ButtonX();
+            this.labelJumlahSurat = new DevComponents.DotNetBar.LabelX();
             this.groupBoxCariSuratKeluar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputSuratKeluar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSuratKeluar)).BeginInit();
@@ -274,9 +275,22 @@ namespace Surat
             this.buttonsimpansuratkeluar.Text = "Simpan ke\r\nFile Excel";
             this.buttonsimpansuratkeluar.Click += new System.EventHandler(this.buttonsimpansuratkeluar_Click);
             // 
+            // labelJumlahSurat
+            // 
+            // 
+            // 
+            // 
+            this.labelJumlahSurat.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelJumlahSurat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelJumlahSurat.Location = new System.Drawing.Point(9, 533);
+            this.labelJumlahSurat.Name = "labelJumlahSurat";
+            this.labelJumlahSurat.Size = new System.Drawing.Size(170, 23);
+            this.labelJumlahSurat.TabIndex = 13;
+            // 
             // FormSuratKeluar
             // 
-            this.ClientSize = new System.Drawing.Size(945, 541);
+            this.ClientSize = new System.Drawing.Size(945, 565);
+            this.Controls.Add(this.labelJumlahSurat);
             this.Controls.Add(this.buttonsimpansuratkeluar);
             this.Controls.Add(this.buttondetailsuratkeluar);
             this.Controls.Add(this.buttonKembali);
@@ -319,5 +333,6 @@ namespace Surat
         private DevComponents.DotNetBar.ButtonX buttondetailsuratkeluar;
         private DevComponents.Editors.DateTimeAdv.DateTimeInput dateTimeInputSuratKeluar;
         private DevComponents.DotNetBar.ButtonX buttonsimpansuratkeluar;
+        private DevComponents.DotNetBar.LabelX labelJumlahSurat;
     }
 }
