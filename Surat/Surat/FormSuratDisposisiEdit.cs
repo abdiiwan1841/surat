@@ -292,7 +292,12 @@ namespace Surat
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show(ex.ToString());
+                if (ex.Number == 1062)
+                {
+                    MessageBox.Show("Nomor surat/agenda yang diisi telah ada. Proses penyimpanan dibatalkan", "Duplicate Entry", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                    MessageBox.Show(ex.ToString());
             }
 
             conn.Close();
