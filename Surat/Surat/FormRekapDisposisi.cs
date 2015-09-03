@@ -11,17 +11,17 @@ using MySql.Data.MySqlClient;
 
 namespace Surat
 {
-    public partial class FormRekapSuratMasuk : DevComponents.DotNetBar.OfficeForm
+    public partial class FormRekapDisposisi : DevComponents.DotNetBar.OfficeForm
     {
         private string strconn, query, tahun, totalSurat;
-        public FormRekapSuratMasuk()
+        public FormRekapDisposisi()
         {
             InitializeComponent();
-            tahun = dateTimeRekapSuratMasuk.Value.Year.ToString();
-            getAllRekapSuratMasuk();
-            getTotalRekapSuratMasuk();
+            tahun = dateTimeRekapDisposisi.Value.Year.ToString();
+            getAllRekapDisposisi();
+            getTotalRekapDisposisi();
         }
-        public void getAllRekapSuratMasuk()
+        public void getAllRekapDisposisi()
         {
             Database db = new Database();
             strconn = db.getString();
@@ -30,7 +30,7 @@ namespace Surat
 
             try
             {
-                query = "SELECT MONTH(tanggal_terima) as BULAN, count(nomor_surat_masuk) from surat_masuk WHERE YEAR(tanggal_terima)=" + tahun + " GROUP BY BULAN ASC";
+                query = "SELECT MONTH(tanggal_terima) as BULAN, count(nomor_surat) from surat_disposisi WHERE YEAR(tanggal_terima)=" + tahun + " GROUP BY BULAN ASC";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 setDataTable(reader);
@@ -52,19 +52,19 @@ namespace Surat
             //jenis_surat.Columns[2].ColumnName = "Perihal";
             //jenis_surat.Columns[3].ColumnName = "Jenis Surat";
 
-            dataRekapMasuk.ClearSelection();
-            dataRekapMasuk.DataSource = rekap_surat;
-            dataRekapMasuk.AutoResizeColumns();
+            dataRekapDisposisi.ClearSelection();
+            dataRekapDisposisi.DataSource = rekap_surat;
+            dataRekapDisposisi.AutoResizeColumns();
 
         }
 
         private void dateTimeRekapSuratKeluar_ValueChanged(object sender, EventArgs e)
         {
-            tahun = dateTimeRekapSuratMasuk.Value.Year.ToString();
-            getAllRekapSuratMasuk();
-            getTotalRekapSuratMasuk();
+            tahun = dateTimeRekapDisposisi.Value.Year.ToString();
+            getAllRekapDisposisi();
+            getTotalRekapDisposisi();
         }
-        public void getTotalRekapSuratMasuk()
+        public void getTotalRekapDisposisi()
         {
             Database db = new Database();
             strconn = db.getString();
@@ -73,7 +73,7 @@ namespace Surat
 
             try
             {
-                query = "SELECT count(nomor_surat_masuk) as total_surat from surat_masuk WHERE YEAR(tanggal_terima)=" + tahun + "";
+                query = "SELECT count(nomor_surat) as total_surat from surat_disposisi WHERE YEAR(tanggal_terima)=" + tahun + "";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 //setDataTable(reader);
@@ -81,7 +81,7 @@ namespace Surat
                 {
                     totalSurat = reader["total_surat"].ToString();
                 }
-                textBoxTotalSurat.Text = totalSurat.ToString();
+                textBoxDisposisi.Text = totalSurat.ToString();
             }
             catch (MySqlException ex)
             {
@@ -91,17 +91,17 @@ namespace Surat
             conn.Close();
 
         }
+
         private void buttonX1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void dateTimeRekapSuratMasuk_ValueChanged(object sender, EventArgs e)
+        private void dateTimeRekapDisposisi_ValueChanged(object sender, EventArgs e)
         {
-            tahun = dateTimeRekapSuratMasuk.Value.Year.ToString();
-            getAllRekapSuratMasuk();
-            getTotalRekapSuratMasuk();
-            //MessageBox.Show(tahun);
+            tahun = dateTimeRekapDisposisi.Value.Year.ToString();
+            getAllRekapDisposisi();
+            getTotalRekapDisposisi();
         }
     }
 }

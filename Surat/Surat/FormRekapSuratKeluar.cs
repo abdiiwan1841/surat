@@ -11,17 +11,18 @@ using MySql.Data.MySqlClient;
 
 namespace Surat
 {
-    public partial class FormRekapSuratMasuk : DevComponents.DotNetBar.OfficeForm
+    public partial class FormRekapSuratKeluar : DevComponents.DotNetBar.OfficeForm
     {
-        private string strconn, query, tahun, totalSurat;
-        public FormRekapSuratMasuk()
+        private string strconn,query,tahun,totalSurat;
+        public FormRekapSuratKeluar()
         {
             InitializeComponent();
-            tahun = dateTimeRekapSuratMasuk.Value.Year.ToString();
-            getAllRekapSuratMasuk();
-            getTotalRekapSuratMasuk();
+            tahun = dateTimeRekapSuratKeluar.Value.Year.ToString();
+            getAllRekapSuratKeluar();
+            getTotalRekapSuratKeluar();
         }
-        public void getAllRekapSuratMasuk()
+
+        public void getAllRekapSuratKeluar()
         {
             Database db = new Database();
             strconn = db.getString();
@@ -30,7 +31,7 @@ namespace Surat
 
             try
             {
-                query = "SELECT MONTH(tanggal_terima) as BULAN, count(nomor_surat_masuk) from surat_masuk WHERE YEAR(tanggal_terima)=" + tahun + " GROUP BY BULAN ASC";
+                query = "SELECT MONTH(tanggal_surat) as BULAN, count(nomor_surat_keluar) from surat_keluar WHERE YEAR(tanggal_surat)="+tahun+" GROUP BY BULAN ASC";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 setDataTable(reader);
@@ -51,20 +52,20 @@ namespace Surat
             rekap_surat.Columns[1].ColumnName = "Jumlah Surat Keluar";
             //jenis_surat.Columns[2].ColumnName = "Perihal";
             //jenis_surat.Columns[3].ColumnName = "Jenis Surat";
-
-            dataRekapMasuk.ClearSelection();
-            dataRekapMasuk.DataSource = rekap_surat;
-            dataRekapMasuk.AutoResizeColumns();
-
+            
+            dataRekapKeluar.ClearSelection();
+            dataRekapKeluar.DataSource = rekap_surat;
+            dataRekapKeluar.AutoResizeColumns();
+            
         }
 
         private void dateTimeRekapSuratKeluar_ValueChanged(object sender, EventArgs e)
         {
-            tahun = dateTimeRekapSuratMasuk.Value.Year.ToString();
-            getAllRekapSuratMasuk();
-            getTotalRekapSuratMasuk();
+            tahun = dateTimeRekapSuratKeluar.Value.Year.ToString();
+            getAllRekapSuratKeluar();
+            getTotalRekapSuratKeluar();
         }
-        public void getTotalRekapSuratMasuk()
+        public void getTotalRekapSuratKeluar()
         {
             Database db = new Database();
             strconn = db.getString();
@@ -73,7 +74,7 @@ namespace Surat
 
             try
             {
-                query = "SELECT count(nomor_surat_masuk) as total_surat from surat_masuk WHERE YEAR(tanggal_terima)=" + tahun + "";
+                query = "SELECT count(nomor_surat_keluar) as total_surat from surat_keluar WHERE YEAR(tanggal_surat)=" + tahun + "";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 //setDataTable(reader);
@@ -87,21 +88,21 @@ namespace Surat
             {
                 MessageBox.Show(ex.ToString());
             }
-
+            
             conn.Close();
+            
+        }
+
+        private void textBoxTotalSurat_TextChanged(object sender, EventArgs e)
+        {
 
         }
+
         private void buttonX1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void dateTimeRekapSuratMasuk_ValueChanged(object sender, EventArgs e)
-        {
-            tahun = dateTimeRekapSuratMasuk.Value.Year.ToString();
-            getAllRekapSuratMasuk();
-            getTotalRekapSuratMasuk();
-            //MessageBox.Show(tahun);
-        }
+
     }
 }

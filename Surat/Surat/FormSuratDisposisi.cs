@@ -349,5 +349,11 @@ namespace Surat
                 }
             }
         }
+
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+            FormRekapDisposisi rekap = new FormRekapDisposisi();
+            rekap.ShowDialog();
+        }
     }
 }

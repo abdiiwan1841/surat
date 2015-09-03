@@ -41,13 +41,13 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="EPPlus">
-      <HintPath>..\..\..\..\EPPlus.dll</HintPath>
+      <HintPath>G:\\EPPlus.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
     <Reference Include="MySqlBackup">
-      <HintPath>..\..\..\..\MySqlBackup.dll</HintPath>
+      <HintPath>G:\\MySqlBackup.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -71,11 +71,23 @@
     <Compile Include="FormDetailSuratKeluar.Designer.cs">
       <DependentUpon>FormDetailSuratKeluar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRekapDisposisi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRekapDisposisi.Designer.cs">
+      <DependentUpon>FormRekapDisposisi.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRekapSuratMasuk.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormRekapSuratMasuk.Designer.cs">
       <DependentUpon>FormRekapSuratMasuk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRekapSuratKeluar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRekapSuratKeluar.Designer.cs">
+      <DependentUpon>FormRekapSuratKeluar.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSuratDisposisi.cs">
       <SubType>Form</SubType>
@@ -285,6 +297,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormKlasifikasiSuratTambah.resx">
       <DependentUpon>FormKlasifikasiSuratTambah.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRekapDisposisi.resx">
+      <DependentUpon>FormRekapDisposisi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRekapSuratKeluar.resx">
+      <DependentUpon>FormRekapSuratKeluar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRekapSuratMasuk.resx">
       <DependentUpon>FormRekapSuratMasuk.cs</DependentUpon>
