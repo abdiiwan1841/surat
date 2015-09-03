@@ -30,16 +30,18 @@ namespace Surat
         {
             DataTable jenis_surat = new DataTable();
             jenis_surat.Load(reader);
-            jenis_surat.Columns[0].ColumnName = "Nomor Surat";
-            jenis_surat.Columns[1].ColumnName = "Tanggal Surat";
-            jenis_surat.Columns[2].ColumnName = "Tanggal Terima";
-            jenis_surat.Columns[3].ColumnName = "Perihal";
-            jenis_surat.Columns[4].ColumnName = "Pengirim";
-            jenis_surat.Columns[5].ColumnName = "Sifat Surat";
-            jenis_surat.Columns[6].ColumnName = "Jenis Surat";
+            jenis_surat.Columns[0].ColumnName = "Nomor Urut";
+            jenis_surat.Columns[1].ColumnName = "Nomor Surat";
+            jenis_surat.Columns[2].ColumnName = "Tanggal Surat";
+            jenis_surat.Columns[3].ColumnName = "Tanggal Terima";
+            jenis_surat.Columns[4].ColumnName = "Perihal";
+            jenis_surat.Columns[5].ColumnName = "Pengirim";
+            jenis_surat.Columns[6].ColumnName = "Sifat Surat";
+            jenis_surat.Columns[7].ColumnName = "Jenis Surat";
 
             dataGridViewSuratMasuk.ClearSelection();
             dataGridViewSuratMasuk.DataSource = jenis_surat;
+            dataGridViewSuratMasuk.AutoResizeColumns();
             labelJumlahSurat.Text = "Jumlah Surat Masuk : "+dataGridViewSuratMasuk.RowCount.ToString();
         }
 
@@ -61,9 +63,10 @@ namespace Surat
 
             try
             {
-                query = "SELECT nomor_surat_masuk, DATE_FORMAT(tanggal_surat, '%d-%m-%Y'), DATE_FORMAT(tanggal_terima, '%d-%m-%Y'), perihal, pengirim, sifat_surat, j.nama_jenis AS jenis_surat " +
-                                "FROM surat_masuk JOIN jenis_surat AS j USING(id_jenis) ORDER BY tanggal_terima ASC";
+                query = "SELECT @s:=@s+1 AS nomor, nomor_surat_masuk, DATE_FORMAT(tanggal_surat, '%d-%m-%Y'), DATE_FORMAT(tanggal_terima, '%d-%m-%Y'), perihal, pengirim, sifat_surat, j.nama_jenis AS jenis_surat " +
+                                "FROM surat_masuk JOIN jenis_surat AS j USING(id_jenis), (SELECT @s:= 0) AS s ORDER BY nomor ASC";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
+                //cmd.Parameters.AddWithValue("@col", "2");
                 MySqlDataReader reader = cmd.ExecuteReader();
                 setDataTable(reader);
             }
@@ -84,9 +87,9 @@ namespace Surat
 
             try
             {
-                query = "SELECT nomor_surat_masuk, DATE_FORMAT(tanggal_surat, '%d-%m-%Y'), DATE_FORMAT(tanggal_terima, '%d-%m-%Y'), perihal, pengirim, sifat_surat, j.nama_jenis AS jenis_surat " +
-                                "FROM surat_masuk JOIN jenis_surat AS j USING(id_jenis) " +
-                                "WHERE " + kriteria + " LIKE '%" + cari + "%'";
+                query = "SELECT @s:=@s+1 AS nomor, nomor_surat_masuk, DATE_FORMAT(tanggal_surat, '%d-%m-%Y'), DATE_FORMAT(tanggal_terima, '%d-%m-%Y'), perihal, pengirim, sifat_surat, j.nama_jenis AS jenis_surat " +
+                                "FROM surat_masuk JOIN jenis_surat AS j USING(id_jenis) , (SELECT @s:= 0) AS s " +
+                                "WHERE " + kriteria + " LIKE '%" + cari + "%' ORDER BY nomor ASC";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 setDataTable(reader);
