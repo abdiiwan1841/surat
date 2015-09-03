@@ -75,14 +75,8 @@ namespace Surat
             isi_surat = textBoxIsiSurat.Text;
             lain = textBoxKeterangan.Text;
             tanggal_surat = dateTimeInputTanggalSurat.Value.Date.ToString("dd-MM-yyyy");
-            if(tanggal_surat == "01-01-0001")
-                tanggal_surat = "00-00-0000";
             tanggal_diterima = dateTimeInputTanggalDiterima.Value.Date.ToString("dd-MM-yyyy");
-            if (tanggal_diterima == "01-01-0001")
-                tanggal_diterima = "00-00-0000";
             tanggal_diteruskan = dateTimeInputDiteruskan.Value.Date.ToString("dd-MM-yyyy");
-            if (tanggal_diterima == "01-01-0001")
-                tanggal_diterima = "00-00-0000";
             lokasi_tujuan = Application.StartupPath + "\\image_surat_disposisi";
             id_user = FormMain.id_user;
 

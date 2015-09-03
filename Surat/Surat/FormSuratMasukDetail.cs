@@ -131,14 +131,23 @@ namespace Surat
                 {
                     textBoxNomorSuratMasuk.Text = nomor_surat;
                     textBoxPerihalSuratMasuk.Text = reader["perihal"].ToString();
-                    textBoxTanggalTerima.Text = reader["tanggal_terima"].ToString();
-                    textBoxTanggalSurat.Text = reader["tanggal_surat"].ToString();
+                    if (reader["tanggal_terima"].ToString().Equals("1/1/0001"))
+                        textBoxTanggalTerima.Text = "";
+                    else
+                        textBoxTanggalTerima.Text = reader["tanggal_terima"].ToString();
+                    if (reader["tanggal_surat"].ToString().Equals("1/1/0001"))
+                        textBoxTanggalSurat.Text = "";
+                    else
+                        textBoxTanggalSurat.Text = reader["tanggal_surat"].ToString();
                     textBoxInstansiPengirimSuratMasuk.Text = reader["pengirim"].ToString();
                     textBoxAlamatPengirimSuratMasuk.Text = reader["alamat_pengirim"].ToString();
                     textBoxPenerimaSuratMasuk.Text = reader["penerima"].ToString();
                     textBoxJabatanTertandaSuratMasuk.Text = reader["jabatan_tertanda"].ToString();
                     textBoxTertandaPengirimSuratMasuk.Text = reader["tertanda"].ToString();
-                    textBoxTanggalDistribusi.Text = reader["distribusi_tanggal"].ToString();
+                    if (reader["distribusi_tanggal"].ToString().Equals("1/1/0001"))
+                        textBoxTanggalDistribusi.Text = "";
+                    else
+                        textBoxTanggalDistribusi.Text = reader["distribusi_tanggal"].ToString();
                     textBoxKeteranganSuratMasuk.Text = reader["keterangan"].ToString();
                     textBoxIsiSuratMasuk.Text = reader["isi_singkat"].ToString();
                     pictureBoxGambarSuratMasuk.Image = new Bitmap(Application.StartupPath + "\\image_surat_masuk\\" + reader["gambar_surat"].ToString());

@@ -85,9 +85,18 @@ namespace Surat
                 textBoxAsalSurat.Text = reader["asal"].ToString();
                 textBoxPerihal.Text = reader["perihal"].ToString();
                 textBoxSifatSurat.Text = reader["sifat"].ToString();
-                textBoxTanggalSurat.Text = reader["tanggal_surat"].ToString();
-                textBoxTanggalDiterima.Text = reader["tanggal_terima"].ToString();
-                textBoxTanggalDiteruskan.Text = reader["tanggal_diteruskan"].ToString();
+                if (reader["tanggal_surat"].ToString().Equals("1/1/0001"))
+                    textBoxTanggalSurat.Text = "";
+                else
+                    textBoxTanggalSurat.Text = reader["tanggal_surat"].ToString();
+                if (reader["tanggal_terima"].ToString().Equals("1/1/0001"))
+                    textBoxTanggalDiterima.Text = "";
+                else
+                    textBoxTanggalDiterima.Text = reader["tanggal_terima"].ToString();
+                if (reader["tanggal_diteruskan"].ToString().Equals("1/1/0001"))
+                    textBoxTanggalSurat.Text = "";
+                else
+                    textBoxTanggalDiteruskan.Text = reader["tanggal_diteruskan"].ToString();
                 textBoxIsiSurat.Text = reader["perintah"].ToString();
                 textBoxKeterangan.Text = reader["disposisi_lain"].ToString();
                 nama_gambar = reader["gambar_surat"].ToString();

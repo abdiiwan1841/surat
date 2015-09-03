@@ -20,6 +20,37 @@ namespace Surat
             frm2 = frm;
         }
 
+        private bool cekValid()
+        {
+            bool error = false;
+            if (txtBoxusername.Text == "")
+            {
+                error = true;
+                MessageBox.Show("Username harus diisi. Proses peyimpanan data dibatalkan.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (txtBoxnama.Text == "")
+            {
+                error = true;
+                MessageBox.Show("Nama harus diisi. Proses peyimpanan data dibatalkan.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (txtBoxpassword.Text == "")
+            {
+                error = true;
+                MessageBox.Show("Password harus diisi. Proses peyimpanan data dibatalkan.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (textBoxPasswordLagi.Text == "")
+            {
+                error = true;
+                MessageBox.Show("Password harus diisi. Proses peyimpanan data dibatalkan.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (textBoxPasswordLagi.Text != txtBoxpassword.Text)
+            {
+                error = true;
+                MessageBox.Show("Password yang diisikan tidak sama dengan password yang diisikan lainnya. Proses peyimpanan data dibatalkan.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            return error;
+        }
+
         private void tambahuser()
         {
             user u = new user();
@@ -62,7 +93,12 @@ namespace Surat
 
         private void ButtonSimpanTambah_Click(object sender, EventArgs e)
         {
-            tambahuser();
+            if (cekValid())
+            {
+                return;
+            }
+            else
+                tambahuser();
         }
 
     }

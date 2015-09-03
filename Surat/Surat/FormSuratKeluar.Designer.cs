@@ -246,7 +246,6 @@ namespace Surat
             this.dataGridViewSuratKeluar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSuratKeluar.Size = new System.Drawing.Size(801, 394);
             this.dataGridViewSuratKeluar.TabIndex = 6;
-            this.dataGridViewSuratKeluar.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSuratKeluar_CellContentClick);
             this.dataGridViewSuratKeluar.SelectionChanged += new System.EventHandler(this.dataGridViewSuratKeluar_SelectionChanged);
             // 
             // buttondetailsuratkeluar

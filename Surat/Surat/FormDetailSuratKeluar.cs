@@ -114,6 +114,8 @@ namespace Surat
                     textBoxTanggalDistribusi.Text = reader["distribusi_tanggal"].ToString();
                     textBoxKeteranganSuratKeluar.Text = reader["keterangan"].ToString();
                     textBoxIsiSuratKeluar.Text = reader["isi_singkat"].ToString();
+                    textBoxSifatSuratKeluar.Text = reader["sifat_surat"].ToString();
+                    pictureBoxGambarSuratKeluar.Image = new Bitmap(Application.StartupPath + "\\image_surat_keluar\\" + reader["gambar_surat"].ToString());
                 }
             }
             catch (MySqlException ex)

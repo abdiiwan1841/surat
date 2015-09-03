@@ -251,7 +251,7 @@ namespace Surat
             conn.Open();
             try
             {
-                query = "DELETE FROM disposisi_bagian WHERE nomor_surat = @nomor_surat AND id_bagian_bidang = " +
+                query = "DELETE FROM detail_bagian_bidang_surat_masuk WHERE nomor_surat = @nomor_surat AND id_bagian_bidang = " +
                         "(SELECT id_bagian_bidang FROM bagian_bidang WHERE nama_bagian_bidang = @bagian_bidang)";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@nomor_surat", nomor_surat);
@@ -270,15 +270,7 @@ namespace Surat
             string lokasi_tujuan;
             nomor_surat = textBoxNomorSuratMasuk.Text;
             tanggal_surat = dateTimeInputTanggalSuratMasuk.Value.Date.ToString("dd-MM-yyyy");
-            if (tanggal_surat == "01-01-0001")
-            {
-                tanggal_surat = "00-00-0000";
-            }
             tanggal_terima = dateTimeInputTanggalTerimaSuratMasuk.Value.Date.ToString("dd-MM-yyyy");
-            if (tanggal_terima == "01-01-0001")
-            {
-                tanggal_terima = "00-00-0000";
-            }
             jenis_surat = comboBoxJenisSuratMasuk.Text;
             sifat_surat = comboBoxSifatSuratMasuk.Text;
             perihal = textBoxPerihalSuratMasuk.Text;
@@ -290,10 +282,6 @@ namespace Surat
             jabatan_tertanda = textBoxJabatanTertandaSuratMasuk.Text;
             tertanda = textBoxTertandaPengirimSuratMasuk.Text;
             distribusi_tanggal = dateTimeInputTanggalDistribusiSuratMasuk.Value.Date.ToString("dd-MM-yyyy");
-            if (distribusi_tanggal == "01-01-0001")
-            {
-                distribusi_tanggal = "00-00-0000";
-            }
             lokasi_tujuan = "";
 
             Database db = new Database();

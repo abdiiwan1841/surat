@@ -36,6 +36,8 @@ namespace Surat
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.ButtonSimpanTambah = new DevComponents.DotNetBar.ButtonX();
             this.ButtonKembaliTambahUser = new DevComponents.DotNetBar.ButtonX();
+            this.labelX2 = new DevComponents.DotNetBar.LabelX();
+            this.textBoxPasswordLagi = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.SuspendLayout();
             // 
             // LabelNamaLengkap
@@ -60,6 +62,7 @@ namespace Surat
             this.txtBoxnama.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtBoxnama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.txtBoxnama.Location = new System.Drawing.Point(175, 23);
+            this.txtBoxnama.MaxLength = 40;
             this.txtBoxnama.Name = "txtBoxnama";
             this.txtBoxnama.Size = new System.Drawing.Size(275, 22);
             this.txtBoxnama.TabIndex = 1;
@@ -73,6 +76,7 @@ namespace Surat
             this.txtBoxusername.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtBoxusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.txtBoxusername.Location = new System.Drawing.Point(175, 64);
+            this.txtBoxusername.MaxLength = 19;
             this.txtBoxusername.Name = "txtBoxusername";
             this.txtBoxusername.Size = new System.Drawing.Size(275, 22);
             this.txtBoxusername.TabIndex = 2;
@@ -85,8 +89,10 @@ namespace Surat
             this.txtBoxpassword.Border.Class = "TextBoxBorder";
             this.txtBoxpassword.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtBoxpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.txtBoxpassword.Location = new System.Drawing.Point(175, 101);
+            this.txtBoxpassword.Location = new System.Drawing.Point(175, 122);
+            this.txtBoxpassword.MaxLength = 10;
             this.txtBoxpassword.Name = "txtBoxpassword";
+            this.txtBoxpassword.PasswordChar = '*';
             this.txtBoxpassword.Size = new System.Drawing.Size(275, 22);
             this.txtBoxpassword.TabIndex = 3;
             // 
@@ -110,7 +116,7 @@ namespace Surat
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX1.Location = new System.Drawing.Point(12, 99);
+            this.labelX1.Location = new System.Drawing.Point(12, 120);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(75, 23);
             this.labelX1.TabIndex = 5;
@@ -121,7 +127,7 @@ namespace Surat
             this.ButtonSimpanTambah.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.ButtonSimpanTambah.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.ButtonSimpanTambah.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonSimpanTambah.Location = new System.Drawing.Point(81, 164);
+            this.ButtonSimpanTambah.Location = new System.Drawing.Point(76, 219);
             this.ButtonSimpanTambah.Name = "ButtonSimpanTambah";
             this.ButtonSimpanTambah.Size = new System.Drawing.Size(126, 42);
             this.ButtonSimpanTambah.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -134,7 +140,7 @@ namespace Surat
             this.ButtonKembaliTambahUser.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.ButtonKembaliTambahUser.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.ButtonKembaliTambahUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonKembaliTambahUser.Location = new System.Drawing.Point(259, 164);
+            this.ButtonKembaliTambahUser.Location = new System.Drawing.Point(254, 219);
             this.ButtonKembaliTambahUser.Name = "ButtonKembaliTambahUser";
             this.ButtonKembaliTambahUser.Size = new System.Drawing.Size(126, 42);
             this.ButtonKembaliTambahUser.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -142,9 +148,39 @@ namespace Surat
             this.ButtonKembaliTambahUser.Text = "Kembali";
             this.ButtonKembaliTambahUser.Click += new System.EventHandler(this.ButtonKembaliTambahUser_Click);
             // 
+            // labelX2
+            // 
+            // 
+            // 
+            // 
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX2.Location = new System.Drawing.Point(12, 157);
+            this.labelX2.Name = "labelX2";
+            this.labelX2.Size = new System.Drawing.Size(157, 23);
+            this.labelX2.TabIndex = 9;
+            this.labelX2.Text = "Masukkan Password Lagi";
+            // 
+            // textBoxPasswordLagi
+            // 
+            // 
+            // 
+            // 
+            this.textBoxPasswordLagi.Border.Class = "TextBoxBorder";
+            this.textBoxPasswordLagi.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.textBoxPasswordLagi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.textBoxPasswordLagi.Location = new System.Drawing.Point(175, 159);
+            this.textBoxPasswordLagi.MaxLength = 10;
+            this.textBoxPasswordLagi.Name = "textBoxPasswordLagi";
+            this.textBoxPasswordLagi.PasswordChar = '*';
+            this.textBoxPasswordLagi.Size = new System.Drawing.Size(275, 22);
+            this.textBoxPasswordLagi.TabIndex = 8;
+            // 
             // FormTambahUser
             // 
-            this.ClientSize = new System.Drawing.Size(462, 233);
+            this.ClientSize = new System.Drawing.Size(462, 290);
+            this.Controls.Add(this.labelX2);
+            this.Controls.Add(this.textBoxPasswordLagi);
             this.Controls.Add(this.ButtonKembaliTambahUser);
             this.Controls.Add(this.ButtonSimpanTambah);
             this.Controls.Add(this.labelX1);
@@ -159,7 +195,9 @@ namespace Surat
             this.MaximizeBox = false;
             this.Name = "FormTambahUser";
             this.ShowIcon = false;
-            this.Text = "FormUserTambah";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Tambah User Baru";
             this.ResumeLayout(false);
 
         }
@@ -174,5 +212,7 @@ namespace Surat
         private DevComponents.DotNetBar.LabelX labelUsername;
         private DevComponents.DotNetBar.ButtonX ButtonSimpanTambah;
         private DevComponents.DotNetBar.ButtonX ButtonKembaliTambahUser;
+        private DevComponents.DotNetBar.LabelX labelX2;
+        private DevComponents.DotNetBar.Controls.TextBoxX textBoxPasswordLagi;
     }
 }

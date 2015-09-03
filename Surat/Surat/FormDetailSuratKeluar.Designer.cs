@@ -65,12 +65,17 @@ namespace Surat
             this.groupBoxTanggalSuratKeluar = new System.Windows.Forms.GroupBox();
             this.textBoxTanggalSurat = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelTanggalSuratKeluar = new DevComponents.DotNetBar.LabelX();
+            this.labelX2 = new DevComponents.DotNetBar.LabelX();
+            this.textBoxSifatSuratKeluar = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelGambarSuratKeluar = new DevComponents.DotNetBar.LabelX();
+            this.pictureBoxGambarSuratKeluar = new System.Windows.Forms.PictureBox();
             this.groupBoxDistribusiSuratKeluar.SuspendLayout();
             this.groupBoxPenerimaSuratKeluar.SuspendLayout();
             this.groupBoxPengirimSuratKeluar.SuspendLayout();
             this.groupBoxIsiSuratKeluar.SuspendLayout();
             this.groupBoxJenisSifatSuratKeluar.SuspendLayout();
             this.groupBoxTanggalSuratKeluar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGambarSuratKeluar)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonKembaliSuratKeluar
@@ -78,7 +83,7 @@ namespace Surat
             this.buttonKembaliSuratKeluar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonKembaliSuratKeluar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonKembaliSuratKeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKembaliSuratKeluar.Location = new System.Drawing.Point(663, 512);
+            this.buttonKembaliSuratKeluar.Location = new System.Drawing.Point(1012, 508);
             this.buttonKembaliSuratKeluar.Name = "buttonKembaliSuratKeluar";
             this.buttonKembaliSuratKeluar.Size = new System.Drawing.Size(90, 33);
             this.buttonKembaliSuratKeluar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -147,7 +152,7 @@ namespace Surat
             this.groupBoxDistribusiSuratKeluar.Controls.Add(this.labelX1);
             this.groupBoxDistribusiSuratKeluar.Controls.Add(this.labelTanggalDistribusiSuratKeluar);
             this.groupBoxDistribusiSuratKeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxDistribusiSuratKeluar.Location = new System.Drawing.Point(377, 226);
+            this.groupBoxDistribusiSuratKeluar.Location = new System.Drawing.Point(377, 290);
             this.groupBoxDistribusiSuratKeluar.Name = "groupBoxDistribusiSuratKeluar";
             this.groupBoxDistribusiSuratKeluar.Size = new System.Drawing.Size(376, 197);
             this.groupBoxDistribusiSuratKeluar.TabIndex = 46;
@@ -272,9 +277,9 @@ namespace Surat
             this.groupBoxPenerimaSuratKeluar.Controls.Add(this.textBoxPenerimaSuratKeluar);
             this.groupBoxPenerimaSuratKeluar.Controls.Add(this.labelPenerimaSuratKeluar);
             this.groupBoxPenerimaSuratKeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxPenerimaSuratKeluar.Location = new System.Drawing.Point(376, 165);
+            this.groupBoxPenerimaSuratKeluar.Location = new System.Drawing.Point(377, 194);
             this.groupBoxPenerimaSuratKeluar.Name = "groupBoxPenerimaSuratKeluar";
-            this.groupBoxPenerimaSuratKeluar.Size = new System.Drawing.Size(376, 55);
+            this.groupBoxPenerimaSuratKeluar.Size = new System.Drawing.Size(376, 63);
             this.groupBoxPenerimaSuratKeluar.TabIndex = 45;
             this.groupBoxPenerimaSuratKeluar.TabStop = false;
             this.groupBoxPenerimaSuratKeluar.Text = "Penerima Surat";
@@ -401,7 +406,7 @@ namespace Surat
             this.textBoxIsiSuratKeluar.Border.Class = "TextBoxBorder";
             this.textBoxIsiSuratKeluar.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxIsiSuratKeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxIsiSuratKeluar.Location = new System.Drawing.Point(120, 105);
+            this.textBoxIsiSuratKeluar.Location = new System.Drawing.Point(120, 139);
             this.textBoxIsiSuratKeluar.MaxLength = 100;
             this.textBoxIsiSuratKeluar.Multiline = true;
             this.textBoxIsiSuratKeluar.Name = "textBoxIsiSuratKeluar";
@@ -417,7 +422,7 @@ namespace Surat
             // 
             this.labelIsiSuratKeluar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelIsiSuratKeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIsiSuratKeluar.Location = new System.Drawing.Point(15, 104);
+            this.labelIsiSuratKeluar.Location = new System.Drawing.Point(15, 139);
             this.labelIsiSuratKeluar.Name = "labelIsiSuratKeluar";
             this.labelIsiSuratKeluar.Size = new System.Drawing.Size(99, 23);
             this.labelIsiSuratKeluar.TabIndex = 9;
@@ -431,7 +436,7 @@ namespace Surat
             this.textBoxKeteranganSuratKeluar.Border.Class = "TextBoxBorder";
             this.textBoxKeteranganSuratKeluar.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxKeteranganSuratKeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKeteranganSuratKeluar.Location = new System.Drawing.Point(120, 51);
+            this.textBoxKeteranganSuratKeluar.Location = new System.Drawing.Point(120, 81);
             this.textBoxKeteranganSuratKeluar.MaxLength = 50;
             this.textBoxKeteranganSuratKeluar.Multiline = true;
             this.textBoxKeteranganSuratKeluar.Name = "textBoxKeteranganSuratKeluar";
@@ -448,11 +453,13 @@ namespace Surat
             this.textBoxPerihalSuratKeluar.Border.Class = "TextBoxBorder";
             this.textBoxPerihalSuratKeluar.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxPerihalSuratKeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPerihalSuratKeluar.Location = new System.Drawing.Point(120, 22);
+            this.textBoxPerihalSuratKeluar.Location = new System.Drawing.Point(120, 28);
             this.textBoxPerihalSuratKeluar.MaxLength = 40;
+            this.textBoxPerihalSuratKeluar.Multiline = true;
             this.textBoxPerihalSuratKeluar.Name = "textBoxPerihalSuratKeluar";
             this.textBoxPerihalSuratKeluar.ReadOnly = true;
-            this.textBoxPerihalSuratKeluar.Size = new System.Drawing.Size(223, 22);
+            this.textBoxPerihalSuratKeluar.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxPerihalSuratKeluar.Size = new System.Drawing.Size(223, 47);
             this.textBoxPerihalSuratKeluar.TabIndex = 7;
             // 
             // labelKeteranganSuratKeluar
@@ -462,7 +469,7 @@ namespace Surat
             // 
             this.labelKeteranganSuratKeluar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelKeteranganSuratKeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKeteranganSuratKeluar.Location = new System.Drawing.Point(15, 50);
+            this.labelKeteranganSuratKeluar.Location = new System.Drawing.Point(15, 80);
             this.labelKeteranganSuratKeluar.Name = "labelKeteranganSuratKeluar";
             this.labelKeteranganSuratKeluar.Size = new System.Drawing.Size(99, 23);
             this.labelKeteranganSuratKeluar.TabIndex = 5;
@@ -475,7 +482,7 @@ namespace Surat
             // 
             this.labelPerihalSuratKeluar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelPerihalSuratKeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPerihalSuratKeluar.Location = new System.Drawing.Point(15, 21);
+            this.labelPerihalSuratKeluar.Location = new System.Drawing.Point(15, 27);
             this.labelPerihalSuratKeluar.Name = "labelPerihalSuratKeluar";
             this.labelPerihalSuratKeluar.Size = new System.Drawing.Size(99, 23);
             this.labelPerihalSuratKeluar.TabIndex = 4;
@@ -483,6 +490,8 @@ namespace Surat
             // 
             // groupBoxJenisSifatSuratKeluar
             // 
+            this.groupBoxJenisSifatSuratKeluar.Controls.Add(this.textBoxSifatSuratKeluar);
+            this.groupBoxJenisSifatSuratKeluar.Controls.Add(this.labelX2);
             this.groupBoxJenisSifatSuratKeluar.Controls.Add(this.textBoxJenisSurat);
             this.groupBoxJenisSifatSuratKeluar.Controls.Add(this.labelJenisSuratKeluar);
             this.groupBoxJenisSifatSuratKeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -501,7 +510,7 @@ namespace Surat
             this.textBoxJenisSurat.Border.Class = "TextBoxBorder";
             this.textBoxJenisSurat.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.textBoxJenisSurat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxJenisSurat.Location = new System.Drawing.Point(120, 42);
+            this.textBoxJenisSurat.Location = new System.Drawing.Point(120, 29);
             this.textBoxJenisSurat.MaxLength = 40;
             this.textBoxJenisSurat.Name = "textBoxJenisSurat";
             this.textBoxJenisSurat.ReadOnly = true;
@@ -515,7 +524,7 @@ namespace Surat
             // 
             this.labelJenisSuratKeluar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelJenisSuratKeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelJenisSuratKeluar.Location = new System.Drawing.Point(15, 42);
+            this.labelJenisSuratKeluar.Location = new System.Drawing.Point(15, 28);
             this.labelJenisSuratKeluar.Name = "labelJenisSuratKeluar";
             this.labelJenisSuratKeluar.Size = new System.Drawing.Size(99, 23);
             this.labelJenisSuratKeluar.TabIndex = 3;
@@ -589,9 +598,62 @@ namespace Surat
             this.labelTanggalSuratKeluar.TabIndex = 2;
             this.labelTanggalSuratKeluar.Text = "Tanggal Surat: ";
             // 
+            // labelX2
+            // 
+            // 
+            // 
+            // 
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX2.Location = new System.Drawing.Point(15, 57);
+            this.labelX2.Name = "labelX2";
+            this.labelX2.Size = new System.Drawing.Size(99, 23);
+            this.labelX2.TabIndex = 45;
+            this.labelX2.Text = "Sifat Surat: ";
+            // 
+            // textBoxSifatSuratKeluar
+            // 
+            // 
+            // 
+            // 
+            this.textBoxSifatSuratKeluar.Border.Class = "TextBoxBorder";
+            this.textBoxSifatSuratKeluar.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.textBoxSifatSuratKeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSifatSuratKeluar.Location = new System.Drawing.Point(120, 57);
+            this.textBoxSifatSuratKeluar.MaxLength = 40;
+            this.textBoxSifatSuratKeluar.Name = "textBoxSifatSuratKeluar";
+            this.textBoxSifatSuratKeluar.ReadOnly = true;
+            this.textBoxSifatSuratKeluar.Size = new System.Drawing.Size(223, 22);
+            this.textBoxSifatSuratKeluar.TabIndex = 46;
+            // 
+            // labelGambarSuratKeluar
+            // 
+            // 
+            // 
+            // 
+            this.labelGambarSuratKeluar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelGambarSuratKeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGambarSuratKeluar.Location = new System.Drawing.Point(767, 12);
+            this.labelGambarSuratKeluar.Name = "labelGambarSuratKeluar";
+            this.labelGambarSuratKeluar.Size = new System.Drawing.Size(182, 22);
+            this.labelGambarSuratKeluar.TabIndex = 56;
+            this.labelGambarSuratKeluar.Text = "File Gambar Hasil Scan Surat:";
+            // 
+            // pictureBoxGambarSuratKeluar
+            // 
+            this.pictureBoxGambarSuratKeluar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxGambarSuratKeluar.Location = new System.Drawing.Point(767, 50);
+            this.pictureBoxGambarSuratKeluar.Name = "pictureBoxGambarSuratKeluar";
+            this.pictureBoxGambarSuratKeluar.Size = new System.Drawing.Size(335, 437);
+            this.pictureBoxGambarSuratKeluar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxGambarSuratKeluar.TabIndex = 55;
+            this.pictureBoxGambarSuratKeluar.TabStop = false;
+            // 
             // FormDetailSuratKeluar
             // 
-            this.ClientSize = new System.Drawing.Size(767, 557);
+            this.ClientSize = new System.Drawing.Size(1116, 557);
+            this.Controls.Add(this.labelGambarSuratKeluar);
+            this.Controls.Add(this.pictureBoxGambarSuratKeluar);
             this.Controls.Add(this.buttonKembaliSuratKeluar);
             this.Controls.Add(this.buttonTembusanSuratKeluar);
             this.Controls.Add(this.labelTembusanSuratKeluar);
@@ -622,6 +684,7 @@ namespace Surat
             this.groupBoxIsiSuratKeluar.ResumeLayout(false);
             this.groupBoxJenisSifatSuratKeluar.ResumeLayout(false);
             this.groupBoxTanggalSuratKeluar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGambarSuratKeluar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -665,5 +728,9 @@ namespace Surat
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxTanggalSurat;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxTanggalDistribusi;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxJenisSurat;
+        private DevComponents.DotNetBar.Controls.TextBoxX textBoxSifatSuratKeluar;
+        private DevComponents.DotNetBar.LabelX labelX2;
+        private DevComponents.DotNetBar.LabelX labelGambarSuratKeluar;
+        private System.Windows.Forms.PictureBox pictureBoxGambarSuratKeluar;
     }
 }

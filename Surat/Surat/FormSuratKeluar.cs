@@ -124,11 +124,6 @@ namespace Surat
             kriteria = "nomor_surat_keluar";
         }
 
-        private void dataGridViewSuratKeluar_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void buttonTambahSuratKeluar_Click(object sender, EventArgs e)
         {
             FormSuratKeluarLampiran form_lampiran = new FormSuratKeluarLampiran();

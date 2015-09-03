@@ -27,6 +27,20 @@ namespace Surat
             frm1 = frm;
         }
 
+        private void clear()
+        {
+             Action<Control.ControlCollection> func = null;
+             func = (controls) =>
+                 {
+                     foreach (Control control in controls)
+                         if (control is TextBox)
+                             (control as TextBox).Clear();
+                         else
+                             func(control.Controls);
+                 };
+             func(Controls);
+        }
+
         private bool cekValid()
         {
             bool error = false;
@@ -153,11 +167,7 @@ namespace Surat
             string lokasi_tujuan;
             nomor_surat = textBoxNomorSuratMasuk.Text;
             tgl_surat = dateTimeInputTanggalSuratMasuk.Value.Date.ToString("dd-MM-yyyy");
-            if (tgl_surat == "01-01-0001")
-                tgl_surat = "00-00-0000";
             tgl_terima = dateTimeInputTanggalTerimaSuratMasuk.Value.Date.ToString("dd-MM-yyyy");
-            if (tgl_terima == "01-01-0001")
-                tgl_terima = "00-00-0000";
             jenis_surat = comboBoxJenisSuratMasuk.Text;
             sifat_surat = comboBoxSifatSuratMasuk.Text;
             perihal_surat = textBoxPerihalSuratMasuk.Text;
@@ -169,8 +179,6 @@ namespace Surat
             jabatan_tertanda = textBoxJabatanTertandaSuratMasuk.Text;
             tertanda = textBoxTertandaPengirimSuratMasuk.Text;
             distribusi_tanggal = dateTimeInputTanggalDistribusiSuratMasuk.Value.Date.ToString("dd-MM-yyyy");
-            if (distribusi_tanggal == "01-01-0001")
-                distribusi_tanggal = "00-00-0000";
             lokasi_tujuan = Application.StartupPath + "\\image_surat_masuk";
 
             Database db = new Database();
@@ -286,6 +294,7 @@ namespace Surat
                     tambahBagianBidang();
                 }
             }
+            clear();
             frm1.getAllSuratMasuk();
         }
 

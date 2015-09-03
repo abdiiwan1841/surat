@@ -17,7 +17,7 @@ namespace Surat
         private string strconn, query;
         private string nomor_surat, tgl_surat, jenis_surat,
                         perihal_surat, keterangan_surat, isi_surat,
-                        tertanda_pengirim, jabatan_tertanda, penerima, distribusi_tanggal;
+                        tertanda_pengirim, jabatan_tertanda, penerima, distribusi_tanggal, lokasi_gambar, nama_gambar, sifat_surat;
         private List<string> list_bagian = new List<string>();
         private readonly FormSuratKeluar frm1;
 
@@ -25,6 +25,31 @@ namespace Surat
         {
             InitializeComponent();
             frm1 = frm;
+        }
+
+        private void clear()
+        {
+            Action<Control.ControlCollection> func = null;
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is TextBox)
+                        (control as TextBox).Clear();
+                    else
+                        func(control.Controls);
+            };
+            func(Controls);
+        }
+
+        private bool cekValid()
+        {
+            bool error = false;
+            if (textBoxNomorSuratKeluar.Text == "")
+            {
+                error = true;
+                MessageBox.Show("Nomor surat belum diisi. Proses penyimpanan data dibatalkan");
+            }
+            return error;
         }
 
         private void tambah_tembusan()
@@ -123,6 +148,7 @@ namespace Surat
             jabatan_tertanda = textBoxJabatanTertandaSuratKeluar.Text;
             tertanda_pengirim = textBoxTertandaPengirimSuratKeluar.Text;
             distribusi_tanggal = dateTimeInputTanggalDistribusiSuratKeluar.Value.Date.ToString("dd-MM-yyyy");
+            sifat_surat = comboBoxSifatSurat.Text;
             //distribusi_tanggal = dateTimeInputTanggalDistribusiSuratKeluar.Value.Date.ToString("dd-MM-yyyy");
             lokasi_tujuan = Application.StartupPath + "\\image_surat_keluar";
 
@@ -135,18 +161,28 @@ namespace Surat
             {
                 Directory.CreateDirectory(lokasi_tujuan);
             }
+            if (pictureBoxGambarSuratKeluar.Image != null)
+            {
+                File.Copy(lokasi_gambar, lokasi_tujuan + "\\" + nama_gambar, true);
+            }
+            else
+            {
+                nama_gambar = "no_image.png";
+                File.Copy(Application.StartupPath + "\\no_image.png", lokasi_tujuan + "\\no_image.png", true);
+            }
             try
             {
-                query = "INSERT INTO surat_keluar(nomor_surat_keluar, perihal, tanggal_surat, id_jenis, " +
+                query = "INSERT INTO surat_keluar(nomor_surat_keluar, perihal, tanggal_surat, id_jenis, sifat_surat, " +
                                                 "penerima, jabatan_tertanda, tertanda, " +
-                                                "distribusi_tanggal,isi_singkat, keterangan, id_user, tanggal_update) " +
+                                                "distribusi_tanggal, isi_singkat, keterangan, gambar_surat, id_user, tanggal_update) " +
                         "VALUES(@nomor_surat, @perihal_surat, STR_TO_DATE(@tanggal_surat, '%d-%m-%Y'), " +
-                                "@id_jenis, " +
+                                "@id_jenis, @sifat_surat, " +
                                 "@penerima, @jabatan_tertanda, @tertanda_pengirim, " +
-                                "STR_TO_DATE(@distribusi_tanggal, '%d-%m-%Y'),@isi_singkat, @keterangan,Now())";
+                                "STR_TO_DATE(@distribusi_tanggal, '%d-%m-%Y'), @isi_singkat, @keterangan, @gambar_surat, @id_user, NOW())";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@nomor_surat", nomor_surat);
                 cmd.Parameters.AddWithValue("@id_jenis", getIdJenisSurat(jenis_surat));
+                cmd.Parameters.AddWithValue("@sifat_surat", sifat_surat);
                 cmd.Parameters.AddWithValue("@perihal_surat", perihal_surat);
                 cmd.Parameters.AddWithValue("@tanggal_surat", tgl_surat);
                 cmd.Parameters.AddWithValue("@penerima", penerima);
@@ -155,7 +191,10 @@ namespace Surat
                 cmd.Parameters.AddWithValue("@distribusi_tanggal", distribusi_tanggal);
                 cmd.Parameters.AddWithValue("@isi_singkat", isi_surat);
                 cmd.Parameters.AddWithValue("@keterangan", keterangan_surat);
+                cmd.Parameters.AddWithValue("@gambar_surat", nama_gambar);
+                cmd.Parameters.AddWithValue("@id_user", FormMain.id_user);
                 cmd.ExecuteNonQuery();
+                MessageBox.Show("Data berhasil ditambah", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (MySqlException ex)
             {
@@ -165,78 +204,10 @@ namespace Surat
             conn.Close();
         }
 
-        private void textBoxNomorSuratKeluar_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBoxTanggalSuratKeluar_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimeInputTanggalSuratKeluar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void comboBoxJenisSuratKeluar_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBoxIsiSuratKeluar_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxPerihalSuratKeluar_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxKeteranganSuratKeluar_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxIsiSuratKeluar_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonLampiranSuratKeluar_Click(object sender, EventArgs e)
         {
             FormSuratKeluarLampiran form_lampiran = new FormSuratKeluarLampiran();
             form_lampiran.ShowDialog();
-        }
-
-        private void textBoxInstansiPengirimSuratKeluar_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBoxPengirimSuratKeluar_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void textBoxTertandaPengirimSuratKeluar_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void groupBoxPenerimaSuratKeluar_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxPenerimaSuratKeluar_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void buttonTembusanSuratKeluar_Click(object sender, EventArgs e)
@@ -245,9 +216,6 @@ namespace Surat
             form_tembusan.ShowDialog();
         }
 
-        
-
-        
         private void tambahTembusan()
         {
             Database db = new Database();
@@ -296,6 +264,7 @@ namespace Surat
         {
             getJenisSurat();
             comboBoxJenisSuratKeluar.SelectedIndex = 0;
+            comboBoxSifatSurat.SelectedIndex = 0;
             textBoxNomorSuratKeluar.Focus();
         }
 
@@ -319,41 +288,31 @@ namespace Surat
 
         private void buttonTambahSuratKeluar_Click_1(object sender, EventArgs e)
         {
-            tambahSuratKeluar();
-            if (FormSuratKeluarLampiran.list_lampiran.Count != 0)
+            if (cekValid())
+                return;
+            else
             {
-                tambahLampiran();
+                tambahSuratKeluar();
+                if (FormSuratKeluarLampiran.list_lampiran.Count != 0)
+                {
+                    tambahLampiran();
+                }
+                if (FormSuratKeluarTembusan.list_tembusan.Count != 0)
+                {
+                    tambahTembusan();
+                }
+                if (list_bagian.Count != 0)
+                {
+                    tambahBagianBidang();
+                }
             }
-            if (FormSuratKeluarTembusan.list_tembusan.Count != 0)
-            {
-                tambahTembusan();
-            }
-            if (list_bagian.Count != 0)
-            {
-                tambahBagianBidang();
-            }
-            MessageBox.Show("Data berhasil ditambah", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            clear();
             frm1.getAllSuratKeluar();
         }
 
         private void buttonKembaliSuratMasuk_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void labelTanggalDistribusiSuratKeluar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelDistribusiSuratKeluar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimeInputTanggalDistribusiSuratKeluarClick(object sender, EventArgs e)
-        {
-
         }
 
         private void checkBoxTataUsaha_CheckedChanged(object sender, EventArgs e)
@@ -442,6 +401,18 @@ namespace Surat
             }
 
             conn.Close();
+        }
+
+        private void buttonGambarSuratKeluar_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                lokasi_gambar = dialog.FileName;
+                nama_gambar = Path.GetFileName(dialog.FileName);
+                pictureBoxGambarSuratKeluar.Image = new Bitmap(dialog.FileName);
+            }
         }
 
     }

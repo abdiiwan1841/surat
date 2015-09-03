@@ -25,8 +25,8 @@ namespace Surat
             user.Load(reader);
             user.Columns[0].ColumnName = "ID User";
             user.Columns[1].ColumnName = "Username";
-            user.Columns[2].ColumnName = "Password";
-            user.Columns[3].ColumnName = "Nama";
+            //user.Columns[2].ColumnName = "Password";
+            user.Columns[2].ColumnName = "Nama";
 
             dataGridUser.ClearSelection();
             dataGridUser.DataSource = user;
@@ -39,7 +39,7 @@ namespace Surat
             MySqlConnection conn = new MySqlConnection(strconn);
             conn.Open();
 
-            string query = "SELECT * FROM user";
+            string query = "SELECT id_user, username, nama FROM user";
             //MessageBox.Show(query);
             MySqlCommand cmd = new MySqlCommand(query, conn);
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -58,7 +58,7 @@ namespace Surat
             MySqlConnection conn = new MySqlConnection(strconn);
             conn.Open();
 
-            string query = "SELECT * FROM user WHERE usernames LIKE '%" + cari + "%'";
+            string query = "SELECT id_user, username, nama FROM user WHERE username LIKE '%" + cari + "%'";
             //MessageBox.Show(query);
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@cari", cari);
@@ -101,8 +101,8 @@ namespace Surat
             {
                 id_user = row.Cells[0].Value.ToString();
                 username = row.Cells[1].Value.ToString();
-                password = row.Cells[2].Value.ToString();
-                nama = row.Cells[3].Value.ToString();
+                //password = row.Cells[2].Value.ToString();
+                nama = row.Cells[2].Value.ToString();
             }
         }
 
@@ -126,12 +126,12 @@ namespace Surat
                 int sukses = cmd.ExecuteNonQuery();
                 if (sukses > 0)
                 {
-                    MessageBox.Show("Data berhasil diupdate", "Sukses");
+                    MessageBox.Show("Data berhasil dihapus", "Sukses");
                     getAllUser();
                 }
                 else
                 {
-                    MessageBox.Show("Data gagal diupdate", "Gagal");
+                    MessageBox.Show("Data gagal dihapus", "Gagal");
                 }
                 conn.Close();
             }
@@ -141,6 +141,11 @@ namespace Surat
         {
             FormMain form_main = new FormMain();
             form_main.Show();
+        }
+
+        private void txtboxsearch_TextChanged(object sender, EventArgs e)
+        {
+            cariuser();
         }
     }
 }

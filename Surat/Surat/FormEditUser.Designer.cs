@@ -37,6 +37,8 @@ namespace Surat
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.txtBoxNamaLengkapUser = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.ButtonKembaliUserEdit = new DevComponents.DotNetBar.ButtonX();
+            this.textBoxPasswordBaru = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.SuspendLayout();
             // 
             // txtBoxUserEdit
@@ -48,6 +50,7 @@ namespace Surat
             this.txtBoxUserEdit.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtBoxUserEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoxUserEdit.Location = new System.Drawing.Point(155, 36);
+            this.txtBoxUserEdit.MaxLength = 19;
             this.txtBoxUserEdit.Name = "txtBoxUserEdit";
             this.txtBoxUserEdit.Size = new System.Drawing.Size(275, 26);
             this.txtBoxUserEdit.TabIndex = 0;
@@ -57,7 +60,7 @@ namespace Surat
             this.ButtonUserEdit.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.ButtonUserEdit.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.ButtonUserEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonUserEdit.Location = new System.Drawing.Point(68, 175);
+            this.ButtonUserEdit.Location = new System.Drawing.Point(67, 214);
             this.ButtonUserEdit.Name = "ButtonUserEdit";
             this.ButtonUserEdit.Size = new System.Drawing.Size(122, 43);
             this.ButtonUserEdit.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -98,11 +101,11 @@ namespace Surat
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX1.Location = new System.Drawing.Point(13, 79);
+            this.labelX1.Location = new System.Drawing.Point(13, 123);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(75, 23);
+            this.labelX1.Size = new System.Drawing.Size(136, 23);
             this.labelX1.TabIndex = 4;
-            this.labelX1.Text = "Password";
+            this.labelX1.Text = "Password Sebelumnya";
             // 
             // txtBoxPasswordUser
             // 
@@ -112,8 +115,10 @@ namespace Surat
             this.txtBoxPasswordUser.Border.Class = "TextBoxBorder";
             this.txtBoxPasswordUser.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtBoxPasswordUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPasswordUser.Location = new System.Drawing.Point(155, 76);
+            this.txtBoxPasswordUser.Location = new System.Drawing.Point(155, 120);
+            this.txtBoxPasswordUser.MaxLength = 10;
             this.txtBoxPasswordUser.Name = "txtBoxPasswordUser";
+            this.txtBoxPasswordUser.PasswordChar = '*';
             this.txtBoxPasswordUser.Size = new System.Drawing.Size(275, 26);
             this.txtBoxPasswordUser.TabIndex = 5;
             // 
@@ -124,7 +129,7 @@ namespace Surat
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX2.Location = new System.Drawing.Point(13, 119);
+            this.labelX2.Location = new System.Drawing.Point(13, 70);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(91, 23);
             this.labelX2.TabIndex = 6;
@@ -138,7 +143,8 @@ namespace Surat
             this.txtBoxNamaLengkapUser.Border.Class = "TextBoxBorder";
             this.txtBoxNamaLengkapUser.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtBoxNamaLengkapUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxNamaLengkapUser.Location = new System.Drawing.Point(155, 117);
+            this.txtBoxNamaLengkapUser.Location = new System.Drawing.Point(155, 68);
+            this.txtBoxNamaLengkapUser.MaxLength = 40;
             this.txtBoxNamaLengkapUser.Name = "txtBoxNamaLengkapUser";
             this.txtBoxNamaLengkapUser.Size = new System.Drawing.Size(275, 26);
             this.txtBoxNamaLengkapUser.TabIndex = 7;
@@ -148,7 +154,7 @@ namespace Surat
             this.ButtonKembaliUserEdit.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.ButtonKembaliUserEdit.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.ButtonKembaliUserEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonKembaliUserEdit.Location = new System.Drawing.Point(246, 175);
+            this.ButtonKembaliUserEdit.Location = new System.Drawing.Point(245, 214);
             this.ButtonKembaliUserEdit.Name = "ButtonKembaliUserEdit";
             this.ButtonKembaliUserEdit.Size = new System.Drawing.Size(122, 43);
             this.ButtonKembaliUserEdit.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -156,9 +162,39 @@ namespace Surat
             this.ButtonKembaliUserEdit.Text = "Kembali";
             this.ButtonKembaliUserEdit.Click += new System.EventHandler(this.ButtonKembaliUserEdit_Click);
             // 
+            // textBoxPasswordBaru
+            // 
+            // 
+            // 
+            // 
+            this.textBoxPasswordBaru.Border.Class = "TextBoxBorder";
+            this.textBoxPasswordBaru.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.textBoxPasswordBaru.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPasswordBaru.Location = new System.Drawing.Point(155, 152);
+            this.textBoxPasswordBaru.MaxLength = 10;
+            this.textBoxPasswordBaru.Name = "textBoxPasswordBaru";
+            this.textBoxPasswordBaru.PasswordChar = '*';
+            this.textBoxPasswordBaru.Size = new System.Drawing.Size(275, 26);
+            this.textBoxPasswordBaru.TabIndex = 10;
+            // 
+            // labelX3
+            // 
+            // 
+            // 
+            // 
+            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX3.Location = new System.Drawing.Point(13, 155);
+            this.labelX3.Name = "labelX3";
+            this.labelX3.Size = new System.Drawing.Size(136, 23);
+            this.labelX3.TabIndex = 9;
+            this.labelX3.Text = "Password Baru";
+            // 
             // FormEditUser
             // 
-            this.ClientSize = new System.Drawing.Size(443, 230);
+            this.ClientSize = new System.Drawing.Size(443, 269);
+            this.Controls.Add(this.textBoxPasswordBaru);
+            this.Controls.Add(this.labelX3);
             this.Controls.Add(this.ButtonKembaliUserEdit);
             this.Controls.Add(this.txtBoxNamaLengkapUser);
             this.Controls.Add(this.labelX2);
@@ -172,8 +208,11 @@ namespace Surat
             this.EnableGlass = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormEditUser";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Data User";
             this.ResumeLayout(false);
 
@@ -190,5 +229,7 @@ namespace Surat
         private DevComponents.DotNetBar.LabelX labelX2;
         private DevComponents.DotNetBar.Controls.TextBoxX txtBoxNamaLengkapUser;
         private DevComponents.DotNetBar.ButtonX ButtonKembaliUserEdit;
+        private DevComponents.DotNetBar.Controls.TextBoxX textBoxPasswordBaru;
+        private DevComponents.DotNetBar.LabelX labelX3;
     }
 }
