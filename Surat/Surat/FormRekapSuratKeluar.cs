@@ -31,7 +31,7 @@ namespace Surat
 
             try
             {
-                query = "SELECT MONTH(tanggal_surat) as BULAN, count(nomor_surat_keluar) from surat_keluar WHERE YEAR(tanggal_terima)="+tahun+" GROUP BY BULAN ASC";
+                query = "SELECT MONTH(tanggal_surat) as BULAN, count(nomor_surat_keluar) from surat_keluar WHERE YEAR(tanggal_surat)="+tahun+" GROUP BY BULAN ASC";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 setDataTable(reader);
