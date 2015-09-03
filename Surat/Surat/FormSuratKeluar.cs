@@ -30,13 +30,16 @@ namespace Surat
         {
             DataTable jenis_surat = new DataTable();
             jenis_surat.Load(reader);
-            jenis_surat.Columns[0].ColumnName = "Nomor Surat";
-            jenis_surat.Columns[1].ColumnName = "Tanggal Surat";
-            jenis_surat.Columns[2].ColumnName = "Perihal";
-            jenis_surat.Columns[3].ColumnName = "Jenis Surat";
+            jenis_surat.Columns[0].ColumnName = "Nomor Urut";
+            jenis_surat.Columns[1].ColumnName = "Nomor Surat";
+            jenis_surat.Columns[2].ColumnName = "Tanggal Surat";
+            jenis_surat.Columns[3].ColumnName = "Perihal";
+            jenis_surat.Columns[4].ColumnName = "Jenis Surat";
 
             dataGridViewSuratKeluar.ClearSelection();
             dataGridViewSuratKeluar.DataSource = jenis_surat;
+
+            dataGridViewSuratKeluar.AutoResizeColumns();
             labelJumlahSurat.Text = "Jumlah Surat Keluar : "+dataGridViewSuratKeluar.RowCount.ToString();
         }
 
@@ -60,7 +63,7 @@ namespace Surat
 
             try
             {
-                query = "SELECT nomor_surat_Keluar, tanggal_surat,perihal, j.nama_jenis AS jenis_surat " +
+                query = "SELECT @s:=@s+1 AS nomor, nomor_surat_Keluar, tanggal_surat,perihal, j.nama_jenis AS jenis_surat " +
                                 "FROM surat_Keluar JOIN jenis_surat AS j USING(id_jenis) ORDER BY tanggal_surat ASC";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -203,7 +206,7 @@ namespace Surat
         {
             foreach (DataGridViewRow row in dataGridViewSuratKeluar.SelectedRows)
             {
-                nomor_surat = row.Cells[0].Value.ToString();
+                nomor_surat = row.Cells[1].Value.ToString();
             }
         }
 
