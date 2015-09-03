@@ -373,6 +373,12 @@ namespace Surat
             }
         }
 
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+            FormRekapSuratKeluar rekap = new FormRekapSuratKeluar();
+            rekap.ShowDialog();
+        }
+
         //private void radioButtonInstansiPengirim_CheckedChanged(object sender, EventArgs e)
         //{
           //  kriteria = "penerima";
