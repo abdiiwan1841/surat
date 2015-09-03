@@ -64,7 +64,7 @@ namespace Surat
             try
             {
                 query = "SELECT @s:=@s+1 AS nomor, nomor_surat_Keluar, tanggal_surat,perihal, j.nama_jenis AS jenis_surat " +
-                                "FROM surat_Keluar JOIN jenis_surat AS j USING(id_jenis) ORDER BY tanggal_surat ASC";
+                                "FROM surat_Keluar JOIN jenis_surat AS j USING(id_jenis),(SELECT @s:= 0) AS s ORDER BY tanggal_surat ASC";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 setDataTable(reader);
@@ -162,9 +162,9 @@ namespace Surat
 
             try
             {
-                query = "SELECT nomor_surat_keluar, tanggal_surat,perihal,nama_jenis AS jenis_surat " +
-                                "FROM surat_Keluar JOIN jenis_surat AS j USING(id_jenis) "+
-                                "WHERE "+kriteria+" LIKE '%"+cari+"%'";
+                query = "SELECT @s:=@s+1 AS nomor,nomor_surat_keluar, tanggal_surat,perihal,nama_jenis AS jenis_surat " +
+                                "FROM surat_Keluar JOIN jenis_surat AS j USING(id_jenis) , (SELECT @s:= 0) AS s " +
+                                "WHERE "+kriteria+" LIKE '%"+cari+"%' ORDER BY nomor ASC";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 setDataTable(reader);
@@ -235,9 +235,9 @@ namespace Surat
 
             try
             {
-                query = "SELECT nomor_surat_keluar, DATE_FORMAT(tanggal_surat, '%d-%m-%Y'), perihal,j.nama_jenis AS jenis_surat " +
-                                "FROM surat_keluar JOIN jenis_surat AS j USING(id_jenis) " +
-                                "WHERE " + kriteria + " LIKE '%" + cari + "%'";
+                query = "SELECT  @s:=@s+1 AS nomor,nomor_surat_keluar, DATE_FORMAT(tanggal_surat, '%d-%m-%Y'), perihal,j.nama_jenis AS jenis_surat " +
+                                "FROM surat_keluar JOIN jenis_surat AS j USING(id_jenis),(SELECT @s:= 0) AS s " +
+                                "WHERE " + kriteria + " LIKE '%" + cari + "%' ORDER BY nomor ASC";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 setDataTable(reader);
