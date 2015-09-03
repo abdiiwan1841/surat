@@ -77,6 +77,12 @@
     <Compile Include="FormRekapSuratMasuk.Designer.cs">
       <DependentUpon>FormRekapSuratMasuk.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRekapSuratKeluar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRekapSuratKeluar.Designer.cs">
+      <DependentUpon>FormRekapSuratKeluar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSuratDisposisi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormKlasifikasiSuratTambah.resx">
       <DependentUpon>FormKlasifikasiSuratTambah.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRekapSuratKeluar.resx">
+      <DependentUpon>FormRekapSuratKeluar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRekapSuratMasuk.resx">
       <DependentUpon>FormRekapSuratMasuk.cs</DependentUpon>
