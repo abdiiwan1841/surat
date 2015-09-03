@@ -48,6 +48,7 @@ namespace Surat
             this.buttonDetail = new DevComponents.DotNetBar.ButtonX();
             this.buttonExcel = new DevComponents.DotNetBar.ButtonX();
             this.labelJumlahSurat = new DevComponents.DotNetBar.LabelX();
+            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.groupBoxCariSuratMasuk.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInputTanggalSurat)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSuratDisposisi)).BeginInit();
@@ -337,9 +338,23 @@ namespace Surat
             this.labelJumlahSurat.Size = new System.Drawing.Size(313, 23);
             this.labelJumlahSurat.TabIndex = 14;
             // 
+            // buttonX1
+            // 
+            this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonX1.Location = new System.Drawing.Point(833, 282);
+            this.buttonX1.Name = "buttonX1";
+            this.buttonX1.Size = new System.Drawing.Size(106, 51);
+            this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX1.TabIndex = 15;
+            this.buttonX1.Text = "Rekap Jumlah Surat";
+            this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
+            // 
             // FormSuratDisposisi
             // 
             this.ClientSize = new System.Drawing.Size(951, 541);
+            this.Controls.Add(this.buttonX1);
             this.Controls.Add(this.labelJumlahSurat);
             this.Controls.Add(this.buttonExcel);
             this.Controls.Add(this.buttonDetail);
@@ -385,5 +400,6 @@ namespace Surat
         private DevComponents.DotNetBar.ButtonX buttonDetail;
         private DevComponents.DotNetBar.ButtonX buttonExcel;
         private DevComponents.DotNetBar.LabelX labelJumlahSurat;
+        private DevComponents.DotNetBar.ButtonX buttonX1;
     }
 }
