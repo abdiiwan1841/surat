@@ -31,14 +31,15 @@ namespace Surat
         {
             DataTable disposisi = new DataTable();
             disposisi.Load(reader);
-            disposisi.Columns[0].ColumnName = "Nomor Surat";
-            disposisi.Columns[1].ColumnName = "Nomor Agenda";
-            disposisi.Columns[2].ColumnName = "Tanggal Surat";
-            disposisi.Columns[3].ColumnName = "Tanggal Diterima";
-            disposisi.Columns[4].ColumnName = "Tanggal Diteruskan";
-            disposisi.Columns[5].ColumnName = "Asal Surat";
-            disposisi.Columns[6].ColumnName = "Sifat Surat";
+            disposisi.Columns[0].ColumnName = "Nomor Urut";
+            disposisi.Columns[1].ColumnName = "Nomor Surat";
+            disposisi.Columns[2].ColumnName = "Nomor Agenda";
+            disposisi.Columns[3].ColumnName = "Tanggal Surat";
+            disposisi.Columns[4].ColumnName = "Tanggal Diterima";
+            disposisi.Columns[5].ColumnName = "Tanggal Diteruskan";
+            disposisi.Columns[6].ColumnName = "Asal Surat";
             disposisi.Columns[7].ColumnName = "Perihal";
+            disposisi.Columns[8].ColumnName = "Sifat Surat";
             //dataGridViewSuratDisposisi.ClearSelection();
             dataGridViewSuratDisposisi.DataSource = disposisi;
             labelJumlahSurat.Text = "Jumlah Surat Disposisi : " + dataGridViewSuratDisposisi.RowCount.ToString();
@@ -52,9 +53,9 @@ namespace Surat
             conn.Open();
             try
             {
-                query = "SELECT nomor_surat, nomor_agenda, DATE_FORMAT(tanggal_surat, '%d-%m-%Y'), DATE_FORMAT(tanggal_terima, '%d-%m-%Y'), " +
-                        "DATE_FORMAT(tanggal_diteruskan, '%Y-%m-%d'), asal, sifat, perihal " +
-                        "FROM surat_disposisi WHERE "+kriteria+" LIKE '%"+cari+"%'";
+                query = "SELECT @s:=@s+1 AS nomor, nomor_surat, nomor_agenda, DATE_FORMAT(tanggal_surat, '%d-%m-%Y'), DATE_FORMAT(tanggal_terima, '%d-%m-%Y'), " +
+                        "DATE_FORMAT(tanggal_diteruskan, '%Y-%m-%d'), asal, perihal, sifat " +
+                        "FROM surat_disposisi, (SELECT @s:=0) AS s WHERE "+kriteria+" LIKE '%"+cari+"%' ORDER BY nomor";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 //MessageBox.Show(kriteria);
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -75,9 +76,9 @@ namespace Surat
             conn.Open();
             try
             {
-                query = "SELECT nomor_surat, nomor_agenda, DATE_FORMAT(tanggal_surat, '%d-%m-%Y'), DATE_FORMAT(tanggal_terima, '%d-%m-%Y'), "+
-                        "DATE_FORMAT(tanggal_diteruskan, '%d-%m-%Y'), asal, sifat, perihal " +
-                        "FROM surat_disposisi ORDER BY tanggal_surat ASC";
+                query = "SELECT @s:=@s+1 AS nomor, nomor_surat, nomor_agenda, DATE_FORMAT(tanggal_surat, '%d-%m-%Y'), DATE_FORMAT(tanggal_terima, '%d-%m-%Y'), "+
+                        "DATE_FORMAT(tanggal_diteruskan, '%d-%m-%Y'), asal, perihal, sifat " +
+                        "FROM surat_disposisi, (SELECT @s:=0) AS s ORDER BY nomor ASC";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader reader =  cmd.ExecuteReader();
                 setDataTable(reader);
@@ -211,7 +212,7 @@ namespace Surat
         {
             foreach (DataGridViewRow row in dataGridViewSuratDisposisi.SelectedRows)
             {
-                nomor_surat = row.Cells[0].Value.ToString();
+                nomor_surat = row.Cells[1].Value.ToString();
             }
         }
 
@@ -293,6 +294,21 @@ namespace Surat
                         objWorksheet.Column(10).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
                         objWorksheet.Column(11).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
                         objWorksheet.Column(12).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+
+                        objWorksheet.Column(1).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        objWorksheet.Column(2).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        objWorksheet.Column(3).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        objWorksheet.Column(4).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        objWorksheet.Column(5).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        objWorksheet.Column(6).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        objWorksheet.Column(7).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        objWorksheet.Column(8).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        objWorksheet.Column(9).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        objWorksheet.Column(10).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        objWorksheet.Column(11).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        objWorksheet.Column(12).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+
+                        objWorksheet.Cells["A1:L1"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                     }
 
                     //objWorksheet.Row(2).Style.Border.BorderAround(ExcelBorderStyle.Thin);
@@ -354,6 +370,14 @@ namespace Surat
         {
             FormRekapDisposisi rekap = new FormRekapDisposisi();
             rekap.ShowDialog();
+        }
+
+        private void radioButtonTanggalTerima_CheckedChanged(object sender, EventArgs e)
+        {
+            kriteria = "tanggal_terima";
+            textBoxCari.SendToBack();
+            dataGridViewSuratDisposisi.BringToFront();
+            getAllSuratDisposisi();
         }
     }
 }

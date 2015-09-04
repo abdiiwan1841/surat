@@ -150,6 +150,8 @@ namespace Surat
             this.EnableGlass = false;
             this.MaximizeBox = false;
             this.Name = "FormRekapSuratMasuk";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rekap Surat Masuk";
             ((System.ComponentModel.ISupportInitialize)(this.dataRekapMasuk)).EndInit();

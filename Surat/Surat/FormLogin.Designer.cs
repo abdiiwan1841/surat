@@ -29,6 +29,7 @@ namespace Surat
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.textBoxUsername = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.textBoxPassword = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelUsername = new DevComponents.DotNetBar.LabelX();
@@ -156,6 +157,7 @@ namespace Surat
             this.DoubleBuffered = true;
             this.EnableGlass = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

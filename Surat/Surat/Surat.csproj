@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>defult_text.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevComponents.DotNetBar2, Version=11.2.0.1, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -112,12 +115,6 @@
     </Compile>
     <Compile Include="FormSuratDisposisiTambah.Designer.cs">
       <DependentUpon>FormSuratDisposisiTambah.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSuratMasukBidang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSuratMasukBidang.Designer.cs">
-      <DependentUpon>FormSuratMasukBidang.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSuratMasukDetail.cs">
       <SubType>Form</SubType>
@@ -319,9 +316,6 @@
     <EmbeddedResource Include="FormSuratDisposisiTambah.resx">
       <DependentUpon>FormSuratDisposisiTambah.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSuratMasukBidang.resx">
-      <DependentUpon>FormSuratMasukBidang.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormSuratMasukDetail.resx">
       <DependentUpon>FormSuratMasukDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -423,6 +417,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="asset\Graphicloads-100-Flat-2-Arrow-back.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="defult_text.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

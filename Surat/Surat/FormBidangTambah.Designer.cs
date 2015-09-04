@@ -28,6 +28,7 @@ namespace Surat
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBidangTambah));
             this.buttonBidangTambahKembali = new DevComponents.DotNetBar.ButtonX();
             this.buttonBidangTambah = new DevComponents.DotNetBar.ButtonX();
             this.labelBidangTambah = new DevComponents.DotNetBar.LabelX();
@@ -96,6 +97,7 @@ namespace Surat
             this.Controls.Add(this.textBoxBidangTambah);
             this.DoubleBuffered = true;
             this.EnableGlass = false;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormBidangTambah";
             this.ShowIcon = false;

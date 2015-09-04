@@ -322,17 +322,17 @@ namespace Surat
                             objRange.Style.Fill.BackgroundColor.SetColor(Color.Gray);
 
                             objWorksheet.Column(1).Width = 25;
-                            objWorksheet.Column(2).Width = 20;
-                            objWorksheet.Column(3).Width = 17;
-                            objWorksheet.Column(4).Width = 19;
+                            objWorksheet.Column(2).Width = 13;
+                            objWorksheet.Column(3).Width = 15;
+                            objWorksheet.Column(4).Width = 12;
                             objWorksheet.Column(5).Width = 19;
-                            objWorksheet.Column(6).Width = 15;
+                            objWorksheet.Column(6).Width = 26;
                             objWorksheet.Column(7).Width = 19;
                             objWorksheet.Column(8).Width = 19;
                             objWorksheet.Column(9).Width = 25;
                             objWorksheet.Column(10).Width = 19;
                             objWorksheet.Column(11).Width = 19;
-                            objWorksheet.Column(12).Width = 19;
+                            objWorksheet.Column(12).Width = 41;
                             objWorksheet.Column(13).Width = 19;
                             objWorksheet.Column(14).Width = 19;
 
@@ -365,6 +365,23 @@ namespace Surat
                             objWorksheet.Column(12).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
                             objWorksheet.Column(13).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
                             objWorksheet.Column(14).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+
+                            objWorksheet.Column(1).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                            objWorksheet.Column(2).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                            objWorksheet.Column(3).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                            objWorksheet.Column(4).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                            objWorksheet.Column(5).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                            objWorksheet.Column(6).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                            objWorksheet.Column(7).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                            objWorksheet.Column(8).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                            objWorksheet.Column(9).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                            objWorksheet.Column(10).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                            objWorksheet.Column(11).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                            objWorksheet.Column(12).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                            objWorksheet.Column(13).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                            objWorksheet.Column(14).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+
+                            objWorksheet.Cells["A1:N1"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                         }
                     }
 
@@ -429,6 +446,14 @@ namespace Surat
         {
             FormRekapSuratMasuk rekap = new FormRekapSuratMasuk();
             rekap.ShowDialog();
+        }
+
+        private void radioButtonTanggalTerima_CheckedChanged(object sender, EventArgs e)
+        {
+            kriteria = "tanggal_terima";
+            textBoxCariSuratMasuk.SendToBack();
+            dateTimeInputTanggalSurat.BringToFront();
+            getAllSuratMasuk();
         }
     }
 }

@@ -28,6 +28,7 @@ namespace Surat
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBidangEdit));
             this.buttonEditBidangKembali = new DevComponents.DotNetBar.ButtonX();
             this.buttonEditBidang = new DevComponents.DotNetBar.ButtonX();
             this.labelBidangEdit = new DevComponents.DotNetBar.LabelX();
@@ -95,6 +96,7 @@ namespace Surat
             this.Controls.Add(this.labelBidangEdit);
             this.Controls.Add(this.textBoxEditBidang);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormBidangEdit";
             this.Text = "FormBidangEdit";
             this.ResumeLayout(false);

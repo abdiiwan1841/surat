@@ -35,6 +35,7 @@ namespace Surat
             jenis_surat.Columns[2].ColumnName = "Tanggal Surat";
             jenis_surat.Columns[3].ColumnName = "Perihal";
             jenis_surat.Columns[4].ColumnName = "Jenis Surat";
+            jenis_surat.Columns[5].ColumnName = "Sifat Surat";
 
             dataGridViewSuratKeluar.ClearSelection();
             dataGridViewSuratKeluar.DataSource = jenis_surat;
@@ -63,7 +64,7 @@ namespace Surat
 
             try
             {
-                query = "SELECT @s:=@s+1 AS nomor, nomor_surat_Keluar, tanggal_surat,perihal, j.nama_jenis AS jenis_surat " +
+                query = "SELECT @s:=@s+1 AS nomor, nomor_surat_Keluar, tanggal_surat,perihal, j.nama_jenis AS jenis_surat, sifat_surat " +
                                 "FROM surat_Keluar JOIN jenis_surat AS j USING(id_jenis),(SELECT @s:= 0) AS s ORDER BY tanggal_surat ASC";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -162,7 +163,7 @@ namespace Surat
 
             try
             {
-                query = "SELECT @s:=@s+1 AS nomor,nomor_surat_keluar, tanggal_surat,perihal,nama_jenis AS jenis_surat " +
+                query = "SELECT @s:=@s+1 AS nomor,nomor_surat_keluar, tanggal_surat,perihal,nama_jenis AS jenis_surat, sifat_surat " +
                                 "FROM surat_Keluar JOIN jenis_surat AS j USING(id_jenis) , (SELECT @s:= 0) AS s " +
                                 "WHERE "+kriteria+" LIKE '%"+cari+"%' ORDER BY nomor ASC";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
@@ -320,6 +321,19 @@ namespace Surat
                         objWorksheet.Column(9).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
                         objWorksheet.Column(10).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
                         objWorksheet.Column(11).Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+
+                        objWorksheet.Column(1).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        objWorksheet.Column(2).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        objWorksheet.Column(3).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        objWorksheet.Column(4).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        objWorksheet.Column(5).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        objWorksheet.Column(6).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        objWorksheet.Column(7).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        objWorksheet.Column(8).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        objWorksheet.Column(9).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                        objWorksheet.Column(10).Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+
+                        objWorksheet.Cells["A1:J1"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                     }
 
                     //objWorksheet.Row(2).Style.Border.BorderAround(ExcelBorderStyle.Thin);
