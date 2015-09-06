@@ -48,7 +48,7 @@ namespace Surat
             DataTable rekap_surat = new DataTable();
             rekap_surat.Load(reader);
             rekap_surat.Columns[0].ColumnName = "Bulan ke-";
-            rekap_surat.Columns[1].ColumnName = "Jumlah Surat Keluar";
+            rekap_surat.Columns[1].ColumnName = "Jumlah Surat Masuk";
             //jenis_surat.Columns[2].ColumnName = "Perihal";
             //jenis_surat.Columns[3].ColumnName = "Jenis Surat";
 
