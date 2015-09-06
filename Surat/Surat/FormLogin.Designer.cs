@@ -38,6 +38,8 @@ namespace Surat
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonLogin = new DevComponents.DotNetBar.ButtonX();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
+            this.labelX2 = new DevComponents.DotNetBar.LabelX();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -144,9 +146,37 @@ namespace Surat
             this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2007Silver;
             this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.White, System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154))))));
             // 
+            // labelX1
+            // 
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX1.Location = new System.Drawing.Point(164, 32);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(252, 29);
+            this.labelX1.TabIndex = 10;
+            this.labelX1.Text = "Aplikasi Pengarsipan Surat";
+            // 
+            // labelX2
+            // 
+            // 
+            // 
+            // 
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX2.Location = new System.Drawing.Point(164, 8);
+            this.labelX2.Name = "labelX2";
+            this.labelX2.Size = new System.Drawing.Size(117, 29);
+            this.labelX2.TabIndex = 11;
+            this.labelX2.Text = "Form Login";
+            // 
             // FormLogin
             // 
             this.ClientSize = new System.Drawing.Size(410, 271);
+            this.Controls.Add(this.labelX2);
+            this.Controls.Add(this.labelX1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.buttonLogin);
@@ -178,5 +208,7 @@ namespace Surat
         private DevComponents.DotNetBar.ButtonX buttonKeluar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private DevComponents.DotNetBar.StyleManager styleManager1;
+        private DevComponents.DotNetBar.LabelX labelX1;
+        private DevComponents.DotNetBar.LabelX labelX2;
     }
 }

@@ -38,6 +38,7 @@ namespace Surat
             this.buttonSuratDisposisi = new DevComponents.DotNetBar.ButtonX();
             this.buttonBackup = new DevComponents.DotNetBar.ButtonX();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -148,16 +149,30 @@ namespace Surat
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Surat.Properties.Resources.RRI;
-            this.pictureBox1.Location = new System.Drawing.Point(382, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(395, 38);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(189, 103);
+            this.pictureBox1.Size = new System.Drawing.Size(176, 83);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // labelX1
+            // 
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX1.Location = new System.Drawing.Point(330, 6);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(252, 29);
+            this.labelX1.TabIndex = 9;
+            this.labelX1.Text = "Aplikasi Pengarsipan Surat";
+            // 
             // FormMain
             // 
             this.ClientSize = new System.Drawing.Size(583, 358);
+            this.Controls.Add(this.labelX1);
             this.Controls.Add(this.buttonBackup);
             this.Controls.Add(this.buttonSuratDisposisi);
             this.Controls.Add(this.buttonLogout);
@@ -193,5 +208,6 @@ namespace Surat
         private DevComponents.DotNetBar.ButtonX buttonLogout;
         private DevComponents.DotNetBar.ButtonX buttonSuratDisposisi;
         private DevComponents.DotNetBar.ButtonX buttonBackup;
+        private DevComponents.DotNetBar.LabelX labelX1;
     }
 }
